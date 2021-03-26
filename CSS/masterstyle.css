@@ -85,3 +85,8 @@ nav, section, footer{
     display: inline-block;
 
 }
+footer{
+    margin: 1rem;
+    margin-left: 42% ;
+    margin-right: 42% ;
+}
