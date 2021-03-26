@@ -90,3 +90,25 @@ footer{
     margin-left: 42% ;
     margin-right: 42% ;
 }
+li{
+    border: 3px solid rgba(233, 156, 156, 0.753);
+    border-radius: 8px;
+    margin-block: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    display: inline-block;
+    color: seashell;
+}
+#listaOpciones{
+    border: 3px solid rgba(255, 255, 255, 0.753);
+    border-radius: 8px;
+    margin-block: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    display: inline-block;
+    color: seashell;
+    margin-left: 10%;
+    margin-right: 10%;
+}
