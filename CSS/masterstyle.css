@@ -16,16 +16,6 @@ html, body{
     background-color: rgb(50, 50, 50);
 }
 
-nav{
-    border: 2px solid rgba(255, 255, 255, 0.753);
-    margin: 1rem;
-    margin-left: 42% ;
-    margin-right: 42% ;
-    border-radius: 10px;
-    padding: 1rem;
-    align-items: center;
-}
-
 section, footer, article, aside{
     border: 2px solid rgba(255, 255, 255, 0.753);
     margin: 1rem;
@@ -85,11 +75,13 @@ nav, section, footer{
     display: inline-block;
 
 }
+
 footer{
     margin: 1rem;
     margin-left: 42% ;
     margin-right: 42% ;
 }
+
 li{
     border: 3px solid rgba(233, 156, 156, 0.753);
     border-radius: 8px;
@@ -100,6 +92,7 @@ li{
     display: inline-block;
     color: seashell;
 }
+
 #listaOpciones{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
@@ -111,4 +104,44 @@ li{
     color: seashell;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+#logoEmpresa1{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    margin-left: 40%;
+    margin-right: 40%;
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: center;
+}
+
+#logoEmpresa{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    margin-right: 60%;
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: left;
+}
+
+#titulo{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    margin-left: 30% ;
+    margin-right: 30% ;
+    border-radius: 10px;
+    padding: .5rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#logoEslogan{
+    margin-right: 60rem;
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: center;
 }
