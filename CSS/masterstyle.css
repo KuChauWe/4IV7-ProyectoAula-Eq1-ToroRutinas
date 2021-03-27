@@ -93,18 +93,7 @@ li{
     color: seashell;
 }
 
-#listaOpciones{
-    border: 3px solid rgba(255, 255, 255, 0.753);
-    border-radius: 8px;
-    margin-block: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-    display: inline-block;
-    color: seashell;
-    margin-left: 10%;
-    margin-right: 10%;
-}
+
 
 #logoEmpresa1{
     border: 2px solid rgba(255, 255, 255, 0.753);
@@ -148,4 +137,21 @@ li{
 
 #tabla_LE{
     border: 10px solid black;
+}
+
+#In_PT{
+    color: rgb(41, 60, 66);
+}
+
+#listaMenu{
+    border: 3px solid rgba(255, 255, 255, 0.753);
+    border-radius: 8px;
+    margin-block: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    display: inline-block;
+    color: seashell;
+    margin-left: 10%;
+    margin-right: 10%;
 }
