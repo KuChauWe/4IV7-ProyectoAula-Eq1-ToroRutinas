@@ -145,3 +145,7 @@ li{
     padding: 1rem;
     align-items: center;
 }
+
+#tabla_LE{
+    border: 10px solid black;
+}
