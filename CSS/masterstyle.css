@@ -229,3 +229,29 @@ li{
     width: 20%;
 }
 
+#tablaMision{
+    border: 3px solid rgba(255, 255, 255, 0.753);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 50%;
+    text-align: left;
+    color: seashell;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 70%;
+}
+#tablaVision{
+    border: 3px solid rgba(255, 255, 255, 0.753);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-left: 26%;
+    text-align: left;
+    color: seashell;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 70%;
+}
