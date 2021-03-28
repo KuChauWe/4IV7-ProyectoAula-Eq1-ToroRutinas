@@ -326,3 +326,46 @@ nav#cuest_contactanos{
     color: black;
     font-size: 1rem;
 }
+
+#tablaDeciivo{
+    border: 5px solid rgb(221, 207, 6);
+    border-radius: 8px;
+    border-style: solid;
+    margin-left: 1rem;
+    margin-right: 40rem;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+#palabraDeciivoT{
+    font-size: 2rem;
+    text-align: center;
+}
+
+#textoDeciivoI{
+    text-align: left;
+}
+
+#tablaToroRu{
+    border: 5px solid rgb(221, 207, 6);
+    border-radius: 8px;
+    border-style: solid;
+    margin-left: 40rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    display: inline-flex;
+}
+
+#palabraToroRuT{
+    font-size: 2rem;
+    text-align: center;
+}
+
+#textoToroRuI{
+    text-align: left;
+}
+
+#fabiddatSeguira{
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
