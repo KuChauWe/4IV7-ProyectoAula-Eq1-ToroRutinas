@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conocenos</title>
     <link rel ="stylesheet" href="CSS/masterstyle.css">
+    <script language="JavaScript" type="text/JavaScript" src="./JS/formulariocontacto.js"></script>
 </head>
 <body>
     <div class="main-container">
@@ -37,6 +38,22 @@
                 <h2 id="subtituloPag">Para contactar directamente a las oficinas de Fabiddat</h2>
             </article>
         </nav>
+        <nav id="tituloComentarios">
+            <h1>Déjanos un mensaje</h1>
+        </nav>
+        <nav id="cuest_contactanos">
+            <h1>¿Cuál es el motivo por el que nos contactas?</h1>
+        <form name="contactanos" method="GET" action="contactanos.html">
+            <input type="text" name="Razon" onkeypress="" id="entradaD">
+            <h2>Redacta tu mensaje</h2>
+            <br>
+            <input type="text" name="Mensaje" onkeypress="" id="entradaD" size="30px" rows="10" cols="60">
+            <br>
+            <input type="submit" value="Enviar datos" name="enviar" id="enviarVolver" >
+            <input type="reset" value="Volver a hacer" name="volveraEnviar" id="enviarVolver">
+        </form>
+        </nav>
+
     </div>
 </body>
 </html>
