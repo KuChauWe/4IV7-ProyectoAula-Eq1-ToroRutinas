@@ -23,7 +23,7 @@ section, footer, aside{
     padding: 1rem;
 }
 
-#lateralIndex{
+aside#lateralIndex{
     width: 30%;
     display: inline-block;
     height: 20%;
@@ -32,7 +32,7 @@ section, footer, aside{
     text-align: center;
     padding: 1rem;
 }
-#primeralista{
+article#primeralista{
     border: 2px solid rgba(255, 255, 255, 0.753);
     margin: 1rem;
     border-radius: 10px;
@@ -53,7 +53,7 @@ nav, section, footer{
     align-self: center;
 }
 
-#bottom-left{
+section#bottom-left{
     width: 30%;
     display: inline-block;
     height: 20%;
@@ -63,7 +63,7 @@ nav, section, footer{
     padding: 1rem;
 }
 
-#bottom-right{
+section#bottom-right{
     width: 30%;
     display: inline-block;
     height: 20%;
@@ -73,12 +73,12 @@ nav, section, footer{
     padding: 1rem;
 }
 
-#Papu{
+h2#Papu{
     display: inline-block;
 
 }
 
-#Mamu{
+h2#Mamu{
     display: inline-block;
 
 }
@@ -110,20 +110,7 @@ li{
     color: seashell;
 }
 
-#listaOpciones{
-    border: 3px solid rgba(255, 255, 255, 0.753);
-    border-radius: 8px;
-    margin-block: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-    display: inline-block;
-    color: seashell;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-#logoEmpresa1{
+nav#logoEmpresa1{
     border: 2px solid rgba(255, 255, 255, 0.753);
     margin: 1rem;
     margin-left: 40%;
@@ -133,16 +120,7 @@ li{
     align-items: center;
 }
 
-#logoEmpresa{
-    border: 2px solid rgba(255, 255, 255, 0.753);
-    margin: 1rem;
-    margin-right: 60%;
-    border-radius: 10px;
-    padding: 1rem;
-    align-items: left;
-}
-
-#titulo{
+nav#titulo{
     border: 2px solid rgba(255, 255, 255, 0.753);
     margin: 1rem;
     margin-left: 30% ;
@@ -155,7 +133,7 @@ li{
     font-size: 4rem;
 }
 
-#logoEslogan{
+nav#logoEslogan{
     margin-right: 60rem;
     border: 2px solid rgba(255, 255, 255, 0.753);
     border-radius: 10px;
@@ -168,15 +146,11 @@ li{
     font-size: 2rem;
 }
 
-#tabla_LE{
-    border: 10px solid black;
-}
-
-#In_PT{
+a#In_PT{
     color: rgb(41, 60, 66);
 }
 
-#listaMenu{
+nav#listaMenu{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
     margin-top: 1rem;
@@ -190,7 +164,7 @@ li{
     font-size: 2rem;
     width: 70%;
 }
-#encabezadoInd{
+nav#encabezadoInd{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
     margin: 1rem;
@@ -202,7 +176,7 @@ li{
     width: 95%;
 }
 
-.header-ind{
+section.header-ind{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
     margin-left: 40%;
@@ -213,12 +187,12 @@ li{
     width: 20%;
 }
 
-#tituloPag{
+h1#tituloPag{
     font-size: 2rem;
     color: seashell;
 }
 
-#subtituloPag{
+h2#subtituloPag{
     font-size: 2.5rem; 
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
@@ -229,7 +203,7 @@ li{
     width: 40%;
 }
 
-#tablaMision{
+nav#tablaMision{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
     margin-top: 1rem;
@@ -242,7 +216,7 @@ li{
     font-size: 1.5rem;
     width: 70%;
 }
-#tablaVision{
+nav#tablaVision{
     border: 3px solid rgba(255, 255, 255, 0.753);
     border-radius: 8px;
     margin-top: 1rem;
@@ -255,3 +229,62 @@ li{
     font-size: 1.5rem;
     width: 70%;
 }
+
+aside#estads_proyecto{
+    width: 30%;
+    display: inline-block;
+    margin: 1rem;
+    height: 20%;
+    width: 20%;
+    background-color: rgb(107, 107, 107);
+    text-align: center;
+    padding: 1rem;
+}
+
+article#info_proyecto{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    border-radius: 10px;
+    width: 30%;
+    display: inline-block;
+    height: 20%;
+    width: 20%;
+    background-color: rgb(107, 107, 107);
+    text-align: center;
+    padding: 1rem;
+}
+
+nav#infoyestads_proyecto{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 33%;
+}
+
+nav#infoyestads_proyecto2{
+    border: 2px solid rgba(255, 255, 255, 0.753);
+    margin: 1rem;
+    border-radius: 10px;
+    width: 30%;
+    display: inline-block;
+    height: 20%;
+    width: 20%;
+    background-color: rgb(107, 107, 107);
+    text-align: center;
+    padding: 1rem;
+}
+
+aside#logrosyAsociaciones{
+    width: 30%;
+    display: inline-block;
+    margin: 1rem;
+    height: 20%;
+    width: 20%;
+    background-color: rgb(107, 107, 107);
+    text-align: center;
+    padding: 1rem;
+}
+
