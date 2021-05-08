@@ -1,0 +1,186 @@
+@media  (min-width:720px) and (max-width:1080px){
+  
+
+    body{
+      }
+    }
+    @media  (min-height:720px) and (max-height:1950px){
+      
+    
+    body{
+        background-color: rgb(239, 239, 239);
+        }
+      }
+
+body{
+    margin: 0;
+}
+.main-container{
+    background-color: rgb(239, 239, 239);
+    height: auto;
+}
+
+nav#encabezado{
+    background-color: rgb(37,36,42);
+    padding-left: 37px;
+    padding-top: 38px;
+    display: inline-block;
+    padding-bottom: 38px;
+    padding-right: 5rem;
+    margin-left: 32%;
+    margin-top: 2%;
+    padding: 2%;
+    color: rgb(247,96,31);
+    height: 50%;
+    margin-bottom: 30rem;
+    border-radius: 20px;
+}
+#perfil{
+    margin-left: 39%;
+    border-radius: 50%;
+    width: 7.5rem;
+    height: 7.5rem;
+}
+#formulario{
+    padding: 2%;
+    padding-right: 6rem;
+    padding-left: 6rem;
+    height: 60rem;
+    
+}
+label{
+
+    padding-right: 5rem;
+}
+input{
+    padding-right: 5rem;
+    margin-bottom: 1rem;
+    background-color: rgb(239, 239, 239);
+}
+#paterno{
+    margin-right: 2rem;
+    padding-right: 2rem;
+    background-color: rgb(239, 239, 239);
+}
+#materno{
+    padding-right: 2rem;
+    background-color: rgb(239, 239, 239);
+}
+#enviar{
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    text-align: center;
+    border-radius: 3rem;
+    color: rgb(247,96,31);
+    background-color: rgb(37,36,42);
+    border-color: rgb(247,96,31);
+    margin-left: 98.5%;
+    margin-top: 2rem;
+}
+#rol{
+    margin-bottom: 1rem;
+    background-color: rgb(239, 239, 239);
+    border-radius: 3px;
+}
+#inputNombre1{
+    margin-right: 2rem;
+    padding-right: 2rem;
+}
+#inputNombre2{
+    padding-right: 2rem;
+}
+#textareaMotivo{
+    background-color: rgb(239, 239, 239);
+    border-radius: 3px;
+}
+/* lo del video */
+#formulario {
+	grid-template-columns: 1fr;
+	gap: 20px;
+}
+.formulario__label {
+	display: block;
+	font-weight: 700;
+}
+.formulario__grupo-input {
+	position: relative;
+}
+.formulario__input {
+	background: rgb(239, 239, 239);
+	border: 3px solid transparent;
+	border-radius: 3px;
+	line-height: 20px;
+	transition: .3s ease all;
+}
+.formulario__input:focus {
+	border: 3px solid rgb(247,96,31);
+	outline: none;
+	box-shadow: 3px 0px 20px rgba(163,163,163, 0.4);
+}
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+.formulario__input-error-activo {
+	display: block;
+}
+.formulario__validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+.formulario__grupo-terminos, 
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+	grid-column: span 2;
+}
+.formulario__mensaje {
+	height: 45px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+.formulario__mensaje-activo {
+	display: block;
+}
+.formulario__mensaje p {
+	margin: 0;
+}
+.formulario__btn {
+	background:rgb(37,36,42);
+	font-weight: bold;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+.formulario__btn:hover {
+	box-shadow: 2px 0px 20px rgba(163,163,163, 1);
+}
+.formulario__mensaje-exito {
+	font-size: 14px;
+	color: #119200;
+	display: none;
+}
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+/* Estilos para Validación */
+.formulario_grupo-correcto .formulario_validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_label {
+	color: #bb2929;
+}
+.formulario_grupo-incorrecto .formulario_validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_input {
+	border: 3px solid #bb2929;
+}

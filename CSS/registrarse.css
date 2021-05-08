@@ -33,21 +33,29 @@ nav#encabezado{
     color: rgb(247,96,31);
     height: 50%;
     margin-bottom: 30rem;
-    border-radius: 5px;
+    border-radius: 7px;
+    padding-inline: 5rem;
 }
 #perfil{
-    width: 120px;
-    height: 120px;
-    margin-left: 25%;
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-left: 26%;
     border-radius: 50%;
 }
 #formulario{
     padding: 2%;
     padding-right: 4rem;
 }
-label, h1,input {
+label,input{
     margin: 1.5%;
+    font-size: 1.1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-input{
-    display: inline-block;
-  }
+#botonRegistrarse{
+    margin-left: 95%;
+}
+h1{
+    margin-left: 6.5rem;
+    font-size: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
