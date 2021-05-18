@@ -17,7 +17,6 @@ public class Perfil {
    Date fechNaci_perf;
    boolean admin;
    boolean creador;
-   int id_biBli_crea;
    
    public void Perfil(){}
 
@@ -85,12 +84,4 @@ public class Perfil {
         this.creador = creador;
     }
 
-    public int getId_biBli_crea() {
-        return id_biBli_crea;
-    }
-
-    public void setId_biBli_crea(int id_biBli_crea) {
-        this.id_biBli_crea = id_biBli_crea;
-    }
-    
 }
