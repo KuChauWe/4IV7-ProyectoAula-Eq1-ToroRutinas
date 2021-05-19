@@ -11,7 +11,7 @@ import java.sql.Date;
 public class Perfil {
    int id_perf;
    String nom_perf;
-   Image img_perf;
+   Imagen img_perf;
    String email_per;
    String contra_perf;
    Date fechNaci_perf;
@@ -36,11 +36,11 @@ public class Perfil {
         this.nom_perf = nom_perf;
     }
 
-    public Image getImg_perf() {
+    public Imagen getImg_perf() {
         return img_perf;
     }
 
-    public void setImg_perf(Image img_perf) {
+    public void setImg_perf(Imagen img_perf) {
         this.img_perf = img_perf;
     }
 
