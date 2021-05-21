@@ -7,14 +7,13 @@ package Modelo;
  */
 public class Usuario extends Perfil{
     int id_usu;
-    int id_pef;
     float altu_usu;
     float peso_usu;
     float calTo_usu;
     int id_biBlio_usu;
     
     public void Usuario(Perfil per){
-        this.setId_pef(per.getId_perf());
+        this.setId_perf(per.getId_perf());
         this.setNom_perf(per.getNom_perf());
         this.setImg_perf(per.getImg_perf());
         this.setEmail_per(per.getEmail_per());
@@ -31,14 +30,6 @@ public class Usuario extends Perfil{
 
     public void setId_usu(int id_usu) {
         this.id_usu = id_usu;
-    }
-
-    public int getId_pef() {
-        return id_pef;
-    }
-
-    public void setId_pef(int id_pef) {
-        this.id_pef = id_pef;
     }
 
     public float getAltu_usu() {

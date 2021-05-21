@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class BibliotecaUsuario {
     Usuario usu;
-    List<EjerciciosEnRutinas> rutinas;
+    List<Rutina> rutinas;
 
     public Usuario getUsu() {
         return usu;
@@ -18,11 +18,11 @@ public class BibliotecaUsuario {
         this.usu = usu;
     }
 
-    public List<EjerciciosEnRutinas> getRutinas() {
+    public List<Rutina> getRutinas() {
         return rutinas;
     }
 
-    public void setRutinas(List<EjerciciosEnRutinas> rutinas) {
+    public void setRutinas(List<Rutina> rutinas) {
         this.rutinas = rutinas;
     }
     

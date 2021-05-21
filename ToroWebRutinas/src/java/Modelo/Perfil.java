@@ -6,7 +6,7 @@ import java.sql.Date;
 
 /**
  *
- * @author sofo9
+* @author sofo9
  */
 public class Perfil {
    int id_perf;
