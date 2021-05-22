@@ -12,8 +12,7 @@ public class Rutina {
     String nom_ruti;
     int durDes_ruti;
     int rep_ruti; 
-    HashMap<Ejercicio, String> ejer_Pos;
-    HashMap<Ejercicio, String> ejer_Dur;
+    HashMap<Ejercicio, int[]> ejercicios;
     List<Clasificacion> clas;
     boolean publica;
 
@@ -50,21 +49,15 @@ public class Rutina {
         this.rep_ruti = rep_ruti;
     }
     
-    public HashMap<Ejercicio, String> getEjer_Pos() {
-        return ejer_Pos;
+    public  HashMap<Ejercicio, int[]> getEjercicios() {
+        return ejercicios;
     }
 
-    public void setEjer_Pos(HashMap<Ejercicio, String> ejer_Pos) {
-        this.ejer_Pos = ejer_Pos;
+    public void setEjercicios( HashMap<Ejercicio, int[]> ejercicios) {
+        this.ejercicios = ejercicios;
     }
 
-    public HashMap<Ejercicio, String> getEjer_Dur() {
-        return ejer_Dur;
-    }
-
-    public void setEjer_Dur(HashMap<Ejercicio, String> ejer_Dur) {
-        this.ejer_Dur = ejer_Dur;
-    }
+   
 
     public List<Clasificacion> getClas() {
         return clas;
