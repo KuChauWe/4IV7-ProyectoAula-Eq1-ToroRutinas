@@ -14,6 +14,15 @@ public class Rutina {
     int rep_ruti; 
     HashMap<Ejercicio, int[]> ejercicios;
     List<Clasificacion> clas;
+    String diasemana;
+
+    public String getDiasemana() {
+        return diasemana;
+    }
+
+    public void setDiasemana(String diasemana) {
+        this.diasemana = diasemana;
+    }
     boolean publica;
 
     
