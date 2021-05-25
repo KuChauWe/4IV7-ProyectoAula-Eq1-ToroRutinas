@@ -17,10 +17,5 @@ function validars(e){
     var prueba = String.fromCharCode(teclado);
     return patron.test(prueba);
     
-    if(n > slides.length){
-        indice = 1;
-    }
-    if(n < 1){
-        indice = slide.length();
-    }
+
 }

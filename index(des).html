@@ -4,83 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMPRADOR</title>
-    <link rel="stylesheet" href="./CSS/index.css">
+    <title>INICIO DESBLOQUEADO</title>
+    <link rel="stylesheet" href="CSS/index(des).css">
 </head>
 <header>
-<a href="index.html"><img src="./IMG/ToroRutinasLogo22.png" id="logobd"></a>
-<nav id="indice3">
-    <form>
-        <input type="search" id="buscador" placeholder="Buscar">
-    </form>
-    <form>
-        <label id="labelSeleccionarClasificacion">
-        <select id="se_clasificacion">
-            <option value="0">Seleccionar clasificación</option>
-            <option value="1">Fuerza Muscular</option>
-            <option value="2">Aeróbico</option>
-            <option value="3">Equilibrio</option>
-            <option value="4">Estiramiento</option>    
-        </select>
-        </label>
-    </form>    
-</nav>
+    <div class="encabezadoIMG">
+        <div><img src="IMG/LogoTororutinas.png" id="ToroPNG"></div>
+        <div class="formularioHeader">
+            <form class="formSC1">
+                <input type="search" class="buscador" placeholder="Buscar" size="30">
+            </form>
+        </div>
+        <div>
+            <form class="formSC2">
+                <label id="labelSeleccionarClasificacion">
+                    <select id="se_clasificacion">
+                        <option value="0">Seleccionar clasificación</option>
+                        <option value="1">Fuerza Muscular</option>
+                        <option value="2">Aeróbico</option>
+                        <option value="3">Equilibrio</option>
+                        <option value="4">Estiramiento</option>    
+                    </select>
+                </label>
+            </form>  
+        </div>
+      </div>
 </header>
 <body>
-    <div class="main-container">
-        <nav id="indice1">
-            Ingredientes conscientes
-            <br>
-            ¡Nuestros ingredientes promueven un cambio positivo y eso hace que nuestro helado tenga un sabor sensacional!   
-            <br>
-            Éxito compartido
-            Buscamos crear prosperidad para todas las personas que están conectadas con nuestro negocio.
-            <br>
-            Haciendo la diferencia
-            <br>
-            Generamos consciencia y apoyamos los problemas que nos importan.
-        </nav>
-        <img src="./IMG/Flecha.png" id="flechaD">
-        <img src="./IMG/FlechaIzquierda.png" id="flechaI">
-        <nav id="indice2">
-            <section>
-                Rutina
-            </section>    
-            <section>
-                Rutina
-            </section>    
-            <section>
-                Rutina
-            </section>    
-            <section>
-                Rutina
-            </section>    
-            <section>
-                Rutina
-            </section>    
-            
+    <div class="slide-contenedor">
+        <nav id="contenedorPrincipal">
+        <div class="miSlider fade">
+            <img src="IMG/Deciivo.png" id="vistaRutina" alt="">
+        </div>
+        <div class="miSlider fade">
+            <img src="IMG/LogoEmpresa.jpeg" id="vistaRutina" alt="">
+        </div>
+        <div class="miSlider fade">
+            <img src="IMG/holamundo.jpeg" id="vistaRutina" alt="">
+        </div>
+
+        <div class="miSlider fade">
+            <img src="IMG/skiso.jpg" id="vistaRutina" alt="">
+        </div>
+        
+        <div class="direcciones">
+            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
+            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
+        </div>
+        <div class="barras">
+            <span class="barra active" onclick="posicionSlide(1)"></span>
+            <span class="barra" onclick="posicionSlide(2)"></span>
+            <span class="barra" onclick="posicionSlide(3)"></span>
+        </div>
         </nav>
     </div>
+    <script src="JS/main.js"></script>
 </body>
-<footer>
-    <nav id="indice3">
-        Pagina creada por:
-        <br>
-        Solis Alvarado Fernando Edwishg
-        <br>
-        Gomez Ocampo Hugo
-        <br>
-        Sosa Mendoza Rodrigo
-        <br>
-        Fernández García Gael
-        <br>
-        Requena Rojas Moises Sofocles
-        <br>
-        Morales de los Santos Jaime Emmanuel
-        <br>
-        Avance del proyecto aula
-        <br>
-        GRUPO: 4IV7
-    </nav>
-</footer>
 </html>
