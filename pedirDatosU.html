@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATOS USUARIO</title>
+    <link link rel="stylesheet" href="./CSS/iniciarSesion.css">
+    <script src="./JS/iniciarSesion.js"></script>
+</head>
+<body>
+    <div class="main-container"> 
+        <nav id="encabezado">
+        <img src="./IMG/perfil.jpg" id="perfil">
+
+        <br>
+
+        <form id="formulario"  name="formulario"method="post" >
+            <label>Ingresa tu peso en kg</label>
+            <br>
+            <input type="email"   onkeypress="return validarn(event)">
+            <br>
+            <label>Ingresa tu altura</label>
+            <br>
+            <input type="password" onkeypress="return validars(event)">
+            <br>
+            <br>
+            <label id="labelSeleccionarClasificacion">
+                <select id="se_clasificacion">
+                    <option value="0">Ingresa tu propósito para hacer ejercicio</option>
+                    <option value="1">Fuerza Muscular</option>
+                    <option value="2">Aeróbico</option>
+                    <option value="3">Equilibrio</option>
+                    <option value="4">Estiramiento</option>    
+                </select>
+            </label>
+            <br>
+            <br>
+        <a href="index(des).html"><input type="submit" value="Continuar" disabled id="botonEnviar"></a>
+        
+        </form>
+        </nav>
+    </div>
+</body>
+</html>
