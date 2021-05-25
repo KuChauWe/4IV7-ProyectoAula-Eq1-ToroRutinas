@@ -1,5 +1,6 @@
 package Controlador;
 import Modelo.Imagen;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,12 +11,15 @@ import javax.servlet.http.HttpServlet;
 
 /**
  *
- * @author GaelFernandez
+ * @author GaelFernandez & sofo9
  */
 public class AccionesImagen extends HttpServlet {
 
-        public static int registrarImagen(Imagen e){
+    public static int registrarImagen(Imagen e){
         int estatus = 0;
+        Blob imagen = null;
+        
+        
         try{
             Connection con = ConexionSQL.getConnection();
             String q = "insert into MImagen(id_img, nom_img, foto_img,"
@@ -119,5 +123,47 @@ public class AccionesImagen extends HttpServlet {
         }
         return lista;
     }
+    
+    public static List<Imagen> getImagenes(int id_ejer){
+        List<Integer> ids = null;
+        List<Imagen> lista = null;
+        try{
+            Connection con = ConexionSQL.getConnection();
+            String q = "Select * from EImagen where id_ejer = ?";
+            
+            PreparedStatement ps = con.prepareStatement(q);
+            
+            ps.setInt(1, id_ejer);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                ids.add(rs.getInt("id_ejer"));
+            }
+            System.out.println("Ids encontrados");
+            
+            try{
+                
+                for(int id_img:ids){
+                    lista.add(AccionesImagen.buscarImagenById(id_img));
+                }
+                
+            
+            }catch(Exception e){
+                System.out.println("Erro al conseguir las imagenes");
+                System.out.println(e.getMessage());
+            
+            }
+            
+        
+        }catch(Exception e){
+            System.out.println("Erro al conseguir los ids de las imagenes");
+            System.out.println(e.getMessage());
+        }
+        
+    
+        return lista;
+    }
+    
     
 }
