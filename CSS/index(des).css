@@ -4,6 +4,10 @@
   body{
       background-color: rgb(239,239,239);
       }
+  header{
+    background-color: rgb(37,36,42);
+  }
+  
     }
   body{
   margin:0;
@@ -48,26 +52,36 @@ header{
   background-color: rgb(37,36,42);
   position: fixed;
   width: 100%;
-  display: inline-flex;
+  overflow: hidden;
+  display: flex;
   padding-top: 1%;  
   position: relative;
-  text-align: right;
+  max-width: 100%;
+  margin-left: 0;
 }
 
 img#ToroPNG{
-  min-height: 100px;
-  max-height: 200px;
+  min-height: 10rem;
+  max-height: 10rem;
   height: 100%;
-  margin-left: 2rem;
+  display: flex;
 }
 
 .encabezadoIMG{
   display: flex;
   align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+  width: 71%;
 }
 
 .formularioHeader{
-  margin-left: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin-left: auto;
 }
 
 section#vistaRutina{
@@ -116,7 +130,7 @@ section#vistaRutina{
 }
 
 .direcciones a:hover{
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.0);
   transition: 1s;
 
 }
@@ -150,7 +164,7 @@ section#vistaRutina{
 }
 
 @keyframes fade {
-  from {opacity: .4;}
+  from {opacity: .3;}
   to{opacity: 1;}
 }
 
@@ -181,4 +195,18 @@ section#vistaRutina{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+select, input, option{
+  background-color: rgb(37,36,42);
+  color: rgb(247,96,31);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 41px;
+  border: 4px rgb(247,96,31);
+  border-style: solid;
+  margin-left: 2rem;
+
+  min-width: 380px;
+  max-width: 380px;
+  width: 100%;
 }
