@@ -10,6 +10,31 @@
   background-color: rgb(239,239,239);
 }
 
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-trrnsform: scale(2);
+            transform: scale(1.5);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+.scale-up-center, a:hover{
+  -webkit-animation: scale-up-center 10s ease-in-out both;
+          animation: scale-up-center 1s ease-in-out both;
+}
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -45,27 +70,29 @@ img#ToroPNG{
   margin-left: 100%;
 }
 
-img#vistaRutina{
+section#vistaRutina{
   min-height: 480px;
   max-height: 480px;
-  width: 60%;
+  max-width: 880px;
+  min-width: 880px;
+  width: 100%;
   border: 5px rgb(247,96,31);
   border-style: solid;
-  margin-left: 27rem;
-  margin-right: 8.5rem;
-  margin-top: 1rem;
-  margin-bottom: -5rem;
-  justify-content: center;
   display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+  
 }
 
 .slide-contenedor{
-  max-width: 90%;
+  max-width: 100%;
   max-height: 100vh;
-  width: 90%;
+  width: 100%;
   height: auto;
   position: relative;
   overflow: hidden;
+  justify-content: center;
 }
 
 .direcciones{
@@ -77,20 +104,21 @@ img#vistaRutina{
   justify-content: space-around;
   align-items: center;
   font-size: 40px;
-  margin: -1rem;
-  margin-top: .8rem;
+  margin: 0rem;
+  margin-top: 3rem;
 }
 
 .direcciones a{
   color:rgb(247,96,31);
   display: inline-block;
-  padding: 20px;
+  padding: 10px;
   text-decoration: none;
 }
 
 .direcciones a:hover{
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   transition: 1s;
+
 }
 
 .barras{
@@ -127,14 +155,30 @@ img#vistaRutina{
 }
 
 #contenedorPrincipal{
-  margin-left: 5rem;
-  margin-right: 8.5rem;
-  margin-bottom: 5rem;
-  padding: 4.1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  min-height: 480px;
+  max-height: 480px;
+  width: 100%;
+  display: flex;
 }
 
 .miSlider{
   display: none;
   transition: 2s;
-  max-height: 100vh;
+  max-height: 200vh;
+}
+
+#Capa_1{
+  max-height: 60px;
+  min-height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

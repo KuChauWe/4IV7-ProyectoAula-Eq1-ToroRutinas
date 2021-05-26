@@ -11,7 +11,7 @@ function posicionSlide(n){
 
 setInterval(function tiempo(){
     muestraSlides(indice+=1)
-},20000);
+},4000);
 
 function muestraSlides(n){
     let i;
