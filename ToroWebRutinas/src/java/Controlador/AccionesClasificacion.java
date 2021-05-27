@@ -85,6 +85,30 @@ public class AccionesClasificacion {
         return estatus;
     }
     
+    public static Clasificacion buscarClasificacionById(int id_clas){
+        Clasificacion clas = null;
+        try{
+            Connection con = ConexionSQL.getConnection();
+            String q = "Select * from MClasificacion where id_clas = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, id_clas);
+            
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                clas.setId_clas(rs.getInt("id_clas"));
+                clas.setNom_clas(rs.getString("nomb_clas"));
+                clas.setQuemaCalo(rs.getBoolean("quemaCalo_clas"));
+            }
+            
+            
+        }catch(Exception e){
+            System.out.println("Error al buscar la clasificacion");
+            System.out.println(e.getMessage());
+        }
+        
+        return clas;
+    }
+    
     public static List<Clasificacion> buscarAllClasificaciones(){
         List<Clasificacion> lista = null;
         try{
@@ -125,10 +149,8 @@ public class AccionesClasificacion {
             
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                 Clasificacion clas = new Clasificacion();
-                clas.setId_clas(rs.getInt("id_clas"));
-                clas.setNom_clas(rs.getString("nom_clas"));
-                clas.setQuemaCalo(rs.getBoolean("quemaCalo_clas"));
+                Clasificacion clas = new Clasificacion();
+                clas = AccionesClasificacion.buscarClasificacionById(rs.getInt("id_clas"));
                 lista.add(clas);
                 
             }
@@ -145,6 +167,8 @@ public class AccionesClasificacion {
         return lista;
     }
     
+    
+    
     //Probablemente mande error
     public static List<Clasificacion> buscarClasificacionesEjercicio(Ejercicio ejer){
         List<Clasificacion> lista = null;
@@ -156,10 +180,8 @@ public class AccionesClasificacion {
             
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                 Clasificacion clas = new Clasificacion();
-                clas.setId_clas(rs.getInt("id_clas"));
-                clas.setNom_clas(rs.getString("nom_clas"));
-                clas.setQuemaCalo(rs.getBoolean("quemaCalo_clas"));
+                Clasificacion clas = new Clasificacion();
+                clas = AccionesClasificacion.buscarClasificacionById(rs.getInt("id_clas"));
                 lista.add(clas);
                 
             }

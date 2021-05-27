@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AccionesPerfil extends HttpServlet {
 
-        public static int registrarPerfil(Perfil e){
+    public static int registrarPerfil(Perfil e){
         int estatus = 0;
         try{
             Connection con = ConexionSQL.getConnection();
@@ -50,7 +50,7 @@ public class AccionesPerfil extends HttpServlet {
         return estatus;
     }
     
-        public static int actualizarPerfil(Perfil e){
+    public static int actualizarPerfil(Perfil e){
         int estatus = 0;
         try{
             Connection con = ConexionSQL.getConnection();
@@ -64,6 +64,7 @@ public class AccionesPerfil extends HttpServlet {
             ps.setString(2, e.getEmail_per());
             ps.setString(3, e.getContra_perf());
             ps.setDate(4, e.getFechNaci_perf());
+            ps.setInt(5, e.getId_perf());
             
             estatus = ps.executeUpdate();
             System.out.println("Actualización exitosa del perfil");
@@ -76,7 +77,6 @@ public class AccionesPerfil extends HttpServlet {
         }
         return estatus;
     }
-    
     
     public static int borrarPerfil(int id){
         int estatus = 0;
@@ -112,9 +112,17 @@ public class AccionesPerfil extends HttpServlet {
             
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                e.setId_perf(rs.getInt(1));
+                e.setId_perf(rs.getInt("id_perf"));
                 e.setNom_perf(rs.getString(2));
                 e.setContra_perf(rs.getString(3));
+                
+                Imagen img = new Imagen();
+                
+                img = AccionesImagen.buscarImagenById(rs.getInt("id_img"));
+                
+                e.setImg_perf(img);
+                
+                
                 e.setEmail_per(rs.getString(4));
                 e.setFechNaci_perf(rs.getDate(5));
             }
