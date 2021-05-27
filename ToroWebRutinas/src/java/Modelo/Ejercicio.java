@@ -12,6 +12,16 @@ public class Ejercicio {
     float calPer;
     List<Imagen> img;
     List<Clasificacion> clas;
+    boolean publica;
+
+    public boolean isPublica() {
+        return publica;
+    }
+
+    public void setPublica(boolean publica) {
+        this.publica = publica;
+    }
+    
     
     public void Ejercicio(){}
 

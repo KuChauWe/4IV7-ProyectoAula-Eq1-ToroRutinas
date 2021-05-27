@@ -12,18 +12,10 @@ public class Rutina {
     String nom_ruti;
     int durDes_ruti;
     int rep_ruti; 
+    //int[0]~posicion y int[1]~dur_ejer
     HashMap<Ejercicio, int[]> ejercicios;
     List<Clasificacion> clas;
-    String diasemana;
-
-    public String getDiasemana() {
-        return diasemana;
-    }
-
-    public void setDiasemana(String diasemana) {
-        this.diasemana = diasemana;
-    }
-    boolean publica;
+     boolean publica;
 
     
     public int getId_ruti() {
@@ -65,8 +57,6 @@ public class Rutina {
     public void setEjercicios( HashMap<Ejercicio, int[]> ejercicios) {
         this.ejercicios = ejercicios;
     }
-
-   
 
     public List<Clasificacion> getClas() {
         return clas;
