@@ -37,7 +37,7 @@ public class AccionesEjercicio {
             listaestatus.add(ps.executeUpdate());
             ejer.setId_ejer(AccionesEjercicio.buscarIdByEjercicio(ejer));
             AccionesEjercicio.vincularImagenes(ejer);
-            
+            AccionesClasificacion.
             
             
             
@@ -237,11 +237,10 @@ public class AccionesEjercicio {
         try{
             Connection con = ConexionSQL.getConnection();
             for(Imagen img: ejer.getImg()){
-                String q = "delete from EImagen where id_ejer)="
-                        + "values (?,?)";
+                String q = "delete from EImagen where id_ejer = ?";
+                
                 PreparedStatement ps = con.prepareStatement(q);
-                ps.setInt(1, img.getId_img());
-                ps.setInt(2, ejer.getId_ejer());
+                ps.setInt(1, ejer.getId_ejer());
                 listaestatus.add(ps.executeUpdate());
             }
             if(listaestatus.contains(0) != true){
@@ -249,11 +248,11 @@ public class AccionesEjercicio {
             }
             
             
-            System.out.println("Se vincularon exitosamente las imagenes");
+            System.out.println("Se desvincularon exitosamente las imagenes");
             
             
         }catch(Exception e){
-            System.out.println("Error al vincular las imagenes con el ejercicio");
+            System.out.println("Error al desvincular las imagenes con el ejercicio");
             System.out.println(e.getMessage());
         }
         
@@ -261,6 +260,61 @@ public class AccionesEjercicio {
         return estatus;
      }
 
+     //############################# Vinculación y Desvinculación de Clasificacion (ERutinaClasificacion) #######################
+        
+    public static int vincularClasificaciones(Ejercicio ejer){
+        List<Integer> listaestatus = null;
+        int estatus = 0;
+        try{
+            Connection con = ConexionSQL.getConnection();
+            for(Clasificacion clas:ejer.getClas()){
+                String q = "Insert into EEjercicioClasificacion (id_ruti, id_clas)"
+                        + "values (?,?)";
+                PreparedStatement ps = con.prepareStatement(q);
+                ps.setInt(1, ejer.getId_ejer());
+                ps.setInt(2, clas.getId_clas());
+                listaestatus.add(ps.executeUpdate());
+                ps.close();
+            }
+            if(listaestatus.contains(0) != true){
+                estatus = 1;
+                System.out.println("Se vincularon exitosamente las clasificaciones con lo ejercicios");
+            }
+            
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error al vincular las clasificaciones con la Rutina");
+            System.out.println(e.getMessage());    
+        }
+        
+        return estatus;
+    }
+    
+    public static int desvincularAllClasificaciones(Rutina ruti){
+        int estatus = 0;
+        try{
+            Connection con = ConexionSQL.getConnection();
+            
+            String q = "delete from EEjercicioClasificacion where id_ruti = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, ruti.getId_ruti());
+            System.out.println("Se desvincularon las clasificaciones de la Rutina con exito");
+            estatus = ps.executeUpdate();
+            
+            ps.close();
+            con.close();
+            
+            
+        }catch(Exception e){
+            System.out.println("Error al desvincular las clasificaciones con la Rutina");
+            System.out.println(e.getMessage());
+        }
+        
+        return estatus;
+        
+        
+        
+    }
 
 
 

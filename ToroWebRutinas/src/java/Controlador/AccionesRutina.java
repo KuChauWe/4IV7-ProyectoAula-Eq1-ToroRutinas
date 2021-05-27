@@ -283,7 +283,7 @@ public class AccionesRutina {
             }
             if(listaestatus.contains(0) != true){
                 estatus = 1;
-                System.out.println("Se vincularon exitosamente las clasificaciones");
+                System.out.println("Se vincularon exitosamente las clasificaciones con la Rutina");
             }
             
             con.close();
