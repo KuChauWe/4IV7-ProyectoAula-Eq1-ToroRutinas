@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOLICITUD PERMISOS</title>
-    <link link rel="stylesheet" href="./CSS/solicitudPermisos.css">
-    <script src="./JS/solicitudPermisos.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/solicitudPermisos.css">
 </head>
 <body>
     <div class="main-container">
@@ -15,31 +13,33 @@
             <img src="./IMG/perfil.jpg" id="perfil">
     
     
-            <form id="formulario"  name="formulario"method="post" >
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label class="formulario__label">Nombre(s)</label>
+            <form action=""  id="formulario"  class="formulario">
+                <!-- Grupo: Nombre -->
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Nombre(s)</label>
                     <div class="formulario__grupo-input">
                     <br>
-                        <input type="text" id="inputNombre1" class="formulario__input" maxlength="30" placeholder="Nombre1" size="5" autofocus onkeypress="return validarna(event)"><input type="text" id="inputNombre2" class="formulario__input" maxlength="30" placeholder="Nombre2" size="5" onkeypress="return validarna(event)">
+                        <input type="text" id="nombre1" class="formulario__input" name="nombre1" maxlength="30" placeholder="Nombre1" size="5" autofocus><input type="text" id="nombre2" class="formulario__input" name="nombre2" maxlength="30" placeholder="Nombre2" size="5">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El nombre no puede contener números ni signos, no puedes hacer espacio y no puedes pasar de los 30 carácteres.</p>
                 </div>
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label class="formulario__label">Apellidos</label>
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Apellidos</label>
                     <div class="formulario__grupo-input">
                     <br>
-                        <input id="paterno" class="formulario__input" type="text" maxlength="30" placeholder="Paterno" size="5" onkeypress="return validarna(event)"><input id="materno" class="formulario__input" type="text" maxlength="30" placeholder="Materno" size="5" onkeypress="return validarna(event)">
+                        <input id="paterno" class="formulario__input" type="text" name="apellidoP" maxlength="30" placeholder="Paterno" size="5"><input id="materno" class="formulario__input" type="text" name="apellidoM" maxlength="30" placeholder="Materno" size="5">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div> 
                     <p class="formulario__input-error">Los apellidos no pueden contener números ni signos, no puedes hacer espacio y no puedes pasar de los 30 carácteres.</p>
                 </div>    
                 <br>
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label class="formulario__label">Correo Electronico</label>
+                <!-- Grupo: Correo Electronico -->
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label for="correo" class="formulario__label">Correo Electronico</label>
                     <div class="formulario__grupo-input">
                     <br>
-                        <input type="email" class="formulario__input"  maxlength="50" placeholder="xxxxx@xxx.com" onkeypress="return validarn(event)">
+                        <input type="email" class="formulario__input" name="correo" id="correo" maxlength="50" placeholder="xxxxx@xxx.com">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El correo no puede contener signos a exepción del @, no puedes hacer espacio y no puedes pasar de los 50 carácteres.</p>
@@ -53,11 +53,11 @@
                     <option>Administrador</option>
                   </select>
                 <br>
-                <div class="formulario__grupo" id="grupo__usuario">
+                <div class="formulario__grupo" id="grupo__nombre">
                     <label class="formulario__label">Dinos el motivo de tu solicitud</label>
                     <div class="formulario__grupo-input">
                     <br>
-                        <textarea id="textareaMotivo" class="formulario__input" cols="34" rows="8" wrap="soft" maxlength="250" onkeypress="return validard(event)" ></textarea>
+                        <textarea id="motivo" class="formulario__input" name="motivo" cols="34" rows="8" wrap="soft" maxlength="250"></textarea>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div> 
                     <p class="formulario__input-error">El texto solo puede contener los siguientes signos: ¿?, ¡!, () y no puedes pasar de los 250 carácteres.</p>
@@ -72,8 +72,10 @@
                     <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!</p>
                 </div>
             </form>
-            </nav>
+        </nav>
     </div>
+    <script src="js/solicitudPermisos.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     
 </body>
 </html>

@@ -2,37 +2,31 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,30}$/, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    motivo: /^[a-zA-Z0-9-ZÀ-ÿ\s\_\-]{50,250}$/, // Letras, numeros, guion y guion_bajo
 }
+
 const campos = {
-	nombre1: false,
-    nombre2: false,
-    apellidoP: false,
-    apellidoM: false,
-    correo: false,
-	motivo: false
+	nombre: false,
+	password: false,
+	correo: false,
 }
+
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "nombre1":
-			validarCampo(expresiones.nombre, e.target, 'nombre1');
+		case "nombre":
+			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
-		case "nombre2":
-			validarCampo(expresiones.nombre, e.target, 'nombre2');
+		case "password":
+			validarCampo(expresiones.password, e.target, 'password');
+			validarPassword2();
 		break;
-        case "apellidoP":
-			validarCampo(expresiones.nombre, e.target, 'apellidoP');
-		break;
-        case "apellidoM":
-			validarCampo(expresiones.nombre, e.target, 'apellidoM');
+		case "password2":
+			validarPassword2();
 		break;
 		case "correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
-        case "motivo":
-			validarCampo(expresiones.motivo, e.target, 'motivo');
 		break;
 	}
 }
@@ -46,7 +40,7 @@ const validarCampo = (expresion, input, campo) => {
 		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
 		campos[campo] = true;
 	} else {
-		document.getElementsByName(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
 		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
@@ -54,6 +48,28 @@ const validarCampo = (expresion, input, campo) => {
 		campos[campo] = false;
 	}
 }
+
+const validarPassword2 = () => {
+	const inputPassword1 = document.getElementById('password');
+	const inputPassword2 = document.getElementById('password2');
+
+	if(inputPassword1.value !== inputPassword2.value){
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
+		campos['password'] = false;
+	} else {
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		campos['password'] = true;
+	}
+}
+
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
@@ -62,7 +78,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	if(campos.nombre1 && campos.nombre2 && campos.correo && campos.apellidoM && campos.apellidoP && campos.motivo){
+	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
