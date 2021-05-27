@@ -34,7 +34,7 @@
             transform: scale(1.5);
   }
 }
-.scale-up-center, a:hover{
+.scale-up-center, svg:hover{
   -webkit-animation: scale-up-center 10s ease-in-out both;
           animation: scale-up-center 1s ease-in-out both;
 }
@@ -209,4 +209,101 @@ select, input, option{
   min-width: 380px;
   max-width: 380px;
   width: 100%;
+}
+
+/**carusel con filas**/
+
+.second-container{
+  margin-top: 6rem;
+  max-width: 80%;
+  margin-bottom: 4rem;
+  margin-left: 10rem;
+}
+
+.carousel__contenedor {
+	position: relative;
+}
+
+.carousel__anterior,
+.carousel__siguiente {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 40px;
+  margin: auto;
+  margin-top: 10rem;
+  border: none;
+}
+
+#Capa_2{
+  max-height: 60px;
+  min-height: 50px;
+  width: 50px;
+  background: none;
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover {
+	opacity: 100%;
+}
+
+.carousel__anterior {
+	left: -5%;
+}
+
+.carousel__siguiente {
+	right: -5%;
+}
+
+.carousel__lista {
+	overflow: hidden;
+}
+
+.carousel__elemento {
+	text-align: center;
+  padding: 1rem;
+}
+
+.carousel__indicadores .glider-dot {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background: #fff;
+	opacity: .2;
+	border-radius: 0;
+}
+
+.carousel__indicadores .glider-dot:hover {
+	opacity: .5;
+}
+
+.carousel__indicadores .glider-dot.active {
+	opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+	body {
+		padding: 40px 0;
+	}
+
+	.contenido-principal {
+		flex-direction: column;
+	}
+
+	.contenido-principal > * {
+		width: 100%;
+	}
+}
+
+section#vistaRutinas{
+  max-width: 100%;
+  min-width: 60%;
+  background:rgb(247,96,31);
+  border: 4px rgb(247,96,31);
+  border-style: solid;
+  padding: 0;
 }
