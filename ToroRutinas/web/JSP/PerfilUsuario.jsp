@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,7 @@
 </header>
     <div class="main-container">
         <nav id="contenedorPrincipal">
+            
             <img src="./IMG/perfil.jpg" id="fotoPerfil">
             <br>
             <div class="divBotones" id="divNM">
