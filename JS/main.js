@@ -60,9 +60,10 @@ window.addEventListener('load', function(){
 			  breakpoint: 800,
 			  settings: {
 				slidesToShow: 5,
-				slidesToScroll: 5
+				slidesToScroll: 5,
+				itemWidth: 150,
+				duration: 0.25
 			  }
 			}
-		]
-	});
-});
+		  ]
+		})});

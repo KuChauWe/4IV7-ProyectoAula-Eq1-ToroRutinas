@@ -96,8 +96,9 @@ section#vistaRutina{
   overflow: hidden;
   justify-content: center;
   align-content: center;
-  
 }
+
+/*Primer slider*/
 
 .slide-contenedor{
   max-width: 100%;
@@ -211,14 +212,17 @@ select, input, option{
   width: 100%;
 }
 
-/**carusel con filas**/
+/**carrusel con filas**/
 
 .second-container{
   margin-top: 6rem;
-  max-width: 80%;
+  max-width: 81%;
   margin-bottom: 4rem;
   margin-left: 10rem;
 }
+
+
+/*El de arriba es el div de todooooooooooooooooooooooooo*/
 
 .carousel__contenedor {
 	position: relative;
@@ -235,8 +239,11 @@ select, input, option{
   align-items: center;
   font-size: 40px;
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 7rem;
   border: none;
+  max-width: 300px;
+  max-height: 300px;
+  align-self: center;
 }
 
 #Capa_2{
@@ -261,11 +268,28 @@ select, input, option{
 
 .carousel__lista {
 	overflow: hidden;
+  align-items: center;
 }
 
 .carousel__elemento {
 	text-align: center;
-  padding: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  max-width: 300px;
+  max-height: 300px;
+  min-height: 300px;
+  min-height: 300px;
+}
+
+.carousel__elemento.glider-slide.visible.active.left-2{
+  padding: -16rem;
+  padding-left: -16rem;
+  padding-right: -16rem;
+  max-width: 300px;
+  max-height: 300px;
+  min-height: 300px;
+  min-height: 300px;
+  background: none;
 }
 
 .carousel__indicadores .glider-dot {
@@ -300,10 +324,23 @@ select, input, option{
 }
 
 section#vistaRutinas{
-  max-width: 100%;
-  min-width: 60%;
-  background:rgb(247,96,31);
-  border: 4px rgb(247,96,31);
+  border: 5px rgb(247,96,31);
   border-style: solid;
   padding: 0;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  display: flex;
+  min-height: 260px;
+  max-height: 260px;
+  max-width: 270px;
+  min-width: 270px;
+  width: 100%;
+}
+
+section#vistaRutinas:hover{
+    border: 2px solid rgb(247,96,31);
+    outline: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
+    transition: .2s;
 }
