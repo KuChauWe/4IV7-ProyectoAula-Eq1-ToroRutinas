@@ -4,7 +4,7 @@ import Controlador.AccionesPerfil;
 import Modelo.Perfil;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,16 +21,15 @@ public class Registro extends HttpServlet {
             
             String nom_perf = request.getParameter("nom_perf");
             String email_per = request.getParameter("email_per");
-            Date fechNaci_perf = request.getParameter("fechNaci_perf");
-            Boolean sexo = request.getParameter("sexo");
+            Date fechNaci_perf = null;
+            fechNaci_perf.setTime(request.getDateHeader("fechNaci_perf"));
             String contra_perf = request.getParameter("contra_perf");
             
             Perfil e = new Perfil();
             
             e.setNom_perf(nom_perf);
             e.setEmail_per(email_per);
-            e.setFechNaci_perf((java.sql.Date) fechNaci_perf);
-            e.setSexo(sexo);
+            e.setFechNaci_perf(fechNaci_perf);
             e.setContra_perf(contra_perf);
              
             int estatus = AccionesPerfil.registrarPerfil(e);
