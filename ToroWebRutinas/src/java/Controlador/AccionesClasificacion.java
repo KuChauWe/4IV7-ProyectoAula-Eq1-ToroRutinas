@@ -3,6 +3,7 @@ import Modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 /**
  *
@@ -10,14 +11,17 @@ import java.util.List;
  */
 public class AccionesClasificacion {
     
-    public static int registrarClasificacion(Clasificacion clas){
+    public static int registrarClasificacion(Clasificacion clas) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Insert into MClasificacion (nom_clas, quemaCalo_clas)"
                     + "values (?,?)";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, clas.getNom_clas());
             ps.setBoolean(2, clas.isQuemaCalo());
             
@@ -28,18 +32,25 @@ public class AccionesClasificacion {
         }catch(Exception e){
             System.out.println("Error al registrar la clasificacion");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
     
         return estatus;
     }
     
-    public static int actualizarClasificacion(Clasificacion clas){
+    public static int actualizarClasificacion(Clasificacion clas) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Update MClasificacion set nom_clas = ?, quemaCalo_clas = ?"
                     + " where id_clas = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, clas.getNom_clas());
             ps.setBoolean(2, clas.isQuemaCalo());
             ps.setInt(3, clas.getId_clas());
@@ -53,19 +64,26 @@ public class AccionesClasificacion {
         }catch(Exception e){
             System.out.println("Error al actualizar la clasificacion");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
         
         return estatus;
     
     }
     
-    public static int borrarClasificacion(Clasificacion clas){
+    public static int borrarClasificacion(Clasificacion clas) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from MClasificacion where id_clas = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, clas.getId_clas());
             
@@ -78,22 +96,29 @@ public class AccionesClasificacion {
             System.out.println("Error al borrar la clasificacion");
             System.out.println(e.getMessage());
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
         
         
     
         return estatus;
     }
     
-    public static Clasificacion buscarClasificacionById(int id_clas){
+    public static Clasificacion buscarClasificacionById(int id_clas) throws SQLException{
         Clasificacion clas = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MClasificacion where id_clas = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, id_clas);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 clas.setId_clas(rs.getInt("id_clas"));
                 clas.setNom_clas(rs.getString("nomb_clas"));
@@ -104,18 +129,25 @@ public class AccionesClasificacion {
         }catch(Exception e){
             System.out.println("Error al buscar la clasificacion");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
         
         return clas;
     }
     
-    public static List<Clasificacion> buscarAllClasificaciones(){
+    public static List<Clasificacion> buscarAllClasificaciones() throws SQLException{
         List<Clasificacion> lista = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MClasificacion";
-            PreparedStatement ps = con.prepareStatement(q);
-            ResultSet rs = ps.executeQuery();
+             ps = con.prepareStatement(q);
+             rs = ps.executeQuery();
             while(rs.next()){
                 Clasificacion clas = new Clasificacion();
                 clas.setId_clas(rs.getInt("id_clas"));
@@ -133,21 +165,28 @@ public class AccionesClasificacion {
             
             
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
     
         return lista;
     }
     
     //Probablemente mande error
-    public static List<Clasificacion> buscarClasificacionesRutina(Rutina ruti){
+    public static List<Clasificacion> buscarClasificacionesRutina(Rutina ruti) throws SQLException{
         List<Clasificacion> lista = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from ERutinaClasificacion where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 Clasificacion clas = new Clasificacion();
                 clas = AccionesClasificacion.buscarClasificacionById(rs.getInt("id_clas"));
@@ -162,7 +201,11 @@ public class AccionesClasificacion {
             System.out.println(e.getMessage());
         
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
     
         return lista;
     }
@@ -170,15 +213,18 @@ public class AccionesClasificacion {
     
     
     //Probablemente mande error
-    public static List<Clasificacion> buscarClasificacionesEjercicio(Ejercicio ejer){
+    public static List<Clasificacion> buscarClasificacionesEjercicio(Ejercicio ejer) throws SQLException{
         List<Clasificacion> lista = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from ERutinaClasificacion where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ejer.getId_ejer());
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 Clasificacion clas = new Clasificacion();
                 clas = AccionesClasificacion.buscarClasificacionById(rs.getInt("id_clas"));
@@ -193,7 +239,11 @@ public class AccionesClasificacion {
             System.out.println(e.getMessage());
         
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
     
         return lista;
     }

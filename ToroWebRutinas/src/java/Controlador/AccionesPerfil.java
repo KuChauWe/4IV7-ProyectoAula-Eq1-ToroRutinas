@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -19,24 +20,27 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AccionesPerfil extends HttpServlet {
 
-    public static int registrarPerfil(Perfil e){
+    public static int registrarPerfil(Perfil e) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
         try{
-            Connection con = ConexionSQL.getConnection();
-            String q = "insert into MPerfil(id_perf, nomb_perf, id_img, email_per, "
+             con = ConexionSQL.getConnection();
+            String q = "insert into MPerfil( nomb_perf, id_img, email_per, "
                     + "contra_perf, fechNaci_perf, admin, creador) "
                     + "values(?,?,?,?,?,?,?,?)";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
-            ps.setInt(1, e.getId_perf());
-            ps.setString(2, e.getNom_perf());
-            ps.setInt(3, e.getImg_perf().getId_img());
-            ps.setString(4, e.getEmail_per());
-            ps.setString(5, e.getContra_perf());
-            ps.setDate(6, e.getFechNaci_perf());
-            ps.setBoolean(7, e.isAdmin());
-            ps.setBoolean(8, e.isCreador());
+            ps.setString(1, e.getNom_perf());
+            ps.setInt(2, e.getImg_perf().getId_img());
+            ps.setString(3, e.getEmail_per());
+            ps.setString(4, e.getContra_perf());
+            ps.setDate(5, e.getFechNaci_perf());
+            ps.setBoolean(6, e.isAdmin());
+            ps.setBoolean(7, e.isCreador());
             
             estatus = ps.executeUpdate();
             System.out.println("Registro exitoso del perfil");
@@ -46,25 +50,35 @@ public class AccionesPerfil extends HttpServlet {
             System.out.println("Error al registrar al perfil");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return estatus;
     }
     
-    public static int actualizarPerfil(Perfil e){
+    public static int actualizarPerfil(Perfil e) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "update MPerfil set nomb_perf = ?, email_per = ?,"
-                    + "contra_perf = ?, fechNaci_perf = ? "
+                    + "contra_perf = ?, fechNaci_perf = ?, administrador = ?, creador = ? "
                     + "where id_perf = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setString(1, e.getNom_perf());
             ps.setString(2, e.getEmail_per());
             ps.setString(3, e.getContra_perf());
             ps.setDate(4, e.getFechNaci_perf());
-            ps.setInt(5, e.getId_perf());
+            ps.setBoolean(5, e.isAdmin());
+            ps.setBoolean(6, e.isCreador());
+            ps.setInt(7, e.getId_perf());
             
             estatus = ps.executeUpdate();
             System.out.println("Actualización exitosa del perfil");
@@ -74,17 +88,25 @@ public class AccionesPerfil extends HttpServlet {
             System.out.println("Error al actualizar el perfil");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return estatus;
     }
     
-    public static int borrarPerfil(int id){
+    public static int borrarPerfil(int id) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from MPerfil where id_perf = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, id);
             
@@ -96,35 +118,39 @@ public class AccionesPerfil extends HttpServlet {
             System.out.println("Error al borrar al perfil");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return estatus;
     }
     
-    public static Perfil buscarPerfilById(int id){
+    public static Perfil buscarPerfilById(int id) throws SQLException{
         Perfil e = new Perfil();
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "select * from MPerfil where id_perf = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, id);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             if(rs.next()){
                 e.setId_perf(rs.getInt("id_perf"));
-                e.setNom_perf(rs.getString(2));
-                e.setContra_perf(rs.getString(3));
-                
-                Imagen img = new Imagen();
-                
-                img = AccionesImagen.buscarImagenById(rs.getInt("id_img"));
-                
-                e.setImg_perf(img);
-                
-                
-                e.setEmail_per(rs.getString(4));
-                e.setFechNaci_perf(rs.getDate(5));
+                e.setNom_perf(rs.getString("nomb_perf"));
+                e.setContra_perf(rs.getString("contra_perf"));
+                e.setAdmin(rs.getBoolean("administrador"));
+                e.setCreador(rs.getBoolean("creador"));
+                e.setFechNaci_perf(rs.getDate("fechaNaci_per"));
+                e.setEmail_per(rs.getString("email_perf"));
+                e.setImg_perf(AccionesImagen.buscarImagenById(rs.getInt("id_img")));
+               
             }
             
             System.out.println("Perfil encontrado");
@@ -134,21 +160,29 @@ public class AccionesPerfil extends HttpServlet {
             System.out.println("Error al buscar el perfil");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return e;
     }
     
-    public static List<Perfil> buscarAllPerfiles(){
+    public static List<Perfil> buscarAllPerfiles() throws SQLException{
         List<Perfil> lista = new ArrayList<Perfil>();
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
         
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "select * from MPerfil";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 Perfil e = new Perfil();
                 e.setId_perf(rs.getInt(1));
@@ -166,6 +200,10 @@ public class AccionesPerfil extends HttpServlet {
             System.out.println("Error al buscar los perfiles");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return lista;
     }

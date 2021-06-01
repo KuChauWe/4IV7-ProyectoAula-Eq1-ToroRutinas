@@ -5,12 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -22,22 +18,27 @@ public class AccionesEjercicio {
     public static int RegistrarEjercicio(Ejercicio ejer) throws ServletException, ClassNotFoundException, SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
             
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
 
             String q = "insert into MEjercicio(nomb_ejer, calPerd "
                     + "values (?,?))";
 
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
 
             ps.setString(1, ejer.getNom_ejer());
             ps.setFloat(2, ejer.getCalPer());
             
             listaestatus.add(ps.executeUpdate());
+            
+            
             ejer.setId_ejer(AccionesEjercicio.buscarIdByEjercicio(ejer));
             AccionesEjercicio.vincularImagenes(ejer);
-            AccionesClasificacion.
+            AccionesClasificacion.buscarClasificacionesEjercicio(ejer);
             
             
             
@@ -51,7 +52,11 @@ public class AccionesEjercicio {
             System.out.println("Error al registrar el ejercicio");
             System.out.println(e.getMessage());
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
     
     
@@ -60,14 +65,17 @@ public class AccionesEjercicio {
     
    
     
-    public static int actualizarEjercicio(Ejercicio ejer){
+    public static int actualizarEjercicio(Ejercicio ejer) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             
             String q = "Update MEjercicio set nomb_ejer = ?, calPerd = ?"
                     + "where id_ejer = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, ejer.getNom_ejer());
             ps.setFloat(2, ejer.getCalPer());
             ps.setInt(3, ejer.getId_ejer());
@@ -79,21 +87,28 @@ public class AccionesEjercicio {
         }catch(Exception e){
             System.out.println("Error al Modificar el Ejercicio");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static Ejercicio buscarEjercicioById(int id_ejer){
+    public static Ejercicio buscarEjercicioById(int id_ejer) throws SQLException{
         Ejercicio ejer = new Ejercicio();
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "select * from MEjercicio where id_ejer = ? ";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, id_ejer);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             if(rs.next()){
                 ejer.setId_ejer(rs.getInt("id_ejer"));
                 ejer.setCalPer(rs.getFloat("calPerd"));
@@ -108,46 +123,57 @@ public class AccionesEjercicio {
             System.out.println("Error al buscar el ejercicio");
             System.out.println(e.getMessage());
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
     
         return ejer;
     }
     
-    public static int buscarIdByEjercicio(Ejercicio ejer){
+    public static int buscarIdByEjercicio(Ejercicio ejer) throws SQLException{
         int id = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MEjercicio where nombre_ejer = ?,calPerd = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, ejer.getNom_ejer());
             ps.setFloat(2, ejer.getCalPer());
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 id = rs.getInt("id_ruti");
             }
             
             System.out.println("Ejercicio encontrado con la Id");
             
-            rs.close();
-            ps.close();
-            con.close();
             
             
         }catch(Exception e){
             System.out.println("Error al buscar el Ejercicio con Id");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         return id;
     }
     
-    public static List<Ejercicio> buscarAllEjercicios(){
+    public static List<Ejercicio> buscarAllEjercicios() throws SQLException{
         List<Ejercicio> lista = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MEjercicio";
-            PreparedStatement ps = con.prepareStatement(q);
-            ResultSet rs = ps.executeQuery();
+             ps = con.prepareStatement(q);
+             rs = ps.executeQuery();
             while(rs.next()){
                 Ejercicio ejer = new Ejercicio();
                 ejer.setId_ejer(rs.getInt("id_ejer"));
@@ -165,19 +191,26 @@ public class AccionesEjercicio {
             
             
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
     
         return lista;
     }
     
-    public static List<Ejercicio> buscarEjerciciosRutina(Rutina ruti){
+    public static List<Ejercicio> buscarEjerciciosRutina(Rutina ruti) throws SQLException{
         List<Ejercicio> lista = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from DEjercicioEnRutina";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 
                 Ejercicio ejer = new Ejercicio();
@@ -194,22 +227,29 @@ public class AccionesEjercicio {
             
             
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
     
         return lista;
     }
     
     //############################## Vincular y Desvincular Imagenes (EImagen) #####################################
     
-     public static int vincularImagenes(Ejercicio ejer){
+     public static int vincularImagenes(Ejercicio ejer) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             for(Imagen img: ejer.getImg()){
                 String q = "Insert into EImagen (id_img, id_ejer)"
                         + "values (?,?)";
-                PreparedStatement ps = con.prepareStatement(q);
+                 ps = con.prepareStatement(q);
                 ps.setInt(1, img.getId_img());
                 ps.setInt(2, ejer.getId_ejer());
                 listaestatus.add(ps.executeUpdate());
@@ -225,21 +265,28 @@ public class AccionesEjercicio {
         }catch(Exception e){
             System.out.println("Error al vincular las imagenes con el ejercicio");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         
         return estatus;
     }
      
-     public static int desvincularImagenes(Ejercicio ejer){
+     public static int desvincularImagenes(Ejercicio ejer) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             for(Imagen img: ejer.getImg()){
                 String q = "delete from EImagen where id_ejer = ?";
                 
-                PreparedStatement ps = con.prepareStatement(q);
+                 ps = con.prepareStatement(q);
                 ps.setInt(1, ejer.getId_ejer());
                 listaestatus.add(ps.executeUpdate());
             }
@@ -254,7 +301,11 @@ public class AccionesEjercicio {
         }catch(Exception e){
             System.out.println("Error al desvincular las imagenes con el ejercicio");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         
         return estatus;
@@ -262,15 +313,18 @@ public class AccionesEjercicio {
 
      //############################# Vinculación y Desvinculación de Clasificacion (ERutinaClasificacion) #######################
         
-    public static int vincularClasificaciones(Ejercicio ejer){
+    public static int vincularClasificaciones(Ejercicio ejer) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             for(Clasificacion clas:ejer.getClas()){
                 String q = "Insert into EEjercicioClasificacion (id_ruti, id_clas)"
                         + "values (?,?)";
-                PreparedStatement ps = con.prepareStatement(q);
+                 ps = con.prepareStatement(q);
                 ps.setInt(1, ejer.getId_ejer());
                 ps.setInt(2, clas.getId_clas());
                 listaestatus.add(ps.executeUpdate());
@@ -281,34 +335,42 @@ public class AccionesEjercicio {
                 System.out.println("Se vincularon exitosamente las clasificaciones con lo ejercicios");
             }
             
-            con.close();
         }catch(Exception e){
             System.out.println("Error al vincular las clasificaciones con la Rutina");
             System.out.println(e.getMessage());    
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static int desvincularAllClasificaciones(Rutina ruti){
+    public static int desvincularAllClasificaciones(Rutina ruti) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             
             String q = "delete from EEjercicioClasificacion where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             System.out.println("Se desvincularon las clasificaciones de la Rutina con exito");
             estatus = ps.executeUpdate();
             
-            ps.close();
-            con.close();
             
             
         }catch(Exception e){
             System.out.println("Error al desvincular las clasificaciones con la Rutina");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
         
@@ -321,13 +383,16 @@ public class AccionesEjercicio {
 
     //############################ Agregar, Borrar y Consultar Ejercicio de la Biblioteca Publica (DEjercicioEnBiblioteca) #####################
        
-    public static int agregarABibliotecaPublica(Ejercicio ejer){
+    public static int agregarABibliotecaPublica(Ejercicio ejer) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Insert into DEjercicioEnBiblioteca(id_ruti) "
                     + "values (?)";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ejer.getId_ejer());
             
             estatus = ps.executeUpdate();
@@ -337,17 +402,24 @@ public class AccionesEjercicio {
         }catch(Exception e){
             System.out.println("Error al agregar la rutina a la biblioteca publica");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static int quitarABibliotecaPublica(Ejercicio ejer){
+    public static int quitarABibliotecaPublica(Ejercicio ejer) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from DRutinaEnBiblioteca where id_ruti = ? ";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ejer.getId_ejer());
             
             estatus = ps.executeUpdate();
@@ -357,7 +429,11 @@ public class AccionesEjercicio {
         }catch(Exception e){
             System.out.println("Error al bajar la rutina en la biblioteca publica");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
         
@@ -365,15 +441,18 @@ public class AccionesEjercicio {
         
     }
     
-    public static boolean isInBibliotecaPublica(int id_ejer){
+    public static boolean isInBibliotecaPublica(int id_ejer) throws SQLException{
         boolean inBibliotecaPublica = false;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from DEjercicioEnBiblioteca where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, id_ejer);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 int id = rs.getInt("id_ejer");
                 inBibliotecaPublica = true;
@@ -383,7 +462,11 @@ public class AccionesEjercicio {
             
         }catch(Exception e){
             System.out.println("Error al consultar la rutina en la Biblioteca Publica");
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         
         return inBibliotecaPublica;

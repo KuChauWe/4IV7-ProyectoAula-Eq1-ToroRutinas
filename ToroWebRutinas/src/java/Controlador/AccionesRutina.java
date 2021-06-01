@@ -3,12 +3,9 @@ import Modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -16,15 +13,19 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AccionesRutina {
     
-    public static int registrarRutina(Rutina ruti){
+    public static int registrarRutina(Rutina ruti) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+        
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Insert into MRutina (nom_ruti, durDes_ruti, rep_ruti)"
                     + "values (?,?,?)";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, ruti.getNom_ruti());
             ps.setInt(2, ruti.getDurDes_ruti());
             ps.setInt(3, ruti.getRep_ruti());
@@ -46,23 +47,29 @@ public class AccionesRutina {
                 System.out.println("Registro exitoso de la rutina");
             }
             
-            con.close();
             
         }catch(Exception e){
             System.out.println("Error al registrar la Rutina");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         return estatus;
     }
     
-    public static int borrarRutina(Rutina ruti){
+    public static int borrarRutina(Rutina ruti) throws SQLException{
          List<Integer> estatus = null;
          int esta = 0;
+         Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from MRutina where id_ruti = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, ruti.getId_ruti());
             
@@ -86,20 +93,27 @@ public class AccionesRutina {
             System.out.println("Error al borrar la Rutina");
             System.out.println(ed.getMessage());
         
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         return esta;
      
     }
     
-    public static Rutina buscarRutinaById(int id_ruti){
+    public static Rutina buscarRutinaById(int id_ruti) throws SQLException{
         Rutina ruti = new Rutina();
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MRutina where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, id_ruti);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 ruti.setId_ruti(rs.getInt("id_ruti"));
                 ruti.setDurDes_ruti(rs.getInt("durDes_ruti"));
@@ -134,48 +148,59 @@ public class AccionesRutina {
             System.out.println("");
         }catch(Exception e){
             System.out.println("Error al buscar la rutina");
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         
         return ruti;
     }
     
-    public static int buscarIdByRutina(Rutina ruti){
+    public static int buscarIdByRutina(Rutina ruti) throws SQLException{
         int id = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from MRutina where nom_ruti = ?, durDes_ruti = ?, rep_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, ruti.getNom_ruti());
             ps.setInt(2, ruti.getDurDes_ruti());
             ps.setInt(3, ruti.getRep_ruti());
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 id = rs.getInt("id_ruti");
             }
             
             System.out.println("Rutina encontrada con la Id");
             
-            rs.close();
-            ps.close();
-            con.close();
             
             
         }catch(Exception e){
             System.out.println("Error al buscar la rutina con Id");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         return id;
     }
     
-    public static int actualizarRutina(Rutina ruti){
+    public static int actualizarRutina(Rutina ruti) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Update MRutina set nom_ruti = ?, durDes_ruti = ?, rep_ruti = ? where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setString(1, ruti.getNom_ruti());
             ps.setInt(2, ruti.getDurDes_ruti());
             ps.setInt(3, ruti.getRep_ruti());
@@ -194,8 +219,6 @@ public class AccionesRutina {
                 System.out.println("Rutina actualizada con exito");
             }
             
-            ps.close();
-            con.close();
             
             
             
@@ -203,7 +226,11 @@ public class AccionesRutina {
             System.out.println("Error al actualizar la Rutina");
             System.out.println(e.getMessage());
             
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         
         
@@ -213,15 +240,18 @@ public class AccionesRutina {
     
     //########################## Vinculacion y Desvinculacion de Ejercicios (DEjercicioEnRutina) ###############################
     
-    private static int vincularEjercicios(Rutina ruti){
+    private static int vincularEjercicios(Rutina ruti) throws SQLException{
         List<Integer> listaestatus = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         int estatus = 0;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             for(Ejercicio ejer: ruti.getEjercicios().keySet()){
                 String q = "Insert into DEjercicioEnRutina (id_ruti, id_ejer, pos_ejeRuti, duracion)"
                         + "values (?,?,?,?)";
-                PreparedStatement ps = con.prepareStatement(q);
+                 ps = con.prepareStatement(q);
                 ps.setInt(1, ruti.getId_ruti());
                 ps.setInt(2, ejer.getId_ejer());
                 ps.setInt(3, ruti.getEjercicios().get(ejer)[0]);
@@ -237,18 +267,25 @@ public class AccionesRutina {
         }catch(Exception e){
             System.out.println("Error al vincular los ejercicios con la Rutina");
             System.out.println(e.getMessage());    
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static int desvincularAllEjercicios(Rutina ruti){
+    public static int desvincularAllEjercicios(Rutina ruti) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             
             String q = "delete from DEjercicioEnRutina where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             System.out.println("Se desvincularon los ejercicios de la Rutina con exito");
             estatus = ps.executeUpdate();
@@ -259,7 +296,11 @@ public class AccionesRutina {
         }catch(Exception e){
             System.out.println("Error al desvincular los ejercicios con la Rutina");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     
@@ -268,15 +309,18 @@ public class AccionesRutina {
     
     //############################# Vinculación y Desvinculación de Clasificacion (ERutinaClasificacion) #######################
         
-    public static int vincularRutinaClasificaciones(Rutina ruti){
+    public static int vincularRutinaClasificaciones(Rutina ruti) throws SQLException{
         List<Integer> listaestatus = null;
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             for(Clasificacion clas: ruti.getClas()){
                 String q = "Insert into ERutinaClasificacion (id_ruti, id_clas)"
                         + "values (?,?)";
-                PreparedStatement ps = con.prepareStatement(q);
+                 ps = con.prepareStatement(q);
                 ps.setInt(1, ruti.getId_ruti());
                 ps.setInt(2, clas.getId_clas());
                 listaestatus.add(ps.executeUpdate());
@@ -286,34 +330,42 @@ public class AccionesRutina {
                 System.out.println("Se vincularon exitosamente las clasificaciones con la Rutina");
             }
             
-            con.close();
         }catch(Exception e){
             System.out.println("Error al vincular las clasificaciones con la Rutina");
             System.out.println(e.getMessage());    
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static int desvincularAllClasificaciones(Rutina ruti){
+    public static int desvincularAllClasificaciones(Rutina ruti) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             
             String q = "delete from ERutinaClasificacion where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             System.out.println("Se desvincularon las clasificaciones de la Rutina con exito");
             estatus = ps.executeUpdate();
             
-            ps.close();
-            con.close();
             
             
         }catch(Exception e){
             System.out.println("Error al desvincular las clasificaciones con la Rutina");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
         
@@ -323,13 +375,16 @@ public class AccionesRutina {
     
     //############################ Agregar, Borrar y Consultar las Rutinas de la Biblioteca Publica (DRutinaEnBiblioteca) #####################
        
-    public static int agregarABibliotecaPublica(Rutina ruti){
+    public static int agregarABibliotecaPublica(Rutina ruti) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Insert into DRutinaEnBiblioteca(id_ruti) "
                     + "values (?)";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             
             estatus = ps.executeUpdate();
@@ -337,35 +392,42 @@ public class AccionesRutina {
             System.out.println("Rutina agregada a la Biblioteca publica");
             
             
-            ps.close();
-            con.close();
         }catch(Exception e){
             System.out.println("Error al agregar la rutina a la biblioteca publica");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
     }
     
-    public static int quitarABibliotecaPublica(Rutina ruti){
+    public static int quitarABibliotecaPublica(Rutina ruti) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from DRutinaEnBiblioteca where id_ruti = ? ";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, ruti.getId_ruti());
             
             estatus = ps.executeUpdate();
             
             System.out.println("Rutina bajada de la Biblioteca publica");
             
-            ps.close();
-            con.close();
             
         }catch(Exception e){
             System.out.println("Error al bajar la rutina en la biblioteca publica");
             System.out.println(e.getMessage());
-        }
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
         
         return estatus;
         
@@ -373,15 +435,18 @@ public class AccionesRutina {
         
     }
     
-    public static boolean isInBibliotecaPublica(int id_ruti){
+    public static boolean isInBibliotecaPublica(int id_ruti) throws SQLException{
         boolean inBibliotecaPublica = false;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from DRutinaEnBiblioteca where id_ruti = ?";
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             ps.setInt(1, id_ruti);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 int id = rs.getInt("id_ruti");
                 inBibliotecaPublica = true;
@@ -389,12 +454,13 @@ public class AccionesRutina {
             
             System.out.println("Se consulto la rutina en la Biblioteca");
             
+        }catch(Exception e){
+            System.out.println("Error al consultar la rutina en la Biblioteca Publica");
+        }finally{
             rs.close();
             ps.close();
             con.close();
-        }catch(Exception e){
-            System.out.println("Error al consultar la rutina en la Biblioteca Publica");
-        }
+        }   
         
         
         return inBibliotecaPublica;

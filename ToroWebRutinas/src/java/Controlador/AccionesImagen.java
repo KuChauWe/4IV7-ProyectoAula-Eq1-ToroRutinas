@@ -8,6 +8,7 @@ import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -20,17 +21,21 @@ import javax.servlet.http.HttpServlet;
  */
 public class AccionesImagen extends HttpServlet {
 
-    public static int registrarImagen(Imagen e){
+    public static int registrarImagen(Imagen e) throws SQLException{
         int estatus = 0;
         Blob imagen = null;
         
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
         
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "insert into MImagen(id_img, nom_img, foto_img,"
                     + "values(?,?,?)";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             //usar getter and setter
             ps.setInt(1, e.getId_img());
@@ -49,50 +54,62 @@ public class AccionesImagen extends HttpServlet {
             
             estatus = ps.executeUpdate();
             System.out.println("Registro exitoso de la imagen");
-            con.close();
         
         }catch(Exception ed){
             System.out.println("Error al registrar la imagen");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return estatus;
     }
             
-    public static int borrarImagen(int id){
+    public static int borrarImagen(int id) throws SQLException{
         int estatus = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "delete from MImagen where id_img = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, id);
             
             estatus = ps.executeUpdate();
             System.out.println("Imagen eliminada exitosamente");
-            con.close();
         
         }catch(Exception ed){
             System.out.println("Error al borrar la imagen");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return estatus;
     }
     
-    public static Imagen buscarImagenById(int id){
+    public static Imagen buscarImagenById(int id) throws SQLException{
         Imagen e = new Imagen();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "select * from MImagen where id_img = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, id);
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             if(rs.next()){
                 e.setId_img(rs.getInt("id_img"));
                 e.setNom_img(rs.getString(2));
@@ -111,27 +128,33 @@ public class AccionesImagen extends HttpServlet {
             }
             
             System.out.println("Imagen encontrada");
-            con.close();
         
         }catch(Exception ed){
             System.out.println("Error al buscar la imagen");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return e;
     }
     
-    public static List<Imagen> buscarAllImagenes(){
+    public static List<Imagen> buscarAllImagenes() throws SQLException{
         List<Imagen> lista = new ArrayList<Imagen>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "select * from MImagen";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             while(rs.next()){
                 Imagen e = new Imagen();
                 e.setId_img(rs.getInt("id_img"));
@@ -157,22 +180,29 @@ public class AccionesImagen extends HttpServlet {
             System.out.println("Error al buscar las imágenes");
             System.out.println(ed.getMessage());
         
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         return lista;
     }
     
-    public static List<Imagen> getImagenesEjercicio(Ejercicio ejer){
+    public static List<Imagen> getImagenesEjercicio(Ejercicio ejer) throws SQLException{
         List<Integer> ids = null;
         List<Imagen> lista = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try{
-            Connection con = ConexionSQL.getConnection();
+             con = ConexionSQL.getConnection();
             String q = "Select * from EImagen where id_ejer = ?";
             
-            PreparedStatement ps = con.prepareStatement(q);
+             ps = con.prepareStatement(q);
             
             ps.setInt(1, ejer.getId_ejer());
             
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
             
             while(rs.next()){
                 ids.add(rs.getInt("id_ejer"));
@@ -196,6 +226,10 @@ public class AccionesImagen extends HttpServlet {
         }catch(Exception e){
             System.out.println("Erro al conseguir los ids de las imagenes");
             System.out.println(e.getMessage());
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
         }
         
     
