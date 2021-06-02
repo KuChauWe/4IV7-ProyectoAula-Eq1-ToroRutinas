@@ -67,8 +67,5 @@ public class SolicitudAdminUsuario {
 
     public void setAceptado(boolean aceptado) {
         this.aceptado = aceptado;
-    }
-    
-    
-    
+    }   
 }

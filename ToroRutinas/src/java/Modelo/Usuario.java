@@ -61,7 +61,5 @@ public class Usuario extends Perfil{
 
     public void setId_biBlio_usu(int id_biBlio_usu) {
         this.id_biBlio_usu = id_biBlio_usu;
-    }
-    
-    
+    } 
 }

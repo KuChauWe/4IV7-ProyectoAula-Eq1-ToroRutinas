@@ -7,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-
+/**
+ *
+ * @author sofo9
+ */
 public class ConexionSQL {
     
     public static Connection getConnection()
@@ -25,4 +28,5 @@ public class ConexionSQL {
         return con;
         
     }
+    
 }

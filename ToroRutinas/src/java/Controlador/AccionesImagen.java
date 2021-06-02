@@ -234,5 +234,5 @@ public class AccionesImagen extends HttpServlet {
         
     
         return lista;
-    }
+    }   
 }

@@ -6,9 +6,33 @@ package Modelo;
  */
 public class SolicitudAdminCreador {
     int soli_AC;
+    //Admin [1]
     int id_perf1;
+    //Creador [2]
     int id_perf2;
+    
     String motivo;
+    
+    Ejercicio ejer;
+    Rutina ruti;
+
+    public Ejercicio getEjer() {
+        return ejer;
+    }
+
+    public void setEjer(Ejercicio ejer) {
+        this.ejer = ejer;
+    }
+
+    public Rutina getRuti() {
+        return ruti;
+    }
+
+    public void setRuti(Rutina ruti) {
+        this.ruti = ruti;
+    }
+    
+    
     boolean aceptado;
 
     public int getSoli_AC() {
@@ -49,8 +73,5 @@ public class SolicitudAdminCreador {
 
     public void setAceptado(boolean aceptado) {
         this.aceptado = aceptado;
-    }
-    
-    
-    
+    }   
 }

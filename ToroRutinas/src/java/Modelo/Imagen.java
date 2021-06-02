@@ -65,8 +65,5 @@ public class Imagen {
          sqle.printStackTrace ();
       }
       return imagenBlob;
-   }
-    
-    
-    
+   }   
 }

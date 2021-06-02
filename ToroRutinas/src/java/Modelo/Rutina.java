@@ -72,5 +72,5 @@ public class Rutina {
 
     public void setPublica(boolean publica) {
         this.publica = publica;
-    }  
+    }   
 }

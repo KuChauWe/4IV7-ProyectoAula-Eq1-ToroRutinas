@@ -63,5 +63,5 @@ public class Ejercicio {
 
     public void setImg(List<Imagen> img) {
         this.img = img;
-    }  
+    }   
 }
