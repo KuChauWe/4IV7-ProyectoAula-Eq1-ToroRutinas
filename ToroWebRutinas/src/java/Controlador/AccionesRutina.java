@@ -466,9 +466,133 @@ public class AccionesRutina {
         return inBibliotecaPublica;
     }
     
+    //############################ vinculacion de Perfil (dautor) ########################
     
+    public static int vincularAutor(int id_ruti, int id_perf) throws SQLException{
+       
+        int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+        try{
+             con = ConexionSQL.getConnection();
+                String q = "Insert into dautor (id_ruti, id_perf)"
+                        + "values (?,?)";
+                 ps = con.prepareStatement(q);
+                ps.setInt(1, id_ruti);
+                ps.setInt(2, id_perf);
+                estatus = ps.executeUpdate();
+            
+        }catch(Exception e){
+            System.out.println("Error al vincular el autor con la Rutina");
+            System.out.println(e.getMessage());    
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
+        
+        return estatus;
+    }
     
+    public static int desvincularAutor( int id_perf) throws SQLException{
+        int estatus = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+        try{
+             con = ConexionSQL.getConnection();
+                String q = "delete from dautor where id_perf = ?";
+                 ps = con.prepareStatement(q);
+                ps.setInt(1, id_perf);
+                estatus = ps.executeUpdate();
+                System.out.println("Se ha vinculado el autor con la rutina");
+            
+        }catch(Exception e){
+            System.out.println("Error al vincular el autor con la Rutina");
+            System.out.println(e.getMessage());    
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
+        
+        
+        return estatus;
+        
+    }
     
+    public static Perfil getIdAutor(int id_ruti) throws SQLException{
+        Perfil perf = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+            try{
+                con = ConexionSQL.getConnection();
+                String q = "Select id_perf from dautor where id_ruti = ?";
+                ps = con.prepareStatement(q);
+                
+                ps.setInt(1, id_ruti);
+                rs = ps.executeQuery();
+                int id_perf = 0;
+                while(rs.next()){
+                    id_perf = rs.getInt("id_perf");
+                }
+                
+                perf = AccionesPerfil.buscarPerfilById(id_perf);
+                
+                System.out.println("Se consulto correctamente el autor de la Rutina");
+            }catch(Exception e){
+                System.out.println("Error al consultar al autor");
+                System.out.println(e.getMessage());
+            }finally{
+                rs.close();
+                ps.close();
+                con.close();
+            }
+        
+        
+        
+        return perf;
+    }
+    
+    public static List<Rutina> getRutinasCreadas(int id_perf) throws SQLException{
+        List<Rutina> rutis = null; 
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+        try{
+             con = ConexionSQL.getConnection();
+                String q = "select id_ruti from dautor where id_perf = ?";
+                ps = con.prepareStatement(q);
+                ps.setInt(1, id_perf);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    Rutina ruti = AccionesRutina.buscarRutinaById(rs.getInt("id_ruti"));
+                    rutis.add(ruti);
+                    
+                }
+                
+                
+                System.out.println("Se ha consultado las rutinas del autor");
+            
+        }catch(Exception e){
+            System.out.println("Error al consultar las rutinas del autor ");
+            System.out.println(e.getMessage());    
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }   
+        
+        
+        return rutis;
+        
+        
+        
+        
+        
+    }
     
 }
 

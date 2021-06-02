@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -166,6 +164,46 @@ public class AccionesPerfil extends HttpServlet {
             con.close();
         }
         return e;
+    }
+    
+    public static int getIdPerfil(String email_perf, String pass_perf) throws SQLException{
+         
+        int id_perf = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
+        try{
+             con = ConexionSQL.getConnection();
+            String q = "select id_perf from MPerfil where email_perf = ?, contra_perf = ?";
+            
+             ps = con.prepareStatement(q);
+            
+            ps.setString(1, email_perf);
+            ps.setString(2, pass_perf);
+            
+             rs = ps.executeQuery();
+            if(rs.next()){
+                id_perf = rs.getInt("id_perf");
+               
+            }
+            
+            System.out.println("Perfil encontrado");
+            con.close();
+        
+        }catch(Exception ed){
+            System.out.println("Error al buscar el perfil");
+            System.out.println(ed.getMessage());
+        
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        return id_perf;
+        
+        
+        
     }
     
     public static List<Perfil> buscarAllPerfiles() throws SQLException{
