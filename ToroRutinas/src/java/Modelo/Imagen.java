@@ -1,6 +1,15 @@
 package Modelo;
 
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import javax.imageio.ImageIO;
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 /**
  *
@@ -34,4 +43,30 @@ public class Imagen {
     public void setFoto_img(Image foto_img) {
         this.foto_img = foto_img;
     }
+    
+    
+    public static Blob convertirImagenABlob ( Image imagen ) {
+
+        
+      Blob imagenBlob = null;
+      BufferedImage bi = new BufferedImage ( imagen.getWidth ( null ), imagen.getHeight ( null ), BufferedImage.TYPE_INT_ARGB );
+      Graphics bg = bi.getGraphics ();
+      bg.drawImage ( imagen, 0, 0, null );
+      bg.dispose ();
+
+      ByteArrayOutputStream baos = new ByteArrayOutputStream ();
+      byte [] imagenByte = baos.toByteArray ();
+
+      try {
+         imagenBlob = new SerialBlob ( imagenByte );
+      } catch ( SerialException se ) {
+         se.printStackTrace ();
+      } catch ( SQLException sqle ) {
+         sqle.printStackTrace ();
+      }
+      return imagenBlob;
+   }
+    
+    
+    
 }

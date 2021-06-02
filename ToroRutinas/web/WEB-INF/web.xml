@@ -8,6 +8,26 @@
         <servlet-name>AccionesPerfil</servlet-name>
         <servlet-class>Controlador.AccionesPerfil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Registro</servlet-name>
+        <servlet-class>Vista.Registro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccionesBibliotecaCreador</servlet-name>
+        <servlet-class>Controlador.AccionesBibliotecaCreador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccionesEjercicio</servlet-name>
+        <servlet-class>Controlador.AccionesEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccionesClasificacion</servlet-name>
+        <servlet-class>Controlador.AccionesClasificacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccionesRutina</servlet-name>
+        <servlet-class>Controlador.AccionesRutina</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConexionSQL</servlet-name>
         <url-pattern>/ConexionSQL</url-pattern>
@@ -15,6 +35,26 @@
     <servlet-mapping>
         <servlet-name>AccionesPerfil</servlet-name>
         <url-pattern>/AccionesPerfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registro</servlet-name>
+        <url-pattern>/Registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccionesBibliotecaCreador</servlet-name>
+        <url-pattern>/AccionesBibliotecaCreador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccionesEjercicio</servlet-name>
+        <url-pattern>/AccionesEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccionesClasificacion</servlet-name>
+        <url-pattern>/AccionesClasificacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccionesRutina</servlet-name>
+        <url-pattern>/AccionesRutina</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
