@@ -1,0 +1,299 @@
+@media  (min-height:720px) and (max-height:1080px){
+      
+    
+        body{
+            background-color: rgb(239,239,239);
+            }
+        header{
+          background-color: rgb(37,36,42);
+        }
+        
+          }
+        body{
+        margin:0;
+        background-color: rgb(239,239,239);
+      }
+      
+      @-webkit-keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(1);
+                  transform: scale(1.5);
+        }
+        100% {
+          -webkit-trrnsform: scale(2);
+                  transform: scale(1.5);
+        }
+      }
+      @keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+        }
+        100% {
+          -webkit-transform: scale(1.5);
+                  transform: scale(1.5);
+        }
+      }
+      .scale-up-center, svg:hover{
+        -webkit-animation: scale-up-center 10s ease-in-out both;
+                animation: scale-up-center 1s ease-in-out both;
+      }
+      
+      *{
+        box-sizing: border-box;
+        margin: 0;
+      }
+      
+      body{
+        background-color: rgb(239, 239, 239);
+      }
+      
+      
+      img#ToroPNG{
+        min-height: 10rem;
+        max-height: 10rem;
+        height: 100%;
+        display: flex;
+      }
+      
+
+      /**carrusel con filas**/
+      
+      .second-container{
+        margin-top: 6rem;
+        max-width: 81%;
+        margin-bottom: 4rem;
+        margin-left: 10rem;
+      }
+      
+      
+      /*El de arriba es el div de todooooooooooooooooooooooooo*/
+      
+      .carousel__contenedor {
+              position: relative;
+      }
+      
+      .carousel__anterior,
+      .carousel__siguiente {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 40px;
+        margin: auto;
+        margin-top: 7rem;
+        border: none;
+        max-width: 300px;
+        max-height: 300px;
+        align-self: center;
+      }
+      
+      #Capa_2{
+        max-height: 60px;
+        min-height: 50px;
+        width: 50px;
+        background: none;
+      }
+      
+      .carousel__anterior:hover,
+      .carousel__siguiente:hover {
+              opacity: 100%;
+      }
+      
+      .carousel__anterior {
+              left: -5%;
+      }
+      
+      .carousel__siguiente {
+              right: -5%;
+      }
+      
+      .carousel__lista {
+              overflow: hidden;
+        align-items: center;
+      }
+      
+      .carousel__elemento {
+              text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        max-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        min-height: 300px;
+      }
+      
+      .carousel__elemento.glider-slide.visible.active.left-2{
+        padding: -16rem;
+        padding-left: -16rem;
+        padding-right: -16rem;
+        max-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        min-height: 300px;
+        background: none;
+      }
+      
+      .carousel__indicadores .glider-dot {
+              display: block;
+              width: 30px;
+              height: 4px;
+              background: #fff;
+              opacity: .2;
+              border-radius: 0;
+      }
+      
+      .carousel__indicadores .glider-dot:hover {
+              opacity: .5;
+      }
+      
+      .carousel__indicadores .glider-dot.active {
+              opacity: 1;
+      }
+      
+      @media screen and (max-width: 800px) {
+              body {
+                      padding: 40px 0;
+              }
+      
+              .contenido-principal {
+                      flex-direction: column;
+              }
+      
+              .contenido-principal > * {
+                      width: 100%;
+              }
+      }
+      
+      section#vistaRutinas{
+        border: 5px rgb(247,96,31);
+        border-style: solid;
+        padding: 0;
+        justify-content: center;
+        align-content: center;
+        align-self: center;
+        display: flex;
+        min-height: 260px;
+        max-height: 260px;
+        max-width: 270px;
+        min-width: 270px;
+        width: 100%;
+      }
+      
+      section#vistaRutinas:hover{
+          border: 2px solid rgb(247,96,31);
+          outline: none;
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
+          transition: .2s;
+      }
+      .direcciones:hover{
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.123);
+        transition: 5s;
+      }
+
+option:disabled{
+        border: rgb(247,96,31);
+        color:rgb(233, 95, 15);
+}
+
+/*el header aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+
+.nav-bar{
+  background: burlywood;
+  padding: 20;
+  display: block;
+  color:white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 100%;
+  position:relative;
+}
+
+.menu, .submenu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.menu{
+  background: rgb(37,36,42);
+  width: 100%;
+  margin-left: -100%;
+  transition: all 0.5s;
+}
+
+.menu__link{
+  display: block;
+  padding: 20px;
+  color: rgb(247,96,31);
+  font-size: 1.2em;
+  text-decoration: none;
+  background-color: rgb(37,36,42);
+}
+
+.mostrar{
+  margin-left: 0;
+}
+
+.menu__link:hover{
+  background: rgb(37,36,42);
+}
+
+.submenu:hover{
+  background: rgb(37,36,42);
+}
+
+.submenu{
+  height: 0;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.submenu{
+  background: rgb(37,36,42);
+  padding-left: 50px;
+}
+
+.submenu2{
+  background: rgb(37,36,42);
+  overflow: hidden;
+  transition: 1s;
+}
+
+@media(min-width:1920px){
+  .nav-bar{
+      display: none;
+  }
+  .menu{
+      margin-left: 0;
+      display: flex;
+  }
+  .container-submenu{
+      position: relative;
+  }
+
+  .submenu{
+      position: absolute;
+      top: 60px;
+      width: 200px;
+      overflow: visible;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+  }
+  .container-submenu:hover .submenu{
+      opacity: 1;
+      visibility: visible;
+  }
+}
+
+#items-menu{
+  display: flex;
+  align-items:center;
+  justify-content:stretch;
+
+}

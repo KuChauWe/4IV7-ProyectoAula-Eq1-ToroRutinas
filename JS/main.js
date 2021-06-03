@@ -36,7 +36,7 @@ function muestraSlides(n){
 }
 
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function(e){
 	new Glider(document.querySelector('.carousel__lista'), {
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -61,8 +61,10 @@ window.addEventListener('load', function(){
 				slidesToShow: 5,
 				slidesToScroll: 5,
 				itemWidth: 150,
-				duration: 0.25
+				duration: 2
 			  }
 			}
 		  ]
 		})});
+
+		

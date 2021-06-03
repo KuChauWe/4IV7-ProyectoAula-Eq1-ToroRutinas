@@ -344,3 +344,7 @@ section#vistaRutinas:hover{
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
     transition: .2s;
 }
+.direcciones:hover{
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.123);
+  transition: 5s;
+}
