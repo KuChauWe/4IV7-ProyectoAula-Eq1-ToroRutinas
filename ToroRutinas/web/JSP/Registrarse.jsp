@@ -29,36 +29,23 @@
     Date fechNaci_perf = null;
     fechNaci_perf.setTime(request.getDateHeader("fechNaci_perf"));
     String contra_perf = request.getParameter("contra_perf");
-
     try{
+        Perfil perf = new Perfil();
+        perf.setNom_perf(nom_perf);
         
-        ConexionSQL sql = new ConexionSQL();
-        
-        sql.init(con, set);
-        
-        con = sql.getCon();
-        set = sql.getSet();
-        
-        
-        System.out.println("Se ha conectado con la BD");
-    
-    
-        try{
+        int estatus = AccionesPerfil.registrarPerfil(perf);
 
-            Perfil perf = new Perfil();
-            
-            perf.Perfil(nom_perf, email_per, fechNaci_perf, contra_perf);
-            sql.registrarPerfil(perf);
-            
-            if(sql.buscarPerfilById(nom_perf, email_per)== 0){
+        if(estatus == 0){
 %>
-                <h1>Ya existe un usuario con el nombre o correo electrónico que acabas de escribir</h1>
+                <h1> 
+                    Hubo un error al registrar el perfil 
+                </h1>
 
 
 <%
               
                 
-            }else{
+        }else{
 %>
                 <h1>Registro exitoso</h1>
                 <br>
@@ -66,7 +53,7 @@
                 <p>
                     Nombre: <%=perf.getNom_perf()%>
                 <br><br>
-                    Correo electrónico: <%=perf.getEmail_per()%>
+                    Correo electrÃ³nico: <%=perf.getEmail_per()%>
                 <br><br>
                     Fecha de nacimiento: <%=perf.getFechNaci_perf().toString()%>
                 </p>
@@ -74,18 +61,8 @@
     <%
             }
             System.out.println("Se ha registrado correctamente el perfil");    
-        }catch(Exception e){
-                System.out.println("No se ha registrado el perfil");
-                System.out.println(e.getMessage());
-                System.out.println(e.getStackTrace());
-%>
-            <h1>No se pudo registrar el perfil</h1>
-<%
-    }
+        
     
-    
-    
-
     }catch(Exception e){
         System.out.println("Error al conectar con la BD");
         System.out.println(e.getMessage());
