@@ -2,6 +2,9 @@ package Vista;
 
 import Controlador.AccionesPerfil;
 import Modelo.Perfil;
+import Modelo.Imagen;
+import java.awt.Image;
+import java.awt.Graphics;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -22,6 +25,17 @@ public class Registro extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            /*imagen convertir a image y luego a imagen*/
+            
+            /*
+            Primero tomar el dato del input del html
+            después sea cual sea el  tipo de dato que regrese lo deberas convertir a Image
+            Y ya despues lo registras con el metodo
+            los conviertes a imagen
+            y ya registras al perfil
+            Tienes que checar los metodos
+            */
+            
             String nom_perf = request.getParameter("nom_perf");
             String email_per = request.getParameter("email_per");
             Date fechNaci_perf = null;
@@ -29,7 +43,7 @@ public class Registro extends HttpServlet {
             String contra_perf = request.getParameter("contra_perf");
             
             Perfil e = new Perfil();
-            
+             
             e.setNom_perf(nom_perf);
             e.setEmail_per(email_per);
             e.setFechNaci_perf(fechNaci_perf);
