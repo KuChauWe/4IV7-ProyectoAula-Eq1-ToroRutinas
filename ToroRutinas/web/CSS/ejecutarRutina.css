@@ -27,23 +27,12 @@ body{
 }
 
 .columna-izq{
-    position:relative;
+    display: flex;
     border:1px solid rgb(247,96,31);
     background-color: #fff;
     width:40%;
     height: 400px;
-    padding:30px;
-    overflow: hidden;
-}
-
-.slider{
-    display:flex;
-    
-    /*Aquí es 300% porque son 3 imágenes en el slider*/
-    /*Si quieres poner 5 imágenes, cambia a 500%*/
-    width:300%;
-    margin-left:-100%;
-    height:340px;
+    margin:auto;
 }
 
 .columna-der{
@@ -58,13 +47,25 @@ body{
     align-items: center;
 }
 
-.slider-section{
+.slider{ /*slide-contenedor*/
+    position:relative;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.slider-section{ /*miSlider*/
     width: 100%;  
+    height: 100%;
+    padding:30px;
+}
+
+.slider-section img{
+    transition: 2s;
 }
 
 .imagen{
-    padding:30px;
-    display: block;
     width:100%;
     height:100%;
     object-fit: cover;
@@ -99,18 +100,51 @@ body{
 }
 
 .slider-boton-der{
-    right: 5px;
+    right: 8px;
 }
 
 .slider-boton-izq{
-    left: 5px;
+    left: 8px;
+}
+
+.barras{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.barra{
+    cursor: pointer;
+    height: 5px;
+    width: 25px;
+    margin: 0 2px;
+    background: rgba(0, 0, 0, 0.35);
+    display:inline-block;
+    margin-left: 3px;
+}
+
+.active{
+    background-color: rgb(247,96,31);
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+
+@keyframes fade{
+    from{opacity: .4;}
+    to{opacity:1;}
 }
 
 .boton{
     margin:auto;
     height: 30px;
     background: rgb(37,36,42);
-    color: rgb(247,96,31);
+    color: rgb(247,96,31); 
     font-weight: bold;
     border: rgb(247,96,31);
     border-style: outset;

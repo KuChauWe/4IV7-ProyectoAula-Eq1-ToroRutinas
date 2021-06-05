@@ -15,19 +15,38 @@
         </div>
         <div class="columna-izq">
             <div class="slider" id="slider">
-                <div class="slider-section"><img class="imagen" src="./IMG/toro.png"></div>
-                <div class="slider-section"><img class="imagen" src="./IMG/LogoTororutinas.png"></div>
-                <div class="slider-section"><img class="imagen" src="./IMG/ToroRutinasLogo22.png"></div>
-            
-                <div class="slider-boton slider-boton-der" id="boton-der">&#62;</div>
-                <div class="slider-boton slider-boton-izq" id="boton-izq">&#60;</div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="./IMG/toro.png">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="./IMG/LogoEmpresa.jpeg">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="./IMG/LogoTororutinas.png">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="./IMG/ToroRutinasLogo22.png">
+                </div>
+                
+                <!--funciona raro
+                <div class="slider-boton slider-boton-der" onclick="avanzar(1)">&#10095;</div>
+                <div class="slider-boton slider-boton-izq" onclick="avanzar(-1)">&#10094;</div>
+                -->
+
+                <div class="barras">
+                    <span class="barra active" onclick="posicionSlide(1)"></span>
+                    <span class="barra" onclick="posicionSlide(2)"></span>
+                    <span class="barra" onclick="posicionSlide(3)"></span>
+                    <span class="barra" onclick="posicionSlide(4)"></span>
+                </div>
             </div>
         </div>
         <div class="columna-der">
             <p class="info">Información ejercicio</p>
         </div>
         <div class="div-botones">
-            <button type="button" onclick="automatizar()" class="boton">Ejecutar rutina</button>
+            <button type="button" class="boton" onclick="ejecutar(1)">Ejecutar rutina</button> 
+            <button type="button" class="boton" onclick="ejecutar(0)">Detener rutina</button>
         </div>
         
     </div>

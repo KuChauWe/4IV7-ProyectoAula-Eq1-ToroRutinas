@@ -1,51 +1,50 @@
-const slider = document.querySelector("#slider");
-let sliderSection = document.querySelectorAll(".slider-section");
-let sliderSectionLast = sliderSection[sliderSection.length -1];
-    
-const btnLeft = document.querySelector("#boton-izq");
-const btnRight = document.querySelector("#boton-der");
-    
-slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+let indice = 1;
+muestraSlides(indice);
 
-
-function siguiente(){
-    
-    let sliderSectionFirst = document.querySelectorAll(".slider-selection")[0];
-    slider.style.marginLeft = "-200%";
-    slider.style.transition = "all 0.5s";
-    setTimeout(function(){
-        slider.style.transition = "none";
-        slider.insertAdjacentElement('beforeend', sliderSectionFirst);
-        slider.style.marginLeft = "-100%";
-    }, 500); /*Aquí es 500 porque es el equivalente de los 0.5 s de arriba*/
-             /*1000 es un segundo*/
+function avanzar(n){
+    muestraSlides(indice+=n);
 }
 
-function anterior(){
-    
-    let sliderSection = document.querySelectorAll(".slider-selection");
-    let sliderSectionLast = sliderSection[sliderSection.length -1];
-    slider.style.marginLeft = "0";
-    slider.style.transition = "all 0.5s";
-    setTimeout(function(){
-        slider.style.transition = "none";
-        slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-        slider.style.marginLeft = "-100%";
-    }, 500); /*Aquí es 500 porque es el equivalente de los 0.5 s de arriba*/
-             /*1000 es un segundo*/
+function posicionSlide(n){
+    muestraSlides(indice=n);
 }
 
-btnRight.addEventListener('click', function(){
-    siguiente();
-});
+function muestraSlides(n){
+    let i;
+    let slides = document.getElementsByClassName('slider-section');
+    let barras = document.getElementsByClassName('barra');
 
-btnLeft.addEventListener('click', function(){
-    anterior();
-});
+    if(n > slides.length){
+        indice = 1;
+    }
+    if(n < 1){
+        indice = slide.length();
+    }
+    for(i = 0; i < slides.length; i++){
+        slides[i].style.display = 'none';
+    }
+    for(i = 0; i < barras.length; i++){
+        barras[i].className = barras[i].className.replace(" active", "");
+    }
 
-/*AUTOMATIZAR*/
-function automatizar(){
-    setInterval(function(){
-        siguiente();
-    }, 4000); /*Cada 5 segundos cambia*/
+    slides[indice-1].style.display = 'block';
+    barras[indice-1].className += ' active';
+
+}
+
+var intervalo;
+
+function ejecutar(n){
+    if(n == 1){
+        intervalo = setInterval(function tiempo(){
+            muestraSlides(indice+=1)
+        }, 4000); /*Cada 4 segundos*/
+    }
+    if(n == 0){
+        clearInterval(intervalo);
+    }    
+}
+
+function detener(){
+    timeout = clearTimeout(detener, 4000);
 }
