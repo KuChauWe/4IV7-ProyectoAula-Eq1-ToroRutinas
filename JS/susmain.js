@@ -1,24 +1,73 @@
 const btnMenu = document.querySelector("#btnMenu");
-const menu = document.querySelector("#menu");
+const menu = document.querySelector("#menu")
 btnMenu.addEventListener("click", function(){
-    menu.classList.toggle("mostrar");
+    menu.classList.toggle("mostrar")
 });
-
-const subMenuBtn = document.querySelectorAll(".submenu-btn");
-for(let i=0; i < subMenuBtn.length; i++){
-    subMenuBtn[i].addEventListener("click", function(){
-        if(window.innerWidth < 1920){
-            const subMenu = this.nextElementSibling;
-            const height = subMenu.scrollHeight;
-            if(subMenu.classList.contains("desplegar")){
-                subMenu.classList.remove("desplegar");
-                subMenu.removeAttribute("style");
-            } else{
-                subMenu.classList.add("desplegar");
-                subMenu.style.height = height + "px";
-            }
-
-
+//Lo de arriba es la función para mostrar las categorias principales
+const Btn = document.querySelectorAll(".menu__link");
+for(let i=0; i < Btn.length; i++){
+    Btn[i].addEventListener("click", function(){
+        const Btn = this.nextElementSibling;
+        const height = Btn.scrollHeight;
+        if(Btn.classList.contains("desplegar")){
+            Btn.classList.remove("desplegar")
+            Btn.removeAttribute("style");
+        } else{
+            Btn.classList.add("desplegar");
+            Btn.style.height = height + "px";
         }
     });
 }
+
+const normal = document.querySelector(".sub-submenu-btn")
+const subNtp = document.querySelector(".sub-ntp")
+normal.addEventListener("click", function(){
+    subNtp.classList.toggle("normal")
+});
+
+const menuN = document.querySelector("#botonSuperior")
+const pulsado = document.querySelector(".menu")
+menuN.addEventListener("click", function(){
+    pulsado.classList.toggle("menuN")
+    pulsado.classList.toggle("submenuN")
+
+});
+
+const pulsadoIn = document.querySelector(".submenu")
+menuN.addEventListener("click", function(){
+    pulsadoIn.classList.toggle("submenuN")
+
+});
+
+
+
+window.addEventListener('load', function(e){
+	new Glider(document.querySelector('.carousel__lista'), {
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: '.carousel__indicadores',
+		arrows: {
+			prev: '.carousel__anterior',
+			next: '.carousel__siguiente'
+		},
+		responsive: [
+			{
+			  // screens greater than >= 775px
+			  breakpoint: 450,
+			  settings: {
+				// Set to `auto` and provide item width to adjust to viewport
+				slidesToShow: 2,
+				slidesToScroll: 2
+			  }
+			},{
+			  // screens greater than >= 1024px
+			  breakpoint: 800,
+			  settings: {
+				slidesToShow: 5,
+				slidesToScroll: 5,
+				itemWidth: 150,
+				duration: 2
+			  }
+			}
+		  ]
+		})});

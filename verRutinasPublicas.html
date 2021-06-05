@@ -9,133 +9,127 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.css">
     <link rel="stylesheet" href="CSS/verRutinasPublicas.css">
 </head>
-<header>
-    <span class="nav-bar" id="btnMenu"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-   <path fill="#F8601F" d="M2.5,12c0-0.276,0.224-0.5,0.5-0.5h10c0.276,0,0.5,0.224,0.5,0.5s-0.224,0.5-0.5,0.5H3
-       C2.724,12.5,2.5,12.276,2.5,12z M2.5,8c0-0.276,0.224-0.5,0.5-0.5h10c0.276,0,0.5,0.224,0.5,0.5S13.276,8.5,13,8.5H3
-       C2.724,8.5,2.5,8.276,2.5,8z M2.5,4c0-0.276,0.224-0.5,0.5-0.5h10c0.276,0,0.5,0.224,0.5,0.5S13.276,4.5,13,4.5H3
-       C2.724,4.5,2.5,4.276,2.5,4z"/>
-   </svg> Menú</span> <!--Aquí va la imagen de la hamburgueza en svg xd-->
-    <nav class="main-nav">
-        <ul class="menu" id="menu">
-            <li class="menu__item container-submenu">
-                <a href="#" class="menu__link submenu-btn">Fuerza Muscular <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-               <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                   c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                   C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-               </svg></a>
-                <ul class="submenu">
-                    <li class="menu__item container-submenu">
-                                            <a href="#" class="menu__link submenu-btn">Alto Impacto 
-                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-                   <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                       c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                       C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-                                                </svg>
-                                            </a>
-<!--                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Brazo</a></li>
-                        </ul>
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Pierna</a></li>
-                        </ul>
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Pierna</a></li>
-                        </ul>                        
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Abdomen</a></li>
-                        </ul>                        
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Pecho</a></li>
-                        </ul>                        
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Espalda</a></li>
-                        </ul>                        
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Glúteo</a></li>
-                        </ul>
-                        <ul class="submenu2">
-                            <li class="menu__item" id="items-menu"><a href="#" class="menu__link"> Cuerpo Completo</a></li>
-                        </ul>
-                    </li>
--->
-                    <li class="menu__item"><a href="#" class="menu__link">Bajo Impacto</a></li> <!--se pueden poner más submenus, lo que cambia es el orden-->
-                </ul>
-            </li>
+
+<span class="nav-bar" id="btnMenu"><i class="fas fa-bars"> Categorias de rutinas</i></span>
+<nav class="main-nav">
+    <ul class="menu" id="menu">
+        <li class="menu__item">
+            <a href="#" class="menu__link submenu-btn">Fuerza Muscular <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn" id="botonSuperior">Alto impacto <i class="fas fa-chevron-down"></i></a>
+                    <ul class="sub-submenu sub-ntp">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Brazo</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Pierna</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Abdomen</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Pecho</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Espalda</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Glúteos</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Cuerpo completo</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Bajo impacto <i class="fas fa-chevron-down"></i></a>
+                    <ul class="sub-submenu sub-ntp">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Brazo</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Pierna</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Abdomen</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Pecho</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Espalda</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Glúteos</a>
+                        </li>
+                        <li class="menu__item sub-ntp">
+                            <a href="#" class="menu__link">Cuerpo completo</a>
+                        </li>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
 
 
+        <li class="menu__item">
+            <a href="#" class="menu__link submenu-btn">Ejercicio Aeróbico<i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn" id="botonSuperior">Alto impacto</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Bajo impacto</a>
+                </li>
+
+            </ul>
+        </li>
 
 
+        <li class="menu__item">
+            <a href="#" class="menu__link submenu-btn">Ejercicios de equilibrio</a>
+        </li>
 
 
-            
-
-            <li class="menu__item container-submenu">
-                <a href="#" class="menu__link submenu-btn">Ejercicio Aeróbico <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-               <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                   c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                   C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-               </svg></a>
-                <ul class="submenu">
-                    <li class="menu__item"><a href="#" class="menu__link">Alto Impacto</a></li>
-                    <li class="menu__item container-submenu">
-                        <a href="#" class="menu__link submenu-btn">Ejercicio Aeróbico 
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-                       <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                           c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                           C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-                            </svg>
-                        </a>
-                        <ul class="submenu">
-                            <li class="menu__item"><a href="#" class="menu__link">Alto Impacto</a></li>
-                            
-                            <li class="menu__item"><a href="#" class="menu__link">Bajo Impacto</a></li> <!--se pueden poner más submenus, lo que cambia es el orden-->
-                        </ul>
-                    </li>
-                    <li class="menu__item"><a href="#" class="menu__link">Bajo Impacto</a></li> <!--se pueden poner más submenus, lo que cambia es el orden-->
-                </ul>
-            </li>
+        <li class="menu__item">
+            <a href="#" class="menu__link submenu-btn">Estiramiento <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">En brazo </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Pierna </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Abdomen </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Pecho </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Espalda </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Glúteos </a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link sub-submenu-btn">Cuerpo completo </a>
+                </li>
+            </ul>
+        </li>
 
 
+    </ul>
+</nav>
 
 
-
-
-
-            <li class="menu__item container-submenu">
-                <a href="#" class="menu__link submenu-btn">Ejercicio de equilibrio <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-               <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                   c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                   C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-               </svg></a> <!--Aquí va imagen hacia abajo en svg-->
-                <ul class="submenu">
-                    <li class="menu__item"><a href="#" class="menu__link">Alto Impacto</a></li>
-                    <li class="menu__item"><a href="#" class="menu__link">Bajo Impacto</a></li> <!--se pueden poner más submenus, lo que cambia es el orden-->
-                </ul>
-            </li>
-            <li class="menu__item container-submenu">
-                <a href="#" class="menu__link submenu-btn">Estiramiento <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-               <path fill="#F8601F" d="M1.646,4.646C1.841,4.451,2.158,4.45,2.353,4.645c0,0,0,0,0.001,0.001L8,10.293l5.646-5.647
-                   c0.195-0.195,0.512-0.195,0.707,0s0.195,0.513,0,0.708l-6,6c-0.195,0.195-0.512,0.196-0.707,0.002c0-0.001,0-0.001-0.001-0.002l-6-6
-                   C1.451,5.159,1.45,4.842,1.646,4.646C1.646,4.646,1.646,4.646,1.646,4.646z"/>
-               </svg></a> <!--Aquí va imagen hacia abajo en svg-->
-                <ul class="submenu">
-                    <li class="menu__item"><a href="#" class="menu__link">Alto Impacto</a></li>
-                    <li class="menu__item"><a href="#" class="menu__link">Bajo Impacto</a></li> <!--se pueden poner más submenus, lo que cambia es el orden-->
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
 <body>
-    </div>
+<div>
+    <div class="main-container"><a class="proposito">Propósito</a></div>
+
 	<div class="second-container"> <!--sexoooooooooooooooooooooooooo-->
     <div class="carousel">
         <div class="carousel__contenedor">
@@ -190,11 +184,12 @@
                 </svg>
             </button>
         </div>
+</div>
     </div>
         <div role="tablist" class="class__indicadores"></div>
     </div>
 	<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="JS/susmain.js"></script>
-    <script src="JS/submain.js"></script>
+
 </body>
 </html>

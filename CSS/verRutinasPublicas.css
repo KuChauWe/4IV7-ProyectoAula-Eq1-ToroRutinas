@@ -4,9 +4,6 @@
         body{
             background-color: rgb(239,239,239);
             }
-        header{
-          background-color: rgb(37,36,42);
-        }
         
           }
         body{
@@ -60,7 +57,7 @@
       /**carrusel con filas**/
       
       .second-container{
-        margin-top: 6rem;
+        margin-top: 2rem;
         max-width: 81%;
         margin-bottom: 4rem;
         margin-left: 10rem;
@@ -202,98 +199,138 @@ option:disabled{
 /*el header aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 
 .nav-bar{
-  background: burlywood;
-  padding: 20;
-  display: block;
-  color:white;
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   width: 100%;
-  position:relative;
 }
-
-.menu, .submenu{
+/*el de arriba es el pinche encabezado alv*/
+.menu, .submenu, .sub-submenu{
   list-style: none;
   padding: 0;
   margin: 0;
+}
+/*El pading y margin se le puede poner pero no quiero hijodesuputamadre, además 
+de que se le aplica preferentemente a el SUBMENU y SUB-SUBMENU*/
+.menu{
+  background: rgb(47, 47, 47);
+  width: 100%;
+  position: relative;
+  display: flex;
   justify-content: center;
 }
-
-.menu{
-  background: rgb(37,36,42);
-  width: 100%;
-  margin-left: -100%;
-  transition: all 0.5s;
-}
-
+/*El fondo de las listas*/
 .menu__link{
-  display: block;
+  display: flex;
   padding: 20px;
   color: rgb(247,96,31);
   font-size: 1.2em;
   text-decoration: none;
-  background-color: rgb(37,36,42);
-}
-
-.mostrar{
-  margin-left: 0;
-}
-
-.menu__link:hover{
-  background: rgb(37,36,42);
-}
-
-.submenu:hover{
-  background: rgb(37,36,42);
-}
-
-.submenu{
-  height: 0;
-  overflow: hidden;
-  transition: all .5s;
-}
-
-.submenu{
-  background: rgb(37,36,42);
-  padding-left: 50px;
-}
-
-.submenu2{
-  background: rgb(37,36,42);
-  overflow: hidden;
   transition: 1s;
 }
+/*Pura pinche etiqueta "a" y no mamadas*/
+.submenu .menu__link{
+  background-color: rgb(85, 85, 85);
+  padding-left: 40px;
+}
+.sub-submenu{
+  background-color: rgb(85, 85, 85);
+  padding-left: 50px;
+}
+/*Color y distancia de separación de la izquierda*/
+.sub-submenu{
+  height: 0;
+  overflow: hidden;
+  transition: 1s;
+  z-index: 500;
+  display: flex;
+  position: absolute; /*aaaaaaaaaaaaaaaaaabsolute*/
+}
+.submenu{
+  height: 0;
+  overflow:hidden;
+  transition: 1s;
+  z-index: 0;
+}
+/*Aquí se esconden las ratas y se le añade una transición para después (JS)*/
+.menu{
+  margin-top: -100%;
+  transition: 0.5s;
+}
+/*Aquí se esconde el contenedor secundario para que al dar clic en 
+la hamburguesa se despliegue y se le agrega el maldito transition*/
+.mostrar{
+  margin-top: 0;
 
-@media(min-width:1920px){
-  .nav-bar{
-      display: none;
-  }
-  .menu{
-      margin-left: 0;
-      display: flex;
-  }
-  .container-submenu{
-      position: relative;
-  }
+}
+/*Puro pendejo lo hace resposive*/
 
-  .submenu{
-      position: absolute;
-      top: 60px;
-      width: 200px;
-      overflow: visible;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-  }
-  .container-submenu:hover .submenu{
-      opacity: 1;
-      visibility: visible;
-  }
+/*Aquí termina el CSS alv*/
+.sub-ntp{
+  z-index: 0;
 }
 
-#items-menu{
-  display: flex;
-  align-items:center;
-  justify-content:stretch;
+.normal{
+  position: relative;
+  transition: 1s;
+}
+/*Está enlazado con .sub-submenu*/
 
+.menuN{
+  height: 248px;
+  display: flex;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.submenuN{
+  height: 248px;
+  transition: 1s;
+  width: 100%;
+  overflow:visible;
+}
+
+.primero{
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+
+}
+
+.espacioInt{
+  width: 100%;
+  background-color: rgb(37,36,42);
+  color: rgb(37,36,42);
+  display: flex;
+  font-size: 1.5em;
+  margin: 0;
+  height: 62px;
+}
+
+/*el de arriba es el espacio entre div menú y el contenido, para evitar problemillas*/
+
+.proposito{
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 10%;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.main-container{
+  display: flex;
+  justify-content:flex-start;
+  margin-left: 10%;
 }
