@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/Registrarse.css">
+	<link rel="stylesheet" href="CSS/Registrarse2.css">
 </head>
 <body>
     <main>
         <nav id="encabezado">
-            <form action="" class="formulario" id="formulario">
+            <form action="Registro" class="formulario" id="formulario"  method="post" enctype="multipart/form-data" >
                 <!-- Grupo: Foto -->
                 <div class="formulario__grupo" id="grupo__fotoP">
                     <label for="fotoP" class="formulario__label">Ingresa una foto de perfil</label>
                     <div class="formulario__grupo-input">
-                        <input type="file" class="seleccionar_archivo" id="fotoP" name="fotoP" onchange="return validarExt()">
+                        <input type="file" class="seleccionar_archivo" id="fotoP" name="img_perf" onchange="return validarExt()" >
                         <div id="circulo">
                             <label type="image" id="foto_seleccionada" class="fotoP"></label>
                         </div>
@@ -30,7 +31,7 @@
 			<div class="formulario__grupo" id="grupo__nombre">
 				<label for="nombre" class="formulario__label">Nombre(s)</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombre(s)" autofocus>
+					<input type="text" class="formulario__input" name="nomb_perf" id="nombre" placeholder="Nombre(s)" autofocus>
 					<i class="formulario__validacion-estado fas fa-times-circle"></i>
 				</div>
 				<p class="formulario__input-error">El Nombre tiene que ser de 4 a 50 dígitos, solo puede contener letras y acentos</p>
@@ -84,7 +85,7 @@
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password" placeholder="Contraseña">
+                        <input type="password" class="formulario__input" name="pass_perf" id="password" placeholder="Contraseña">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
@@ -112,8 +113,8 @@
         </nav>
 	</main>
 
-	<script src="js/Registrarse2.js"></script>
-    <script src="js/ValidacionFoto.js"></script>
+	<script src="JS/Registrarse2.js"></script>
+    <script src="JS/ValidacionFoto.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import javax.imageio.ImageIO;
@@ -18,7 +19,7 @@ import javax.sql.rowset.serial.SerialException;
 public class Imagen {
     int id_img;
     String nom_img;
-    Image foto_img;
+    InputStream  foto_img;
 
     public int getId_img() {
         return id_img;
@@ -36,11 +37,11 @@ public class Imagen {
         this.nom_img = nom_img;
     }
 
-    public Image getFoto_img() {
+    public InputStream  getFoto_img() {
         return foto_img;
     }
 
-    public void setFoto_img(Image foto_img) {
+    public void setFoto_img(InputStream  foto_img) {
         this.foto_img = foto_img;
     }
     
@@ -67,6 +68,18 @@ public class Imagen {
       return imagenBlob;
    }
     
-    
+    public static Blob getBlobWithInputStream(InputStream myinputstream) throws IOException{
+        byte[] contents;
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int count;
+        while ((count = myinputstream.read(buffer)) != -1){output.write(buffer, 0, count);}//debugger says myinputstream has blksize 16384, buffcount 12742, and max 127394 here
+        contents = output.toByteArray();
+        Blob blob = null;
+        try {blob = new SerialBlob(contents);} 
+        catch (SerialException e) {e.printStackTrace();}
+        catch (SQLException e) {e.printStackTrace();}
+        return blob;
+    }
     
 }

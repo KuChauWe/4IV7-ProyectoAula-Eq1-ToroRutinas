@@ -157,5 +157,46 @@ public class AccionesUsuario {
         return e;
     }
     
-    
+    public static Usuario buscarUsuarioByIdPerfil(int id_perf) throws SQLException{
+        Usuario e = null;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
+        try{
+             con = ConexionSQL.getConnection();
+            String q = "select * from musuario where id_perf = ?";
+            
+             ps = con.prepareStatement(q);
+            
+            ps.setInt(1, id_perf);
+            
+             rs = ps.executeQuery();
+            if(rs.next()){
+                Perfil perf = AccionesPerfil.buscarPerfilById(rs.getInt("id_perf"));
+                e = (Usuario) perf;
+                e.setId_usu(rs.getInt("id_usua"));
+                e.setId_perf(id_perf);
+                e.setAltu_usu(rs.getFloat("altu_usu"));
+                e.setPeso_usu(rs.getFloat("peso_usu"));
+                e.setCalTo_usu(rs.getFloat("calTo_usu"));
+               
+            }
+            if( e != null){
+                System.out.println("Usuario encontrado con el Id del Perfil");
+            }
+            
+            con.close();
+        
+        }catch(Exception ed){
+            System.out.println("Error al buscar el perfil");
+            System.out.println(ed.getMessage());
+        
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        return e;
+    }
 }

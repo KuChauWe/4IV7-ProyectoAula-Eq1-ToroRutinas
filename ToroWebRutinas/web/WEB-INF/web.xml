@@ -3,10 +3,32 @@
     <servlet>
         <servlet-name>Registro</servlet-name>
         <servlet-class>Vista.Registro</servlet-class>
+        <multipart-config>
+            <location>/tmp</location>
+            <max-file-size>20848820</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistroUsuario</servlet-name>
+        <servlet-class>Vista.RegistroUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IniciarSesion</servlet-name>
+        <servlet-class>Vista.IniciarSesion</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroUsuario</servlet-name>
+        <url-pattern>/RegistroUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IniciarSesion</servlet-name>
+        <url-pattern>/IniciarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

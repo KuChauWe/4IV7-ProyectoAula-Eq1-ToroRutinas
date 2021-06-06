@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 
 /**
  *
- * @author GaelFernandez & sofo9
+ * @author   sofo9
  */
 public class AccionesImagen extends HttpServlet {
 
@@ -32,23 +32,22 @@ public class AccionesImagen extends HttpServlet {
         
         try{
              con = ConexionSQL.getConnection();
-            String q = "insert into MImagen(id_img, nom_img, foto_img,"
+            String q = "insert into CImagen(id_img, nom_img, foto_img)"
                     + "values(?,?,?)";
             
              ps = con.prepareStatement(q);
+             
+             
+             
             
             //usar getter and setter
             ps.setInt(1, e.getId_img());
             ps.setString(2, e.getNom_img());
-            try{
-                
-                ps.setBlob(3, Imagen.convertirImagenABlob(e.getFoto_img()));
             
-            }catch(Exception error){
-                System.out.println("Error al convertir Image a Blob");
-                System.out.println(error.getMessage());
                 
-            }
+            ps.setBlob(3, Imagen.getBlobWithInputStream(e.getFoto_img()));
+            
+            
             
             
             
@@ -113,18 +112,8 @@ public class AccionesImagen extends HttpServlet {
             if(rs.next()){
                 e.setId_img(rs.getInt("id_img"));
                 e.setNom_img(rs.getString(2));
+                e.setFoto_img( (InputStream )rs.getBlob("foto_img"));
                 
-                try{
-                
-                    Blob blob = rs.getBlob("foto_img");  
-                    InputStream in = blob.getBinaryStream();  
-                    BufferedImage image = ImageIO.read(in);
-                    e.setFoto_img(image);
-                    
-                }catch(Exception error){
-                    System.out.println("Error al convertir Blob a Image");
-                    System.out.println(error.getMessage());
-                }
             }
             
             System.out.println("Imagen encontrada");
@@ -139,6 +128,42 @@ public class AccionesImagen extends HttpServlet {
             con.close();
         }
         return e;
+    }
+    
+    public static int getId(Imagen e) throws SQLException{
+        System.out.println("Entro al m"); 
+        int id_img = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try{
+             con = ConexionSQL.getConnection();
+            String q = "select id_img from cImagen where nom_img = ?";
+            
+             ps = con.prepareStatement(q);
+             
+             
+            
+            ps.setString(1, e.getNom_img());
+            
+             rs = ps.executeQuery();
+            if(rs.next()){
+                id_img = rs.getInt("id_img");
+            }
+            
+            System.out.println("Id de la Imagen encontrada");
+        
+        }catch(Exception ed){
+            System.out.println("Error al buscar el ID de la imagen");
+            System.out.println(ed.getMessage());
+        
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        return id_img;
     }
     
     public static List<Imagen> buscarAllImagenes() throws SQLException{
@@ -159,17 +184,8 @@ public class AccionesImagen extends HttpServlet {
                 Imagen e = new Imagen();
                 e.setId_img(rs.getInt("id_img"));
                 e.setNom_img(rs.getString("nomb_img"));
-                try{
-                    Blob blob = rs.getBlob("foto_img");  
-                    InputStream in = blob.getBinaryStream();  
-                    BufferedImage image = ImageIO.read(in);
-                    
-                    e.setFoto_img(image);
-                    
-                }catch(Exception error){
-                    System.out.println("Error al convertir Blob a Image");
-                    System.out.println(error.getMessage());
-                }
+                e.setFoto_img((InputStream)rs.getBlob("foto_img"));
+                
                 lista.add(e);
             }
             

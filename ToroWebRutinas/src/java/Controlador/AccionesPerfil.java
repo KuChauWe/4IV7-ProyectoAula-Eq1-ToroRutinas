@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -26,9 +25,9 @@ public class AccionesPerfil extends HttpServlet {
 
         try{
              con = ConexionSQL.getConnection();
-            String q = "insert into MPerfil( nomb_perf, id_img, email_per, "
-                    + "contra_perf, fechNaci_perf, admin, creador) "
-                    + "values(?,?,?,?,?,?,?,?)";
+            String q = "insert into MPerfil( nomb_per, id_img, email_perf, "
+                    + "contra_perf, fechaNaci_per, administrador, creador) "
+                    + "values(?,?,?,?,?,?,?)";
             
              ps = con.prepareStatement(q);
             
@@ -64,7 +63,7 @@ public class AccionesPerfil extends HttpServlet {
 
         try{
              con = ConexionSQL.getConnection();
-            String q = "update MPerfil set nomb_perf = ?, email_per = ?,"
+            String q = "update MPerfil set nomb_per = ?, email_per = ?,"
                     + "contra_perf = ?, fechNaci_perf = ?, administrador = ?, creador = ? "
                     + "where id_perf = ?";
             
@@ -141,7 +140,7 @@ public class AccionesPerfil extends HttpServlet {
              rs = ps.executeQuery();
             if(rs.next()){
                 e.setId_perf(rs.getInt("id_perf"));
-                e.setNom_perf(rs.getString("nomb_perf"));
+                e.setNom_perf(rs.getString("nomb_per"));
                 e.setContra_perf(rs.getString("contra_perf"));
                 e.setAdmin(rs.getBoolean("administrador"));
                 e.setCreador(rs.getBoolean("creador"));
@@ -175,7 +174,7 @@ public class AccionesPerfil extends HttpServlet {
 
         try{
              con = ConexionSQL.getConnection();
-            String q = "select id_perf from MPerfil where email_perf = ?, contra_perf = ?";
+            String q = "select id_perf from MPerfil where email_perf = ? and contra_perf = ?";
             
              ps = con.prepareStatement(q);
             
