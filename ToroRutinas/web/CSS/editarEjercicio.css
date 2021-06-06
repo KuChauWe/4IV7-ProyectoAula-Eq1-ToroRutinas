@@ -97,31 +97,6 @@ body{
     padding:20px;
 }
 
-.slider-boton{
-    position:absolute;
-    color:rgba(247, 96, 31, 0.8);
-    top:50%;
-    transform: translateY(-50%);
-    font-size:25px;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    cursor:pointer;
-}
-
-.slider-boton:hover{
-    color:rgb(247,96,31);
-}
-
-.slider-boton-der{
-    right: 8px;
-}
-
-.slider-boton-izq{
-    left: 8px;
-}
-
 .barras{
     position:absolute;
     bottom: 0;
@@ -129,30 +104,6 @@ body{
     display:flex;
     justify-content: center;
     margin-bottom: 12px;
-}
-
-.barra{
-    cursor: pointer;
-    height: 5px;
-    width: 25px;
-    margin: 0 2px;
-    background: rgba(0, 0, 0, 0.35);
-    display:inline-block;
-    margin-left: 3px;
-}
-
-.active{
-    background-color: rgb(247,96,31);
-}
-
-.fade{
-    animation-name: fade;
-    animation-duration: 0.5s;
-}
-
-@keyframes fade{
-    from{opacity: .4;}
-    to{opacity:1;}
 }
 
 .boton{
