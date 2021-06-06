@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear ejercicio</title>
+    <link rel="stylesheet" href="CSS/crearEjercicio.css">
+    <link rel="shortcut icon" href="./IMG/LogoTororutinas.png">
+</head>
+<body> 
+    
+    <div class="main-container">
+        <div class="div-casita">
+            <!--I M A G E N   P R O V I S I O N A L-->
+            <a href="#">
+                <img class="casita" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Simpleicons_Places_home-front.svg/1024px-Simpleicons_Places_home-front.svg.png">
+            </a> 
+        </div>
+        
+        <div class="div-titulo">
+            <label class="titulo">Nombre del ejercicio</label>
+        </div>
+        <div style="width:100%;">
+            <p>Insertar imagen de ejercicio:</p>
+        </div>
+
+        <div class="columna-izq">
+
+            <div class="img" style="border-right:1px solid rgb(247,96,31);
+            border-bottom: 1px solid rgb(247,96,31);">
+                <input type="file">
+            </div>
+            <div class="img" style="border-bottom: 1px solid rgb(247,96,31);">
+                <input type="file">
+            </div>
+
+            <div class="img" style="border-right:1px solid rgb(247,96,31);
+            border-bottom: 1px solid rgb(247,96,31);">
+                <input type="file">
+            </div>
+            <div class="img" style="border-bottom: 1px solid rgb(247,96,31);">
+                <input type="file">
+            </div>
+
+            <div class="img" style="border-right:1px solid rgb(247,96,31);">
+                <input type="file">
+            </div>
+            <div class="img">
+                <input type="file">
+            </div>
+
+        </div>
+
+        <div class="columna-der">
+            <div class="div-info">
+                <p>Información ejercicio (pasos detallados): </p>
+            </div>
+            <div class="div-texto">
+                <textarea class="texto"></textarea>
+            </div>
+        </div>
+
+        <div class="div-botones">
+            <button type="button" class="boton" id="open">Agregar ejercicio</button> 
+        </div>
+        
+    </div>
+
+
+    <!--Ventana emergente para el botón "Agregar ejercicio"-->
+    <div class="modal-container" id="modal_container">
+        <div class="modal">
+            <div>
+                <label class="titulo" style="color:rgb(247,96,31);">Seleccionar la rutina</label>
+                <br><br>
+                <form>
+                    <label>
+                        <select class="input">                                       
+                            <option value="0">Seleccionar la rutina</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </label>
+                </form>
+                <div>
+                    <button type="button" class="boton" id="close">Cancelar</button>
+                    <button type="button" class="boton" style="margin-left: 30px;">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="./JS/VentanaCrearEje.js"></script>
+</body>
+</html>
