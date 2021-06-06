@@ -54,20 +54,19 @@
       }
       
 
-      /**carrusel con filas**/
-      
       .second-container{
         margin-top: 2rem;
         max-width: 81%;
         margin-bottom: 4rem;
         margin-left: 10rem;
+        
       }
       
       
       /*El de arriba es el div de todooooooooooooooooooooooooo*/
       
       .carousel__contenedor {
-              position: relative;
+        position: relative;
       }
       
       .carousel__anterior,
@@ -97,24 +96,24 @@
       
       .carousel__anterior:hover,
       .carousel__siguiente:hover {
-              opacity: 100%;
+        opacity: 100%;
       }
       
       .carousel__anterior {
-              left: -5%;
+        left: -5%;
       }
       
       .carousel__siguiente {
-              right: -5%;
+        right: -5%;
       }
       
       .carousel__lista {
-              overflow: hidden;
+        overflow: hidden;
         align-items: center;
+        display: flex;
       }
       
       .carousel__elemento {
-              text-align: center;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         max-width: 300px;
@@ -135,34 +134,34 @@
       }
       
       .carousel__indicadores .glider-dot {
-              display: block;
-              width: 30px;
-              height: 4px;
-              background: #fff;
-              opacity: .2;
-              border-radius: 0;
+        display: block;
+        width: 30px;
+        height: 4px;
+        background: #fff;
+        opacity: .2;
+        border-radius: 0;
       }
       
       .carousel__indicadores .glider-dot:hover {
-              opacity: .5;
+        opacity: .5;
       }
       
       .carousel__indicadores .glider-dot.active {
-              opacity: 1;
+        opacity: 1;
       }
       
       @media screen and (max-width: 800px) {
-              body {
-                      padding: 40px 0;
-              }
+        body {
+          padding: 40px 0;
+        }
       
-              .contenido-principal {
-                      flex-direction: column;
-              }
+        .contenido-principal {
+          flex-direction: column;
+        }
       
-              .contenido-principal > * {
-                      width: 100%;
-              }
+        .contenido-principal > * {
+          width: 100%;
+        }
       }
       
       section#vistaRutinas{
@@ -191,10 +190,7 @@
         transition: 5s;
       }
 
-option:disabled{
-        border: rgb(247,96,31);
-        color:rgb(233, 95, 15);
-}
+
 
 /*el header aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 
@@ -326,7 +322,7 @@ la hamburguesa se despliegue y se le agrega el maldito transition*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   width: 10%;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 7rem;
 }
 
 .main-container{
