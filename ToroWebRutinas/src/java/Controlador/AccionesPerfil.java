@@ -186,12 +186,13 @@ public class AccionesPerfil extends HttpServlet {
                 id_perf = rs.getInt("id_perf");
                
             }
+            if(id_perf != 0){
+                System.out.println("ID del Perfil encontrado");
+            }
             
-            System.out.println("Perfil encontrado");
-            con.close();
         
         }catch(Exception ed){
-            System.out.println("Error al buscar el perfil");
+            System.out.println("Error al buscar el ID del perfil");
             System.out.println(ed.getMessage());
         
         }finally{

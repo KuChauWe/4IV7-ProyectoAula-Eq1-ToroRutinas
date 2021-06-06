@@ -59,50 +59,20 @@ public class Registro extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            HttpSession idsesion = request.getSession(true);        
-            //vamos a guardar todos los datos de sesion en "cookie"
-            
-            Integer perfil = (Integer)idsesion.getAttribute("perfil.ss");
-            
-            if(perfil == null){
-                perfil = new Integer(1);
-            }else{
-                perfil = new Integer(perfil.intValue()+1);
-            }
-            
-            idsesion.setAttribute("perfil.ss", perfil);
-            
-            
-            Enumeration nombreParametros = idsesion.getAttributeNames();
-            
-            while(nombreParametros.hasMoreElements()){
-                String parametro = (String)nombreParametros.nextElement();
-                Object valor = idsesion.getAttribute(parametro);
-                System.out.println("Atributos de la sesion: " + parametro 
-                        + " Valor: " + valor.toString());
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            Integer estatus = 0;
-            String nombre = request.getParameter("nomb_perf");
-            String apPat = request.getParameter("apellido1");
-            String apMat = request.getParameter("apellido2");
-            
-            String nom_perf = nombre+" "+apPat+" "+apMat;
-            String email_per = request.getParameter("correo");
-            String fecha = request.getParameter("fecha");
-            String contra_perf = request.getParameter("pass_perf");
-            System.out.println(nom_perf + "\n" + email_per +"\n" + fecha + "\n" + contra_perf);
-            
             try{
+                HttpSession sesion = request.getSession(true);        
+           
+            
+                String nombre = request.getParameter("nombre");
+                String apPat = request.getParameter("apellido1");
+                String apMat = request.getParameter("apellido2");
+
+                String nom_perf = nombre+" "+apPat+" "+apMat;
+                String email_per = request.getParameter("correo");
+                String fecha = request.getParameter("fecha");
+                String contra_perf = request.getParameter("password");
+                System.out.println(nom_perf + "\n" + email_per +"\n" + fecha + "\n" + contra_perf);
+            
                 //Creo la Imagen y la Registro
                 InputStream inputStream = null;
                 Imagen img_pef = new Imagen();
@@ -152,19 +122,28 @@ public class Registro extends HttpServlet {
                 
                 int id_perf = 0;
                 try{
-                    AccionesPerfil.getIdPerfil(perf.getEmail_per(), perf.getContra_perf());
+                    id_perf = AccionesPerfil.getIdPerfil(perf.getEmail_per(), perf.getContra_perf());
                 }catch(Exception e){}
                
                 
                 perf.setId_perf(id_perf);
                 System.out.println(perf.getId_perf());
             
-            
+                
+                sesion.setAttribute("perfil", perf.getId_perf());
+                
+                
+                
+                RequestDispatcher  view =  request.getRequestDispatcher("PedirDatosUsuario.jsp");
+                view.forward(request, response);
+                
+                
+                
             }catch(Exception e){
                 System.out.println("Error al Registrar el Perfil");
                 System.out.println(e.getMessage());
                 System.out.println(e.getStackTrace());
-                RequestDispatcher  view =  request.getRequestDispatcher("error.jsp");
+                RequestDispatcher  view =  request.getRequestDispatcher("JSP/error.jsp");
                 view.forward(request, response);
             }
             

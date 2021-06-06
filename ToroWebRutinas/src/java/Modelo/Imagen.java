@@ -3,6 +3,7 @@ package Modelo;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,28 +47,7 @@ public class Imagen {
     }
     
     
-    public static Blob convertirImagenABlob ( Image imagen ) {
-
-        
-      Blob imagenBlob = null;
-      BufferedImage bi = new BufferedImage ( imagen.getWidth ( null ), imagen.getHeight ( null ), BufferedImage.TYPE_INT_ARGB );
-      Graphics bg = bi.getGraphics ();
-      bg.drawImage ( imagen, 0, 0, null );
-      bg.dispose ();
-
-      ByteArrayOutputStream baos = new ByteArrayOutputStream ();
-      byte [] imagenByte = baos.toByteArray ();
-
-      try {
-         imagenBlob = new SerialBlob ( imagenByte );
-      } catch ( SerialException se ) {
-         se.printStackTrace ();
-      } catch ( SQLException sqle ) {
-         sqle.printStackTrace ();
-      }
-      return imagenBlob;
-   }
-    
+   
     public static Blob getBlobWithInputStream(InputStream myinputstream) throws IOException{
         byte[] contents;
         ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -80,6 +60,27 @@ public class Imagen {
         catch (SerialException e) {e.printStackTrace();}
         catch (SQLException e) {e.printStackTrace();}
         return blob;
+    }
+    
+    
+    public static byte[] getbytesInputStream(InputStream in) throws IOException{
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(); 
+            int reads = in.read(); 
+            
+            while(reads != -1){ 
+                baos.write(reads); 
+                reads = in.read(); 
+            } 
+            return baos.toByteArray();
+        
+        
+    }
+    
+    public static Image getImage(InputStream in) throws IOException{
+        BufferedImage bImage = ImageIO.read(in);
+        Image imag = bImage.getScaledInstance(128, 128, 0);
+        
+       return imag; 
     }
     
 }

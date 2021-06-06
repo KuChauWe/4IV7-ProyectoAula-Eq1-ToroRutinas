@@ -102,7 +102,7 @@ public class AccionesImagen extends HttpServlet {
 
         try{
              con = ConexionSQL.getConnection();
-            String q = "select * from MImagen where id_img = ?";
+            String q = "select * from cImagen where id_img = ?";
             
              ps = con.prepareStatement(q);
             
@@ -112,7 +112,8 @@ public class AccionesImagen extends HttpServlet {
             if(rs.next()){
                 e.setId_img(rs.getInt("id_img"));
                 e.setNom_img(rs.getString(2));
-                e.setFoto_img( (InputStream )rs.getBlob("foto_img"));
+                Blob blob = rs.getBlob("foto_img");
+                e.setFoto_img( blob.getBinaryStream());
                 
             }
             

@@ -133,8 +133,7 @@ public class AccionesUsuario {
             
              rs = ps.executeQuery();
             if(rs.next()){
-                Perfil perf = AccionesPerfil.buscarPerfilById(rs.getInt("id_perf"));
-                e = (Usuario) perf;
+                e.setId_perf(rs.getInt("id_perf"));
                 e.setId_usu(id_usua);
                 e.setAltu_usu(rs.getFloat("altu_usu"));
                 e.setPeso_usu(rs.getFloat("peso_usu"));
@@ -146,7 +145,7 @@ public class AccionesUsuario {
             con.close();
         
         }catch(Exception ed){
-            System.out.println("Error al buscar el perfil");
+            System.out.println("Error al buscar el Usuario");
             System.out.println(ed.getMessage());
         
         }finally{
@@ -157,8 +156,50 @@ public class AccionesUsuario {
         return e;
     }
     
+    public static int getIdUsuario(Usuario usu) throws SQLException{
+        int id_usu = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
+        try{
+             con = ConexionSQL.getConnection();
+            String q = "select id_usua from musuario where id_perf = ? and altu_usu = ? and peso_usu = ? and calTo_usu = ?";
+            
+             ps = con.prepareStatement(q);
+            
+            ps.setInt(1, usu.getId_perf());
+            ps.setFloat(2, usu.getAltu_usu());
+            ps.setFloat(3, usu.getPeso_usu());
+            ps.setFloat(4, usu.getCalTo_usu());
+            
+             rs = ps.executeQuery();
+            if(rs.next()){
+                id_usu = rs.getInt("id_usua");
+               
+            }
+            
+            System.out.println("Id del Usuario encontrado");
+            con.close();
+        
+        }catch(Exception ed){
+            System.out.println("Error al buscar el Id del Usuario");
+            System.out.println(ed.getMessage());
+        
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        return id_usu;
+        
+        
+        
+        
+    }
+    
     public static Usuario buscarUsuarioByIdPerfil(int id_perf) throws SQLException{
-        Usuario e = null;
+        Usuario e = new Usuario();
         Connection con = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -173,8 +214,6 @@ public class AccionesUsuario {
             
              rs = ps.executeQuery();
             if(rs.next()){
-                Perfil perf = AccionesPerfil.buscarPerfilById(rs.getInt("id_perf"));
-                e = (Usuario) perf;
                 e.setId_usu(rs.getInt("id_usua"));
                 e.setId_perf(id_perf);
                 e.setAltu_usu(rs.getFloat("altu_usu"));
@@ -186,10 +225,9 @@ public class AccionesUsuario {
                 System.out.println("Usuario encontrado con el Id del Perfil");
             }
             
-            con.close();
         
         }catch(Exception ed){
-            System.out.println("Error al buscar el perfil");
+            System.out.println("Error al buscar el ID del Usuario");
             System.out.println(ed.getMessage());
         
         }finally{

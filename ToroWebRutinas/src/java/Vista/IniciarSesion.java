@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -48,11 +49,13 @@ public class IniciarSesion extends HttpServlet {
             out.println("</html>");
             
             String email_perf = request.getParameter("email_perf");
-            String pas_perf = request.getParameter("pas_perf");
-            
+            System.out.println(email_perf);
+            String pas_perf = request.getParameter("password");
+            System.out.println(pas_perf);
             
             int id_perf = 0;
             try{
+                
                 id_perf = AccionesPerfil.getIdPerfil(email_perf, pas_perf);
                 
             }catch(Exception e){
@@ -60,11 +63,14 @@ public class IniciarSesion extends HttpServlet {
                 response.sendRedirect("JSP/error.jsp");
             }
             
-            if(id_perf ==0){
+            System.out.println(id_perf);
+            if(id_perf == 0){
                 response.sendRedirect("JSP/error.jsp");
             }
             
-            Usuario usu = new Usuario();
+            
+            
+            Usuario usu = null;
             try{
                 usu = AccionesUsuario.buscarUsuarioByIdPerfil(id_perf);
                 
@@ -72,17 +78,21 @@ public class IniciarSesion extends HttpServlet {
                 System.out.println("Error al conseguir al Usuario Relacionado con el Id del Perfil");
                 response.sendRedirect("JSP/error.jsp");
             }
-            
+           
+            System.out.println(usu.getAltu_usu());
+            System.out.println(usu.getPeso_usu());
             if(usu == null){
                 response.sendRedirect("JSP/error.jsp");
             }
             
-            System.out.println(id_perf);
-            System.out.println("");
+            System.out.println(usu.getId_usu());
             
+            HttpSession sesion = request.getSession(true);
+            sesion.setAttribute("usuario", usu.getId_usu());
+            
+            response.sendRedirect("JSP/indexDes.jsp");
         }catch(Exception e){
-            System.out.println("Erro al Iniciar Sesion");
-            response.sendRedirect("JSP/error.jsp");
+            System.out.println("Error al Iniciar Sesion");
         }
     }
 
