@@ -11,10 +11,12 @@ const expresiones = {
 
 const campos = {
 	nombre: false,
-	apellido1: false,
-	apellido2: false,
+	apellido: false,
 	password: false,
 	correo: false,
+	fotoP: false,
+	fecha: false,
+	genero: false,
 }
 
 const validarFormulario = (e) => {
@@ -88,17 +90,13 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 	
 
-	if(campos.nombre && campos.apellido1 && campos.apellido2 && campos.password && campos.correo){
-		formulario.reset();
+	if(campos.nombre && campos.apellido && campos.password && campos.correo && campos.fotoP && campos.fecha && campos.genero){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 50000);
+		}, 5000);
 
-		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			icono.classList.remove('formulario__grupo-correcto');
-		});
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 	}
