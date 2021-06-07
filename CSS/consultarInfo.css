@@ -1,0 +1,272 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: rgb(239,239,239);
+}
+body{
+    margin: 0;
+}
+.principal{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px;
+}
+.main-container{
+    margin-right: 20%;
+    color: rgb(37,36,42);
+}
+.second-main-container{
+    display: flex;
+    align-items: center;
+    color: rgb(37,36,42);
+    
+}
+.textoInf2{
+    border: 5px solid rgb(247,96,31);
+    width: 150%;
+    color: rgb(37,36,42);
+}
+.p-sito{
+    margin-bottom: 20px;
+    color: rgb(37,36,42);
+}
+.grafica{
+    margin-inline: 20px;
+}
+.linea{ 
+    border-left: thick solid rgb(247,96,31); 
+}
+.peticion{
+    padding:5px;
+    background:rgb(37,36,42);
+    border:4px;
+    border-color: rgb(247,96,31) ;
+    border-style: solid;
+    border-radius: 20px;
+    text-decoration:none;
+}
+
+#rol{
+    color: rgb(247,96,31);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.botonRol{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px;
+    margin-left: 30%;
+    margin-top: -20%;
+}
+a:visited, a:active, a:link{
+    text-decoration: none;
+  }
+a:visited, a:active, a:link{
+    color: rgb(247,96,31);
+}
+.imgPython{
+    max-width: 640px;
+    max-width: 480px;
+    width: 100%;
+    height:100%;
+    border-color: rgb(247,96,31) ;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+
+
+
+/**carrusel con filas**/
+
+.second-container{
+    margin-top: 6rem;
+    max-width: 81%;
+    margin-bottom: 4rem;
+    margin-left: 10rem;
+  }
+  
+  
+  /*El de arriba es el div de todooooooooooooooooooooooooo*/
+  
+  .carousel__contenedor {
+      position: relative;
+  }
+  
+  .carousel__anterior,
+  .carousel__siguiente {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px;
+    margin: auto;
+    margin-top: 7rem;
+    border: none;
+
+  }
+  
+  #Capa_2{
+    max-height: 60px;
+    min-height: 50px;
+    width: 50px;
+    background: none;
+  }
+  
+  .carousel__anterior:hover,
+  .carousel__siguiente:hover {
+      opacity: 100%;
+  }
+  
+  .carousel__anterior {
+      left: -5%;
+  }
+  
+  .carousel__siguiente {
+      right: -5%;
+  }
+  
+  .carousel__lista {
+      overflow: hidden;
+    align-items: center;
+  }
+  
+  .carousel__elemento {
+      text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+    min-height: 300px;
+  }
+  
+  .carousel__elemento.glider-slide.visible.active.left-2{
+    padding: -16rem;
+    padding-left: -16rem;
+    padding-right: -16rem;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+    min-height: 300px;
+    background: none;
+  }
+  
+  .carousel__indicadores .glider-dot {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: #fff;
+      opacity: .2;
+      border-radius: 0;
+  }
+  
+  .carousel__indicadores .glider-dot:hover {
+      opacity: .5;
+  }
+  
+  .carousel__indicadores .glider-dot.active {
+      opacity: 1;
+  }
+  
+  @media screen and (max-width: 800px) {
+      body {
+          padding: 40px 0;
+      }
+  
+      .contenido-principal {
+          flex-direction: column;
+      }
+  
+      .contenido-principal > * {
+          width: 100%;
+      }
+  }
+  
+  section#vistaRutinas{
+    border: 5px rgb(247,96,31);
+    border-style: solid;
+    padding: 0;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    display: flex;
+    min-height: 260px;
+    max-height: 260px;
+    max-width: 270px;
+    min-width: 270px;
+    width: 100%;
+  }
+  
+  section#vistaRutinas:hover{
+      border: 2px solid rgb(247,96,31);
+      outline: none;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
+      transition: .2s;
+  }
+  .direcciones:hover{
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.123);
+    transition: 5s;
+  }
+  
+  .carousel__elemento{
+    position: relative;
+  }
+  
+  .fondo{
+   position: absolute;
+   -webkit-filter:blur(0);
+   filter:blur(0);
+   filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+  }
+  
+  .fondo-hover{
+    -webkit-filter:blur(4px);
+    filter:blur(4px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .1s ease;
+    background: rgba(0, 0, 0, 0.00001);
+    text-align: center;
+  }
+  
+  .carousel__elemento:hover .overlay{
+    bottom: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.00001);
+  }
+  
+  .text {
+    white-space: nowrap; 
+    color: rgb(247,96,31);
+    font-size: 12px;
+    text-align: center;
+    -webkit-text-fill-color: rgb(247,96,31);
+    -webkit-text-stroke: 1px rgb(0,0,0);
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  h1{
+    text-align: center;
+  }
