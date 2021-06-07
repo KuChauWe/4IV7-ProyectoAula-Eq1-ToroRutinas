@@ -342,6 +342,39 @@ public class AccionesRutina {
         return estatus;
     }
     
+    public static List<Integer> getIdsRutinas(int id_clas) throws SQLException{
+        List<Integer> lista = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+            try{
+                con = ConexionSQL.getConnection();
+                String q = "Select id_ruti from drutinaclasificacion where id_clas = ?";
+                ps = con.prepareStatement(q);
+                
+                ps.setInt(1, id_clas);
+                rs = ps.executeQuery();
+                int id_perf = 0;
+                while(rs.next()){
+                    lista.add(rs.getInt("id_ruti"));
+                }
+                
+                
+                System.out.println("Se consulto correctamente los Id de las rutinas con la clasificacion");
+            }catch(Exception e){
+                System.out.println("Error al consultar los Id de las rutinas con la clasificacion");
+                System.out.println(e.getMessage());
+            }finally{
+                rs.close();
+                ps.close();
+                con.close();
+            }
+        
+        
+        
+        return lista;
+    }
+    
     public static int desvincularAllClasificaciones(Rutina ruti) throws SQLException{
         int estatus = 0;
         Connection con = null;

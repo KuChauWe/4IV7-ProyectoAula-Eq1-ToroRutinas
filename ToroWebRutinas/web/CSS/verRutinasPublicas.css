@@ -1,0 +1,332 @@
+@media  (min-height:720px) and (max-height:1080px){
+      
+    
+        body{
+            background-color: rgb(239,239,239);
+            }
+        
+          }
+        body{
+        margin:0;
+        background-color: rgb(239,239,239);
+      }
+      
+      @-webkit-keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(1);
+                  transform: scale(1.5);
+        }
+        100% {
+          -webkit-trrnsform: scale(2);
+                  transform: scale(1.5);
+        }
+      }
+      @keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+        }
+        100% {
+          -webkit-transform: scale(1.5);
+                  transform: scale(1.5);
+        }
+      }
+      .scale-up-center, svg:hover{
+        -webkit-animation: scale-up-center 10s ease-in-out both;
+                animation: scale-up-center 1s ease-in-out both;
+      }
+      
+      *{
+        box-sizing: border-box;
+        margin: 0;
+      }
+      
+      body{
+        background-color: rgb(239, 239, 239);
+      }
+      
+      
+      img#ToroPNG{
+        min-height: 10rem;
+        max-height: 10rem;
+        height: 100%;
+        display: flex;
+      }
+      
+
+      .second-container{
+        margin-top: 2rem;
+        max-width: 81%;
+        margin-bottom: 4rem;
+        margin-left: 10rem;
+        
+      }
+      
+      
+      /*El de arriba es el div de todooooooooooooooooooooooooo*/
+      
+      .carousel__contenedor {
+        position: relative;
+      }
+      
+      .carousel__anterior,
+      .carousel__siguiente {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 40px;
+        margin: auto;
+        margin-top: 7rem;
+        border: none;
+        max-width: 300px;
+        max-height: 300px;
+        align-self: center;
+      }
+      
+      #Capa_2{
+        max-height: 60px;
+        min-height: 50px;
+        width: 50px;
+        background: none;
+      }
+      
+      .carousel__anterior:hover,
+      .carousel__siguiente:hover {
+        opacity: 100%;
+      }
+      
+      .carousel__anterior {
+        left: -5%;
+      }
+      
+      .carousel__siguiente {
+        right: -5%;
+      }
+      
+      .carousel__lista {
+        overflow: hidden;
+        align-items: center;
+        display: flex;
+      }
+      
+      .carousel__elemento {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        max-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        min-height: 300px;
+      }
+      
+      .carousel__elemento.glider-slide.visible.active.left-2{
+        padding: -16rem;
+        padding-left: -16rem;
+        padding-right: -16rem;
+        max-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        min-height: 300px;
+        background: none;
+      }
+      
+      .carousel__indicadores .glider-dot {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background: #fff;
+        opacity: .2;
+        border-radius: 0;
+      }
+      
+      .carousel__indicadores .glider-dot:hover {
+        opacity: .5;
+      }
+      
+      .carousel__indicadores .glider-dot.active {
+        opacity: 1;
+      }
+      
+      @media screen and (max-width: 800px) {
+        body {
+          padding: 40px 0;
+        }
+      
+        .contenido-principal {
+          flex-direction: column;
+        }
+      
+        .contenido-principal > * {
+          width: 100%;
+        }
+      }
+      
+      section#vistaRutinas{
+        border: 5px rgb(247,96,31);
+        border-style: solid;
+        padding: 0;
+        justify-content: center;
+        align-content: center;
+        align-self: center;
+        display: flex;
+        min-height: 260px;
+        max-height: 260px;
+        max-width: 270px;
+        min-width: 270px;
+        width: 100%;
+      }
+      
+      section#vistaRutinas:hover{
+          border: 2px solid rgb(247,96,31);
+          outline: none;
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
+          transition: .2s;
+      }
+      .direcciones:hover{
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.123);
+        transition: 5s;
+      }
+
+
+
+/*el header aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+
+.nav-bar{
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
+  cursor: pointer;
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+}
+/*el de arriba es el pinche encabezado alv*/
+.menu, .submenu, .sub-submenu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/*El pading y margin se le puede poner pero no quiero hijodesuputamadre, además 
+de que se le aplica preferentemente a el SUBMENU y SUB-SUBMENU*/
+.menu{
+  background: rgb(47, 47, 47);
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/*El fondo de las listas*/
+.menu__link{
+  display: flex;
+  padding: 20px;
+  color: rgb(247,96,31);
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: 1s;
+}
+/*Pura pinche etiqueta "a" y no mamadas*/
+.submenu .menu__link{
+  background-color: rgb(85, 85, 85);
+  padding-left: 40px;
+}
+.sub-submenu{
+  background-color: rgb(85, 85, 85);
+  padding-left: 50px;
+}
+/*Color y distancia de separación de la izquierda*/
+.sub-submenu{
+  height: 0;
+  overflow: hidden;
+  transition: 1s;
+  z-index: 500;
+  display: flex;
+  position: absolute; /*aaaaaaaaaaaaaaaaaabsolute*/
+}
+.submenu{
+  height: 0;
+  overflow:hidden;
+  transition: 1s;
+  z-index: 0;
+}
+/*Aquí se esconden las ratas y se le añade una transición para después (JS)*/
+.menu{
+  margin-top: -100%;
+  transition: 0.5s;
+}
+/*Aquí se esconde el contenedor secundario para que al dar clic en 
+la hamburguesa se despliegue y se le agrega el maldito transition*/
+.mostrar{
+  margin-top: 0;
+
+}
+/*Puro pendejo lo hace resposive*/
+
+/*Aquí termina el CSS alv*/
+.sub-ntp{
+  z-index: 0;
+}
+
+.normal{
+  position: relative;
+  transition: 1s;
+}
+/*Está enlazado con .sub-submenu*/
+
+.menuN{
+  height: 248px;
+  display: flex;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.submenuN{
+  height: 248px;
+  transition: 1s;
+  width: 100%;
+  overflow:visible;
+}
+
+.primero{
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+
+}
+
+.espacioInt{
+  width: 100%;
+  background-color: rgb(37,36,42);
+  color: rgb(37,36,42);
+  display: flex;
+  font-size: 1.5em;
+  margin: 0;
+  height: 62px;
+}
+
+/*el de arriba es el espacio entre div menú y el contenido, para evitar problemillas*/
+
+.proposito{
+  background-color: rgb(37,36,42);
+  padding: 20px;
+  display: flex;
+  color:rgb(247,96,31);
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 10%;
+  justify-content: center;
+  margin-top: 7rem;
+}
+
+.main-container{
+  display: flex;
+  justify-content:flex-start;
+  margin-left: 10%;
+}

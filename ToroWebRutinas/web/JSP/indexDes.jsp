@@ -4,7 +4,35 @@
     Author     : sofo9
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Controlador.*"%>
+<%@page import="Modelo.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<% 
+     HttpSession sesion = request.getSession();
+     String clas = (String) sesion.getAttribute("clasInde");
+     
+     if(clas == null){
+         clas = "Fuerza Muscular";
+     }
+     
+     int id_clas = AccionesClasificacion.getIDClasificacion(clas);
+     AccionesClasificacion.buscarClasificacionById(id_clas);
+    
+     List<Integer> ids_rutis = AccionesRutina.getIdsRutinas(id_clas);
+     
+     List<Rutina> rutinas = null;
+     
+     for(int id_ruti:ids_rutis){
+         Rutina ruti = AccionesRutina.buscarRutinaById(id_ruti);
+         if(AccionesRutina.isInBibliotecaPublica(id_ruti)){
+            rutinas.add(ruti);
+         }
+         
+     }        
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +53,9 @@
             </form>
         </div>
         <div>
-            <form class="formSC2">
+            <form class="formSC2" action="indexDes">
                 <label id="labelSeleccionarClasificacion">
-                    <select id="se_clasificacion">                                          <!--esta madre se edita Bv-->
+                    <select id="se_clasificacion" name="clas">                                          <!--esta madre se edita Bv-->
                         <option value="0">Seleccionar clasificación</option>
                         <option value="1">Fuerza Muscular</option>
                         <option value="2">Aeróbico</option>
@@ -35,6 +63,7 @@
                         <option value="4">Estiramiento</option>    
                     </select>
                 </label>
+                <input type="submit">
             </form>  
         </div>
       </div>
@@ -42,20 +71,25 @@
 <body>
     <div class="slide-contenedor">
         <nav id="contenedorPrincipal">
-        <div class="miSlider fade">
-            <section id="vistaRutina"><img src="IMG/Deciivo.png" alt=""></section>
-        </div>
-        <div class="miSlider fade">
-            <section id="vistaRutina"><img src="IMG/LogoEmpresa.jpeg" alt=""></section>
-        </div>
-        <div class="miSlider fade">
-            <section id="vistaRutina"><img src="IMG/holamundo.jpeg" alt=""></section>
-        </div>
-
-        <div class="miSlider fade">
-            <section id="vistaRutina"><img src="IMG/skiso.jpg" alt=""></section>
-        </div>
-        
+            <!--Aqui esta el carusel principarl pra-->
+            
+            <% 
+                if(rutinas == null){
+            %>
+                <div class="miSlider fade">
+                    <section id="vistaRutina"><h1>No hay ninguna rutina todavía</h1></section>
+                </div>  
+            <%
+                }else{
+                    for(int i = 0; i < 4; i++){
+            %>
+                        <div class="miSlider fade">
+                            <section id="vistaRutina"><%= rutinas.get(i).getNom_ruti()  %></section>
+                        </div>
+            <%
+                    }
+                }
+            %>
     
         <div class="direcciones">
             <a href="#" class="atras" onclick="avanzaSlide(-1)">
@@ -81,7 +115,9 @@
         </div>
         </nav>
     </div>
-	<div class="second-container"> <!--sexoooooooooooooooooooooooooo-->
+	<div class="second-container">
+            
+<!--sexoooooooooooooooooooooooooo-->
     <div class="carousel">
         <div class="carousel__contenedor">
             <button aria-label="Anterior" class="carousel__anterior">
@@ -95,36 +131,33 @@
             </button>
 
             <div class="carousel__lista">
-                <div class="carousel__elemento" id="primerElemento">
-                    <section id="vistaRutinas"><img src="IMG/skiso.jpg"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/holamundo.jpeg"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/Deciivo.png"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/Flecha.png"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/FlechaDerecha.png"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/FlechaIzquierd.png"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/LogoEmpresa.jpeg"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/perfil.jpg"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/toro.png"></section>
-                </div>
-                <div class="carousel__elemento">
-                    <section id="vistaRutinas"><img src="IMG/ToroRutinasLogo22.png"></section>
-                </div>
+                <!--Aqui van las rutinas pta-->
+            <% 
+                if(rutinas == null){
+            %>
+                    <div class="carousel__elemento" id="primerElemento">
+                        <section id="vistaRutinas"><img src="IMG/skiso.jpg"></section>
+                    </div>
+            <%
+                }else{
+            %>
+                    <div class="carousel__elemento" id="primerElemento">
+                        <section id="vistaRutinas"><%=rutinas.get(4).getNom_ruti()%></section>
+                    </div>
+
+            <%
+                
+                    for(int i=5; i <= 13; i++){
+                        
+            %>
+                        <div class="carousel__elemento">
+                            <section id="vistaRutinas"><%= rutinas.get(i).getNom_ruti() %></section>
+                        </div>
+        
+            <%
+                    }
+                }
+            %>
             </div>
             <button arial-label="Siguiente" class="carousel__siguiente">
                 <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

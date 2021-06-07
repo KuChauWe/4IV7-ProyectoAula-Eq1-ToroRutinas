@@ -54,7 +54,7 @@ public class RegistroUsuario extends HttpServlet {
                  int id_perf = (Integer) sesion.getAttribute("perfil");
 
                 float peso_usu = Float.parseFloat(request.getParameter("nombre"));
-                float altu_usu = Float.parseFloat(request.getParameter("apellido1"));
+                float altu_usu = Float.parseFloat(request.getParameter("apellido1           "));
                 Usuario usu = new Usuario();
                 usu.setAltu_usu(altu_usu);
                 usu.setPeso_usu(peso_usu);
@@ -76,7 +76,7 @@ public class RegistroUsuario extends HttpServlet {
                 }catch(Exception e){System.out.println("Error al obtener el Id del Usuario");}
 
                 sesion.setAttribute("usuario", usu.getId_usu());
-                response.sendRedirect("JSP/indexDes.jsp");
+                response.sendRedirect("index.html");
 
             }catch(Exception e ){
                 System.out.println("Error al Registrar el Usuario");

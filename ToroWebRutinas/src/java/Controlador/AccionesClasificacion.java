@@ -138,6 +138,36 @@ public class AccionesClasificacion {
         return clas;
     }
     
+   public static int getIDClasificacion(String clas) throws SQLException{
+        int id_clas = 0;
+        Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+        try{
+             con = ConexionSQL.getConnection();
+            String q = "Select id_clas from mclasificacion where nom_clas = ?";
+             ps = con.prepareStatement(q);
+            ps.setInt(1, id_clas);
+            
+             rs = ps.executeQuery();
+            while(rs.next()){
+                id_clas = rs.getInt("id_clas");
+                System.out.println("Se encontro el id de la clasificacion");
+            }
+            
+            
+        }catch(Exception e){
+            System.out.println("Error al buscar el ID de la clasificacion");
+            System.out.println(e.getMessage());
+        }finally{
+            rs.close();
+            ps.close();
+            con.close();
+	}
+        
+        return id_clas;
+    }
+    
     public static List<Clasificacion> buscarAllClasificaciones() throws SQLException{
         List<Clasificacion> lista = null;
         Connection con = null;
@@ -174,7 +204,6 @@ public class AccionesClasificacion {
         return lista;
     }
     
-    //Probablemente mande error
     public static List<Clasificacion> buscarClasificacionesRutina(Rutina ruti) throws SQLException{
         List<Clasificacion> lista = null;
         Connection con = null;

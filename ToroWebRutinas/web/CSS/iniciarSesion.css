@@ -33,7 +33,7 @@ nav#encabezado{
     color: rgb(247,96,31);
     height: 50%;
     margin-bottom: 30rem;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 #perfil{
     width: 120px;
@@ -48,3 +48,6 @@ nav#encabezado{
 label, h1,input {
     margin: 1.5%;
 }
+input{
+    display: inline-block;
+  }
