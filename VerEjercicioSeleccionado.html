@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Ejercicio Seleccionado</title>
+    <link rel="stylesheet" href="CSS/VerEjercicioSeleccionado.css">
+    <link rel="shortcut icon" href="./IMG/LogoTororutinas.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="CSS/Popup.css">
+</head>
+<body> 
+    
+    <div class="main-container">
+        <div class="div-casita">
+            <!--I M A G E N   P R O V I S I O N A L-->
+            <a href="#">
+                <img class="casita" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Simpleicons_Places_home-front.svg/1024px-Simpleicons_Places_home-front.svg.png">
+            </a> 
+        </div>
+        
+        <div class="div-titulo">
+            <label class="titulo">Flexion de Pie a Pie</label>
+        </div>
+        <div class="columna-izq">
+            <div class="slider" id="slider">
+                <div class="slider-section fade">
+                    <img class="imagen" src="IMG/toro.png">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="IMG/LogoEmpresa.jpeg">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="IMG/ToroRutinasLogo22.png">
+                </div>
+                <div class="slider-section fade">
+                    <img class="imagen" src="IMG/ToroRutinasLogo41.png">
+                </div>
+
+
+                <div class="barras">
+                    <span class="barra active" onclick="posicionSlide(1)"></span>
+                    <span class="barra" onclick="posicionSlide(2)"></span>
+                    <span class="barra" onclick="posicionSlide(3)"></span>
+                    <span class="barra" onclick="posicionSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+        <div class="columna-der">
+            <pre class="info">Informacion de la rutina</pre>
+        </div>
+        <div class="div-botones">
+            <button type="button" class="boton">Editar ejercicio</button> 
+            <button type="button" class="boton btn-abrir-popup" id="btn-abrir-popup">Agregar ejercicio a una de mis rutinas</button>
+        </div>
+        <div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>Selecciona la rutina</h3>
+				<form method="post" action="">
+					<div class="contenedor-inputs">
+						<select id="select_ejercicio">
+                            <option>Rutina 1</option>
+                            <option>Rutina 2</option>
+                        </select>
+					</div>
+					<input type="submit" class="btn-submit" value="Agregar">
+				</form>
+			</div>
+		</div>
+    </div>
+    
+<script src="JS/VerEjercicioSeleccionado.js"></script>
+<script src="JS/popup.js"></script>
+</body>
+</html>
