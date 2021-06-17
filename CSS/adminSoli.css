@@ -58,3 +58,19 @@ td{
     border-style: solid;
     padding: 1rem;
 }
+a:visited, a:link{
+    text-decoration: none;
+    color: rgb(247,96,31);
+  }
+.main-header{
+    display: flex;
+    margin-left: 2%;
+    justify-content: flex-start;
+    width: 100%;
+}
+.bamrram{
+    margin-inline: 2%;
+    margin-block: 2%;
+    color: rgb(247,96,31);
+}
+/*Pasó*/
