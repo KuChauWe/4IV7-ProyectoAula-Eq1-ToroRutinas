@@ -322,7 +322,6 @@ la hamburguesa se despliegue y se le agrega el maldito transition*/
   justify-content: center;
   margin-top: 7rem;
 }
-
 .main-container{
   display: flex;
   justify-content:flex-start;
@@ -331,6 +330,15 @@ la hamburguesa se despliegue y se le agrega el maldito transition*/
 .main-content{
   display: flex;
   justify-content: center;
-
 }
 /*Pasó*/
+.bi-arrow-left-circle{
+  margin-left: 1%;
+}
+a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
+}
+a{
+  margin-right: 1%;
+}

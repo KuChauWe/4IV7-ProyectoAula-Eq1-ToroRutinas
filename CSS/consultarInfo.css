@@ -271,3 +271,22 @@ a:visited, a:active, a:link{
     text-align: center;
   }
   /*Pasó*/
+  a:visited, a:link{
+    text-decoration: none;
+    color: rgb(247,96,31);
+  }
+  .main-header{
+    display: flex;
+    width: 100%;
+    margin-left: 1%;
+  }
+  .bamrram{
+    margin-inline: 1%;
+    margin-block: 1%;
+    color: rgb(247,96,31);
+  }
+  .main-secont-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }

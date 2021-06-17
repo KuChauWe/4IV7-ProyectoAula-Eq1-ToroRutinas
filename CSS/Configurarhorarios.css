@@ -56,3 +56,27 @@ header{
   margin-inline: 1rem;
 }
 /*Pasó*/
+a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
+}
+.main-header{
+  display: flex;
+  width: 100%;
+  margin-left: 1%;
+}
+.bamrram{
+  margin-inline: 1%;
+  margin-block: 1%;
+  color: rgb(247,96,31);
+}
+.main-secont-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.main-container{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
