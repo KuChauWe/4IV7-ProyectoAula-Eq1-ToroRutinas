@@ -186,3 +186,17 @@ body{
 .boton:hover {
     box-shadow: 3px 0px 30px rgba(163,163,163, 1);
 }
+.main-header{
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+}
+.bamrram{
+    margin-inline: 2%;
+    margin-block: 2%;
+    color: rgb(247,96,31);
+}
+a:visited, a:link{
+    text-decoration: none;
+    color: rgb(247,96,31);
+  }

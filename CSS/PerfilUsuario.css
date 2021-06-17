@@ -97,3 +97,17 @@ header{
 #nombre_usuario{
         padding: 2rem;
 }
+.main-header{
+        display: flex;
+        width: 100%;
+        margin-left: 2%;
+    }
+    .bamrram{
+        margin-inline: 2%;
+        margin-block: 2%;
+        color: rgb(247,96,31);
+    }
+    a:visited, a:link{
+        text-decoration: none;
+        color: rgb(247,96,31);
+      }
