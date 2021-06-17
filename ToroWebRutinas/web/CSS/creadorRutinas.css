@@ -166,3 +166,8 @@ hr{
     border: 1px solid rgb(247,96,31); 
     color:rgb(247,96,31); 
 }
+
+a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
+}

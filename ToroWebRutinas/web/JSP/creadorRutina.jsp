@@ -4,7 +4,47 @@
     Author     : sofo9
 --%>
 
+<%@page import="Modelo.Ejercicio"%>
+<%@page import="Controlador.MEjercicio"%>
+<%@page import="Controlador.MRutina"%>
+<%@page import="Modelo.Rutina"%>
+<%@page import="java.util.List"%>
+<%@page import="Controlador.MUsuario"%>
+<%@page import="Modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!--Validación del perfil e intancia-->
+<%
+    HttpSession sesion = request.getSession();
+    boolean sesionIniciada;
+    
+    int id_perf = 0;
+    id_perf = (Integer) sesion.getAttribute("perfil");
+    
+    if(id_perf == 0){
+        System.out.println("No se ha iniciado Sesion");
+        sesionIniciada = false;
+        response.sendRedirect("../index.jsp");
+    }
+    sesionIniciada = true;
+    Usuario perf = MUsuario.getUsuById(id_perf);
+    
+
+    System.out.println("Ya hay una sesion abierta");   
+        
+    
+%>
+<!--Obtengo las rutinas de la biblioteca del Usuario-->
+<% 
+    List<Rutina> rutisB = null;
+    try{
+        rutisB = MRutina.getRutisUsu(perf.getId_perf());
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+    }
+%>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,71 +73,83 @@
     <div class="div-titulo">
         <button type="button" class="boton" id="open">Crear rutina</label>
     </div>
-
+    
+    <% 
+        if(rutisB == null){
+    %>
     <div class="container">
         
-        <div class="columna-izq">
+        <div class="columna-izq" >
             <div class="div-imagen">
-                <img class="imagen" src="./IMG/toro.png">
+                <img class="imagen" src="http://drive.google.com/uc?export=view&id=1kNWSpnxMzRJrqe_bkRTBh5y5bgnIkQK1">
             </div>
         </div>
 
-        <div class="columna-der">
-            <div class="div-nombre">
-                <label class="nombre">Nombre de rutina</label>  
-            </div>
-            <div class="div-boton">
-                <button type="button" class="boton" id="open3">Agregar ejercicio a la rutina</button>
-                <br><br><br>
-                <button type="button" class="boton" id="open2">Borrar rutina</button>
-            </div>
-        </div>
+       
     </div>
     <br><br>
-    <hr>
-    <br><br>
-    <div class="container">
+    <% 
+        }else{
+            for(int i = 1; i <= rutisB.size() ; i++){
+                Rutina ruti = rutisB.get(i);
 
-        <div class="columna-izq">
-            <div class="div-imagen">
-                <img class="imagen" src="./IMG/LogoEmpresa.jpeg">
-            </div>
-        </div>
-
-        <div class="columna-der">
-            <div class="div-nombre">
-                <label class="nombre">Nombre de rutina</label>  
-            </div>
-            <div class="div-boton">
-                <button type="button" class="boton" id="open3b">Agregar ejercicio a la rutina</button>
-                <br><br><br>
-                <button type="button" class="boton" id="open2b">Borrar rutina</button>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <hr>
-    <br><br>
-    <div class="container">
-        <div class="columna-izq">
-            <div class="div-imagen">
-                <img class="imagen" src="./IMG/perfil.jpg">
-            </div>
-        </div>
-
-        <div class="columna-der">
-            <div class="div-nombre">
-                <label class="nombre">Nombre de rutina</label>  
-            </div>
-            <div class="div-boton">
-                <button type="button" class="boton" id="open3c">Agregar ejercicio a la rutina</button>
-                <br><br><br>
-                <button type="button" class="boton" id="open2c">Borrar rutina</button>
-            </div>
-        </div>
-    </div>
+    //                        Si no existe la rutina entonces término el for
+                if(ruti == null)break;
 
 
+                ruti.setEjercicios(MEjercicio.getEjers(ruti.getId_ruti()));
+
+                List<Ejercicio> ejers = (List<Ejercicio>) ruti.getEjercicios().keySet();
+                //Obtengo el id de las imagenes
+                List<String> ids_img = null;
+                //Agrego la primera imagen del  ejercicio, todos lo ejercicios tendrán como minímo dos imágenes
+                for(int j=0; j < 5; j++){
+                              //el ejercicio.los ids . el primer id
+                    ids_img.add(ejers.get(j).getIds_img().get(0));   
+                }
+    %>
+                <div class="container">
+                    <div class="columna-izq">
+                        <div class="div-imagen">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img src="http://drive.google.com/uc?export=view&id=<%= ids_img.get(0) %>" alt="">
+                                    </td>
+                                    <td>
+                                        <img src="http://drive.google.com/uc?export=view&id=<%= ids_img.get(1) %>" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="http://drive.google.com/uc?export=view&id=<%= ids_img.get(2) %>" alt="">
+                                    </td>
+                                    <td>
+                                        <img src="http://drive.google.com/uc?export=view&id=<%= ids_img.get(3) %>" alt="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="columna-der">
+                        <div class="div-nombre">
+                            <label class="nombre">Nombre de rutina</label>  
+                        </div>
+                        <div class="div-boton">
+                            <button type="button" class="boton" id="open3">Agregar ejercicio a la rutina</button>
+                            <br><br><br>
+                            <button type="button" class="boton" id="open2">Borrar rutina</button>
+                        </div>
+                    </div>
+                </div>
+            <br><br>
+    <% 
+        }
+    }
+    
+    
+    %>
     <!--Ventana emergente para el botón "Crear rutina"-->
     <div class="modal-container" id="modal_container">
         <div class="modal">
