@@ -97,6 +97,10 @@ header{
 #nombre_usuario{
         padding: 2rem;
 }
+#divCS{
+        margin-left: 4rem;
+        margin-top: 1rem;
+}
 .main-header{
         display: flex;
         width: 100%;
