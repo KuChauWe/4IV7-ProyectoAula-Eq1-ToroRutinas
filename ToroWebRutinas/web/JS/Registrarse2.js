@@ -1,108 +1,53 @@
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+function validarFormR(){
+    var nombre;
+    var apellido1;
+    var apellido2;
+    var correo;
+    var password;
+    var password2;
+    nombre = document.getElementById('nombre').value;
+    apellido1 = document.getElementById('apellido1').value;
+    apellido2 = document.getElementById('apellido2').value;
+    correo = document.getElementById('correo').value;
+    password = document.getElementById('password').value;
+    password2 = document.getElementById('password2').value;
+    expresion1 = /^[a-zA-ZÀ-ÿ\s]{4,50}$/;
+    expresion2 = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    expresion3 = /^.{4,12}$/;
+    expresion4 = /^.{4,12}$/;
 
-const expresiones = {
-	nombre: /^[a-zA-ZÀ-ÿ\s]{4,50}$/, // Letras y espacios, pueden llevar acentos.
-       	apellido1: /^[a-zA-ZÀ-ÿ\s]{4,50}$/, // Letras y espacios, pueden llevar acentos.
-	apellido2: /^[a-zA-ZÀ-ÿ\s]{4,50}$/, // Letras y espac Hola skiso  ios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    if(nombre === "" || apellido1 === "" || apellido2 === "" || correo === "" || password === "" || password2 === ""){
+        alert("Todos los campos de este formulario son obligatorios. Por favor rellenalos");
+        return false;
+    }
+    else if(!expresion1.test(nombre)) {
+        alert("El Nombre tiene que ser de 4 a 50 dígitos, solo puede contener letras y acentos");
+        return false;
+    }
+    else if(!expresion1.test(apellido1)) {
+        alert("El Apellido Paterno tiene que ser de 4 a 50 dígitos, solo puede contener letras y acentos");
+        return false;
+    }
+    else if(!expresion1.test(apellido2)) {
+        alert("El Apellido Materno tiene que ser de 4 a 50 dígitos, solo puede contener letras y acentos");
+        return false;
+    }
+    else if(!expresion2.test(correo)) {
+        alert("El correo solo puede contener letras, numeros, puntos, guiones y guion bajo. Debe de terminar con @algo.algo");
+        return false;
+    }
+    else if(!expresion3.test(password)) {
+        alert("La contraseña tiene que ser de 4 a 12 dígitos.");
+        return false;
+    }
+    else if(!expresion4.test(password2)) {
+        alert("La contraseña de confirmación tiene que ser de 4 a 12 dígitos.");
+        return false;
+    }
+    if(password !== password2) {
+        alert("Ambas contraseñas deben ser iguales.");
+        return false;
+    } else {
+        return true;
+    }
 }
-
-const campos = {
-	nombre: false,
-	apellido1: false,
-	apellido2: false,
-	password: false,
-	correo: false,
-}
-
-const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
-		case "apellido1":
-			validarCampo(expresiones.apellido1, e.target, 'apellido1');
-		break;
-		case "apellido2":
-			validarCampo(expresiones.apellido2, e.target, 'apellido2');
-		break;
-		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
-	}
-}
-
-const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos[campo] = true;
-	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos[campo] = false;
-	}
-}
-
-const validarPassword2 = () => {
-	const inputPassword1 = document.getElementById('password');
-	const inputPassword2 = document.getElementById('password2');
-
-	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos['password'] = false;
-	} else {
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos['password'] = true;
-	}
-}
-
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
-
-
-
-formulario.addEventListener('submit', (e) => {
-	
-
-	if(campos.nombre && campos.apellido1 && campos.apellido2 && campos.password && campos.correo){
-		formulario.reset();
-
-		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 50000);
-
-		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			icono.classList.remove('formulario__grupo-correcto');
-		});
-	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-	}
-});
-

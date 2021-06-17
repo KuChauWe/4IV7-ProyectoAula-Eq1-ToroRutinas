@@ -3,24 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/IniciarSesion2.html</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Controlador/AccionesUsuario.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Controlador/AccionesClasificacion.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Controlador/AccionesImagen.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JS/Registrarse2.js</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Controlador/AccionesRutina.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JS/IniciarSesion2.js</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/PedirDatosUsuario.jsp</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JS/PedirDatosUsuario.js</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Modelo/Usuario.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Vista/RegistroUsuario.java</file>
+            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JSP/PerfilUsuario.jsp</file>
+            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/index.jsp</file>
             <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Vista/IniciarSesion.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/Registrarse2.html</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Vista/indexDes.java</file>
             <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JSP/indexDes.jsp</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Controlador/AccionesPerfil.java</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/index.html</file>
-            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Vista/Registro.java</file>
+            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/verRutinasPublicas.html</file>
+            <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/src/java/Vista/CerrarSesion.java</file>
             <file>file:/C:/Users/sofo9/OneDrive/D.%20Word/Codigos/NetBeansProjects/4IV7-ProyectoAula-Eq1-ToroRutinas/ToroWebRutinas/web/JSP/verRutinasPublicas.jsp</file>
         </group>
     </open-files>

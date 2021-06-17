@@ -1,5 +1,4 @@
 package Modelo;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,13 +8,28 @@ import java.util.List;
  */
 public class Rutina {
     int id_ruti;
-    String nom_ruti;
+    int id_perf;
+    String nomb_ruti;
     int durDes_ruti;
     int rep_ruti; 
-    //int[0]~posicion y int[1]~dur_ejer
+    
+    //int[0]~turno del ejercicio y int[1]~tiempo del ejercicio  
     HashMap<Ejercicio, int[]> ejercicios;
-    List<Clasificacion> clas;
-     boolean publica;
+    List<String> clas;
+    boolean publica;
+    
+    //Solo para EUsuRuti
+    String diaSem;
+
+    
+    
+    public String getDiaSem() {
+        return diaSem;
+    }
+
+    public void setDiaSem(String diaSem) {
+        this.diaSem = diaSem;
+    }
 
     
     public int getId_ruti() {
@@ -25,13 +39,21 @@ public class Rutina {
     public void setId_ruti(int id_ruti) {
         this.id_ruti = id_ruti;
     }
-
-    public String getNom_ruti() {
-        return nom_ruti;
+    
+    public int getId_perf() {
+        return id_perf;
     }
 
-    public void setNom_ruti(String nom_ruti) {
-        this.nom_ruti = nom_ruti;
+    public void setId_perf(int id_perf) {
+        this.id_perf = id_perf;
+    }
+
+    public String getNomb_ruti() {
+        return nomb_ruti;
+    }
+
+    public void setNomb_ruti(String nomb_ruti) {
+        this.nomb_ruti = nomb_ruti;
     }
 
     public int getDurDes_ruti() {
@@ -58,11 +80,11 @@ public class Rutina {
         this.ejercicios = ejercicios;
     }
 
-    public List<Clasificacion> getClas() {
+    public List<String> getClas() {
         return clas;
     }
 
-    public void setClas(List<Clasificacion> clas) {
+    public void setClas(List<String> clas) {
         this.clas = clas;
     }
 

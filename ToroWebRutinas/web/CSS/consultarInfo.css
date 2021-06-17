@@ -270,3 +270,7 @@ a:visited, a:active, a:link{
   h1{
     text-align: center;
   }
+  a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
+}

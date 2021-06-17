@@ -6,30 +6,30 @@ package Modelo;
  * @author sofo9
  */
 public class Usuario extends Perfil{
-    int id_usu;
+    int id_perf;
     float altu_usu;
     float peso_usu;
     float calTo_usu;
-    int id_biBlio_usu;
+
     
-    public void Usuario(Perfil per){
+    public Usuario(Perfil per){
         this.setId_perf(per.getId_perf());
-        this.setNom_perf(per.getNom_perf());
-        this.setImg_perf(per.getImg_perf());
+        this.setNomb_perf(per.getNomb_perf());
+        this.setId_img(per.getId_img());
         this.setEmail_per(per.getEmail_per());
-        this.setContra_perf(per.getContra_perf());
-        this.setFechNaci_perf(per.getFechNaci_perf());
+        this.setPass_perf(per.getPass_perf());
+        this.setDateNaci_perf(per.getDateNaci_perf());
         this.setAdmin(per.isAdmin());
-        this.setCreador(per.isCreador());
+        this.setCrea(per.isCrea());
     }
     
 
-    public int getId_usu() {
-        return id_usu;
+    public int getId_perf() {
+        return id_perf;
     }
 
-    public void setId_usu(int id_usu) {
-        this.id_usu = id_usu;
+    public void setId_perf(int id_perf) {
+        this.id_perf = id_perf;
     }
 
     public float getAltu_usu() {
@@ -56,13 +56,7 @@ public class Usuario extends Perfil{
         this.calTo_usu = calTo_usu;
     }
 
-    public int getId_biBlio_usu() {
-        return id_biBlio_usu;
-    }
-
-    public void setId_biBlio_usu(int id_biBlio_usu) {
-        this.id_biBlio_usu = id_biBlio_usu;
-    }
+    
     
     
 }

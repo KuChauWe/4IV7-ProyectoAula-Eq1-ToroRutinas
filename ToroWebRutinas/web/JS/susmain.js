@@ -3,7 +3,7 @@ const menu = document.querySelector("#menu")
 btnMenu.addEventListener("click", function(){
     menu.classList.toggle("mostrar")
 });
-//Lo de arriba es la función para mostrar las categorias principales
+//Lo de arriba es la funciÃ³n para mostrar las categorias principales
 const Btn = document.querySelectorAll(".menu__link");
 for(let i=0; i < Btn.length; i++){
     Btn[i].addEventListener("click", function(){
@@ -42,32 +42,32 @@ menuN.addEventListener("click", function(){
 
 
 window.addEventListener('load', function(e){
-	new Glider(document.querySelector('.carousel__lista'), {
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		dots: '.carousel__indicadores',
-		arrows: {
-			prev: '.carousel__anterior',
-			next: '.carousel__siguiente'
-		},
-		responsive: [
-			{
-			  // screens greater than >= 775px
-			  breakpoint: 450,
-			  settings: {
-				// Set to `auto` and provide item width to adjust to viewport
-				slidesToShow: 2,
-				slidesToScroll: 2
-			  }
-			},{
-			  // screens greater than >= 1024px
-			  breakpoint: 800,
-			  settings: {
-				slidesToShow: 5,
-				slidesToScroll: 5,
-				itemWidth: 150,
-				duration: 2
-			  }
-			}
-		  ]
-		})});
+    new Glider(document.querySelector('.carousel__lista'), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: '.carousel__indicadores',
+        arrows: {
+            prev: '.carousel__anterior',
+            next: '.carousel__siguiente'
+        },
+        responsive: [
+            {
+              // screens greater than >= 775px
+              breakpoint: 550,
+              settings: {
+                // Set to `auto` and provide item width to adjust to viewport
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            },{
+              // screens greater than >= 1024px
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                itemWidth: 150,
+                duration: 2
+              }
+            }
+          ]
+        })});

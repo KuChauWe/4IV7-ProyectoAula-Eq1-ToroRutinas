@@ -1,0 +1,52 @@
+*{
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+table, th, tr{
+    border: 10px rgb(239, 239, 239);
+    border-style: solid;
+    border-collapse: collapse;
+}
+body{
+    background-color: rgb(239, 239, 239);
+}
+#articleLogoTR{
+    border: 5px rgb(247,96,31);
+    border-style: solid;
+    border-radius: 50rem;
+    padding: 3rem;
+}
+#logo_ToroRutinas{
+    height: 20rem;
+    width: 20rem;
+}
+#navTabla{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 3.5rem;
+    margin-right: 0rem;
+}
+#thCMR{
+    padding-bottom: 2rem;
+}
+#thAIMG{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#thBEB{
+    text-align:start;
+}
+.botones{
+    color: rgb(0, 0, 0);
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(247,96,31);
+}
+.thB13{
+    padding-bottom: 2rem;
+}

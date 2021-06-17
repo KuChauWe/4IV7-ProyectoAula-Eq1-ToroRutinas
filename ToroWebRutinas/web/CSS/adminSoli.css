@@ -57,4 +57,7 @@ td{
     border: 3px rgb(247,96,31);
     border-style: solid;
     padding: 1rem;
+}a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
 }

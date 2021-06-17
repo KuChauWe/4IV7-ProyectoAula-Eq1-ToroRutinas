@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>Registro</servlet-name>
-        <servlet-class>Vista.Registro</servlet-class>
+        <servlet-class>Servlets.Registro</servlet-class>
         <multipart-config>
             <location>/tmp</location>
             <max-file-size>20848820</max-file-size>
@@ -12,15 +12,39 @@
     </servlet>
     <servlet>
         <servlet-name>RegistroUsuario</servlet-name>
-        <servlet-class>Vista.RegistroUsuario</servlet-class>
+        <servlet-class>Servlets.RegistroUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IniciarSesion</servlet-name>
-        <servlet-class>Vista.IniciarSesion</servlet-class>
+        <servlet-class>Servlets.IniciarSesion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>indexDes</servlet-name>
-        <servlet-class>Vista.indexDes</servlet-class>
+        <servlet-class>Servlets.indexDes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CerrarSesion</servlet-name>
+        <servlet-class>Servlets.CerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>verRutinasPublicas</servlet-name>
+        <servlet-class>Servlets.verRutinasPublicas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>inicioCreador</servlet-name>
+        <servlet-class>Servlets.inicioCreador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>inicioAdmin</servlet-name>
+        <servlet-class>Servlets.inicioAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrarCreador</servlet-name>
+        <servlet-class>Servlets.cerrarCreador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrarAdmin</servlet-name>
+        <servlet-class>Servlets.cerrarAdmin</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
@@ -37,6 +61,30 @@
     <servlet-mapping>
         <servlet-name>indexDes</servlet-name>
         <url-pattern>/indexDes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesion</servlet-name>
+        <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verRutinasPublicas</servlet-name>
+        <url-pattern>/verRutinasPublicas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inicioCreador</servlet-name>
+        <url-pattern>/inicioCreador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inicioAdmin</servlet-name>
+        <url-pattern>/inicioAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarCreador</servlet-name>
+        <url-pattern>/cerrarCreador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarAdmin</servlet-name>
+        <url-pattern>/cerrarAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

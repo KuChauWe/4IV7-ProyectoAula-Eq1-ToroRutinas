@@ -1,7 +1,5 @@
 
 package Modelo;
-
-import java.awt.Image;
 import java.sql.Date;
 
 /**
@@ -10,15 +8,14 @@ import java.sql.Date;
  */
 public class Perfil {
    int id_perf;
-   String nom_perf;
-   Imagen img_perf;
+   String nomb_perf;
+   String id_img;
    String email_per;
-   String contra_perf;
-   Date fechNaci_perf;
+   String pass_perf;
+   Date dateNaci_perf;
    boolean admin;
-   boolean creador;
+   boolean crea;
    
-   public void Perfil(){}
 
     public int getId_perf() {
         return id_perf;
@@ -28,20 +25,20 @@ public class Perfil {
         this.id_perf = id_perf;
     }
 
-    public String getNom_perf() {
-        return nom_perf;
+    public String getNomb_perf() {
+        return nomb_perf;
     }
 
-    public void setNom_perf(String nom_perf) {
-        this.nom_perf = nom_perf;
+    public void setNomb_perf(String nom_perf) {
+        this.nomb_perf = nom_perf;
     }
 
-    public Imagen getImg_perf() {
-        return img_perf;
+    public String getId_img() {
+        return id_img;
     }
 
-    public void setImg_perf(Imagen img_perf) {
-        this.img_perf = img_perf;
+    public void setId_img(String id_img) {
+        this.id_img = id_img;
     }
 
     public String getEmail_per() {
@@ -52,20 +49,20 @@ public class Perfil {
         this.email_per = email_per;
     }
 
-    public String getContra_perf() {
-        return contra_perf;
+    public String getPass_perf() {
+        return pass_perf;
     }
 
-    public void setContra_perf(String contra_perf) {
-        this.contra_perf = contra_perf;
+    public void setPass_perf(String pass_perf) {
+        this.pass_perf = pass_perf;
     }
 
-    public Date getFechNaci_perf() {
-        return fechNaci_perf;
+    public Date getDateNaci_perf() {
+        return dateNaci_perf;
     }
 
-    public void setFechNaci_perf(Date fechNaci_perf) {
-        this.fechNaci_perf = fechNaci_perf;
+    public void setDateNaci_perf(Date dateNaci_perf) {
+        this.dateNaci_perf = dateNaci_perf;
     }
 
     public boolean isAdmin() {
@@ -76,12 +73,12 @@ public class Perfil {
         this.admin = admin;
     }
 
-    public boolean isCreador() {
-        return creador;
+    public boolean isCrea() {
+        return crea;
     }
 
-    public void setCreador(boolean creador) {
-        this.creador = creador;
+    public void setCrea(boolean creador) {
+        this.crea = creador;
     }
 
 }
