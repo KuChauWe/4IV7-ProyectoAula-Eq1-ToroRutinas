@@ -1,0 +1,169 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-color: rgb(239,239,239);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main-container{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.second-container{
+    margin-top: 6rem;
+    max-width: 80%;
+
+  }
+  
+  /*El de arriba es el div de todooooooooooooooooooooooooo*/
+  
+  .carousel__contenedor {
+      position: relative;
+  }
+  
+  .carousel__anterior,
+  .carousel__siguiente {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px;
+    margin: auto;
+    margin-top: 7rem;
+    border: none;
+    max-width: 300px;
+    max-height: 300px;
+    align-self: center;
+    background: none;
+  }
+  
+  #Capa_2{
+    max-height: 60px;
+    min-height: 50px;
+    width: 50px;
+    background: none;
+  }
+  
+  .carousel__anterior:hover,
+  .carousel__siguiente:hover {
+      opacity: 100%;
+  }
+  
+  .carousel__anterior {
+      left: -5%;
+  }
+  
+  .carousel__siguiente {
+      right: -5%;
+  }
+  
+  .carousel__lista {
+      overflow: hidden;
+    align-items: center;
+  }
+  
+  .carousel__elemento {
+      text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+    min-height: 300px;
+  }
+  
+  .carousel__elemento.glider-slide.visible.active.left-2{
+    padding: -16rem;
+    padding-left: -16rem;
+    padding-right: -16rem;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+    min-height: 300px;
+    background: none;
+  }
+  
+  .carousel__indicadores .glider-dot {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: rgb(247,96,31);
+      opacity: .2;
+      border-radius: 0;
+  }
+  
+  .carousel__indicadores .glider-dot:hover {
+      opacity: .5;
+  }
+  
+  .carousel__indicadores .glider-dot.active {
+      opacity: 1;
+  }
+  section#vistaRutinas{
+    border: 5px rgb(247,96,31);
+    border-style: solid;
+    padding: 0;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    display: flex;
+    min-height: 260px;
+    max-height: 260px;
+    max-width: 270px;
+    min-width: 270px;
+    width: 100%;
+  }
+  
+  section#vistaRutinas:hover{
+      border: 2px solid rgb(247,96,31);
+      outline: none;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.616);
+      transition: .2s;
+  }
+  .direcciones:hover{
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.123);
+    transition: 5s;
+  }
+  
+  .carousel__elemento{
+    position: relative;
+  }
+  #btnSup{
+      background-color:none;
+  }
+  svg{
+      background:none;
+  }
+.glider-slide,.active, .visible, .left-1{
+    background: none;
+}
+a:visited, a:link{
+    text-decoration: none;
+    color: rgb(247,96,31);
+  }
+.main-header{
+    display: flex;
+    width: 100%;
+    margin-left: 2%;
+}
+.bamrram{
+    margin-inline: 2%;
+    margin-block: 2%;
+    color: rgb(247,96,31);
+}
+.main-secont-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 89%;
+}
+.agregarRutina{
+    padding: .5%;
+    border: 4px solid rgb(247,96,31);
+    color: rgb(247,96,31);
+}

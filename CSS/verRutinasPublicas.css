@@ -56,10 +56,8 @@
 
       .second-container{
         margin-top: 2rem;
-        max-width: 81%;
+        max-width: 90%;
         margin-bottom: 4rem;
-        margin-left: 10rem;
-        
       }
       
       
@@ -329,4 +327,9 @@ la hamburguesa se despliegue y se le agrega el maldito transition*/
   display: flex;
   justify-content:flex-start;
   margin-left: 10%;
+}
+.main-content{
+  display: flex;
+  justify-content: center;
+
 }

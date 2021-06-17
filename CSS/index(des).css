@@ -50,40 +50,64 @@ body{
 
 header{
   background-color: rgb(37,36,42);
-  position: fixed;
+  position:relative;
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  padding-top: 1%;  
-  position: relative;
-  max-width: 100%;
-  margin-left: 0;
 }
-
-img#ToroPNG{
-  min-height: 10rem;
-  max-height: 10rem;
-  height: 100%;
-  display: flex;
+.textBtn{
+  padding: 1rem;
 }
-
-.encabezadoIMG{
+.btnHeader{
   display: flex;
+  background-color:rgb(37,36,42);
+  border: 4px solid rgb(247,96,31);
+  color: rgb(247,96,31);
+  padding: 0%;
+  font-size: 150%;
+  cursor: pointer;
+}
+.main-header{
+  display:flex;
+  width: 100%;
+}
+.bamrram{
+  display: flex;
+  width: 100%;
+}
+#ImagenToro{
+  height: 150px;
+}
+.primerElemento{
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  justify-self: center;
-  align-self: flex-end;
-  margin-bottom: 1rem;
-  width: 71%;
+  margin-left: 5%;
+  max-height: 150px;
 }
-
-.formularioHeader{
-  display: flex;
-  align-self: center;
+.segundoElemento{
   justify-content: center;
-  margin-left: auto;
+  align-items: center;
+  margin-inline: 0%;
 }
-
+.tercerElemento{
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10%;
+}
+.registrarse{
+  margin-left: 50%; /*convertir en 1rem a los 600px*/
+  position: relative;
+}
+  @media (max-width: 600px){
+      .registrarse{
+          margin-left: 1rem;
+      }
+  }
+/*.iniciarSesion{
+}
+*/
+.perfil{
+  border-radius: 50%;
+  margin-left: 100%;
+}
 section#vistaRutina{
   min-height: 480px;
   max-height: 480px;
@@ -403,4 +427,8 @@ section#vistaRutinas:hover{
 
 h1{
   text-align: center;
+}
+a:visited, a:link{
+  text-decoration: none;
+  color: rgb(247,96,31);
 }
